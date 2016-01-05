@@ -1,0 +1,57 @@
+grammar Canql
+  # include Dates
+  # include Diagnosis
+  # include EBaseRecords
+  # include BatchTypes
+  # include Provider
+  # include RegistrationStatus
+  # include Registry
+  # include Staging
+  # include Treatment
+  # include TumourType
+  # include Patient
+  # include VitalStatus
+  # include Age
+
+  # The root grammar
+  rule query
+    # quantity:record_count? pre:preconditions* cases_keyword post:additional_conditions*
+    quantity:record_count? cases_keyword
+  end
+
+  rule word_break
+    !(!(' '/',') .)
+  end
+
+  rule space
+    ' '+
+  end
+
+  rule number
+    [0-9]+
+  end
+
+  rule record_count
+    all_keyword
+    /
+    'first' space number <Nodes::RecordCountNode>
+  end
+
+  rule all_keyword
+     'all' word_break
+  end
+
+  rule cases_keyword
+     space 'cases' word_break
+  end
+
+  rule preconditions
+    # registration_status / registry / behaviour / stage / tumour_type
+    'bob'
+  end
+
+  rule additional_conditions
+    # diagnosis / treatment / with_clause / for_patients_clause
+    'bob'
+  end
+end
