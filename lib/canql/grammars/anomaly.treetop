@@ -1,0 +1,27 @@
+module Canql
+  grammar Anomaly
+    rule anomalies
+      and_keyword? existance_modifier:anomalies_no_keyword? anomalies_natal_period? anomalies_keyword <Nodes::Anomaly::Exists>
+    end
+
+    rule anomalies_no_keyword
+      space ('no' / 'some') word_break
+    end
+
+    rule anomalies_natal_period
+      (anomalies_prenatal_keyword / anomalies_postnatal_keyword) <Nodes::Anomaly::NatalPeriod>
+    end
+
+    rule anomalies_prenatal_keyword
+      space 'prenatal' word_break
+    end
+
+    rule anomalies_postnatal_keyword
+      space 'postnatal' word_break
+    end
+
+    rule anomalies_keyword
+      space 'anomalies' word_break
+    end
+  end
+end

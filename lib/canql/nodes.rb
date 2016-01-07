@@ -1,8 +1,3 @@
-module Canql
-  module Nodes
-  end
-end
-
 # These file contain custom mixins for treetop
 # nodes that enable them to generate meta_data_items, etc.
 
@@ -13,4 +8,8 @@ end
 require 'canql/treetop/extensions'
 require 'canql/constants'
 
+require 'canql/nodes/anomaly'
+require 'canql/nodes/test_result'
+require 'canql/nodes/patient'
 require 'canql/nodes/main'
+require 'canql/nodes/registry'

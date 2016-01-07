@@ -28,3 +28,7 @@ def assert_meta_data_includes(combined_query, individual_queries)
     end
   end
 end
+
+def assert_array_includes(array, subset)
+  (subset - array).empty?
+end

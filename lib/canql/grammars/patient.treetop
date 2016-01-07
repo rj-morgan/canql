@@ -1,0 +1,35 @@
+module Canql
+  grammar Patient
+    rule gender
+      space gender:('male' / 'female') word_break <Nodes::Patient::GenderNode>
+    end
+
+    rule patient_field_existance
+      and_keyword? field_existance_modifier:existance_keyword patient_field_list:patient_field_list  <Nodes::Patient::FieldExists>
+    end
+
+    rule patient_fields_keyword
+      space 'field' 's'? word_break
+    end
+
+    rule patient_field_list
+      space patient_field_names (comma patient_field_names)*
+    end
+
+    rule patient_field_names
+      patient_field_name:('date of birth' / 'nhs number' / 'postcode' / 'birth weight' / 'place of delivery')
+    end
+
+    rule mother_conditions
+      and_keyword? space subject:'mother' word_break mother_with_clause
+    end
+
+    rule mother_with_clause
+      with_keyword post:mother_with_conditions+
+    end
+
+    rule mother_with_conditions
+      patient_field_existance
+    end
+  end
+end

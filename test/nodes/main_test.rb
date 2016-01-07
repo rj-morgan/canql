@@ -15,4 +15,10 @@ class MainTest < Minitest::Test
     assert parser.valid?
     assert_equal({ Canql::EQUALS => 27 }, parser.meta_data['limit'])
   end
+
+  def test_should_be_able_to_use_babies_instead_of_cases
+    parser = Canql::Parser.new('first 27 babies')
+    assert parser.valid?
+    assert_equal({ Canql::EQUALS => 27 }, parser.meta_data['limit'])
+  end
 end
