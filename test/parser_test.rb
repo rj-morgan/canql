@@ -32,16 +32,21 @@ class ParserTest < Minitest::Test
   # advanced tests
 
   def test_should_combine_filters
-    parser = Canql::Parser.new("first 27 male thames cases with prenatal anomalies \
+    parser = Canql::Parser.new("first 27 male liveborn thames cases \
+      expected between 20/06/2015 and 25/06/2015 with prenatal anomalies \
       and postnatal tests and missing postcode and date of birth \
       and mother with fields postcode and nhs number")
     assert parser.valid?
-    assert_equal 9, parser.meta_data.count
+    assert_equal 11, parser.meta_data.count
     individual_queries = [
       'first 27 cases',
       'first 27 babies',
       'all male cases',
       'all male babies',
+      'all cases expected between 20/06/2015 and 25/06/2015',
+      'all babies expected between 20/06/2015 and 25/06/2015',
+      'all liveborn cases',
+      'all liveborn babies',
       'all 68 cases',
       'all 68 babies',
       'all thames cases',

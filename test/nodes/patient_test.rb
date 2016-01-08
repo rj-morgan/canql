@@ -14,6 +14,44 @@ class PatientTest < Minitest::Test
     assert_equal({ Canql::EQUALS => '2' }, parser.meta_data['patient.sex'])
   end
 
+  def test_should_filter_by_stillbirth_outcome
+    parser = Canql::Parser.new('all stillborn cases')
+    assert parser.valid?
+    assert_equal({ Canql::EQUALS => 'stillborn' }, parser.meta_data['patient.outcome'])
+  end
+
+  def test_should_filter_by_livebirth_outcome
+    parser = Canql::Parser.new('all liveborn cases')
+    assert parser.valid?
+    assert_equal({ Canql::EQUALS => 'liveborn' }, parser.meta_data['patient.outcome'])
+  end
+
+  def test_should_filter_by_miscarriage_outcome
+    parser = Canql::Parser.new('all miscarried cases')
+    assert parser.valid?
+    assert_equal({ Canql::EQUALS => 'miscarried' }, parser.meta_data['patient.outcome'])
+  end
+
+  def test_should_filter_by_TOP_outcome
+    parser = Canql::Parser.new('all terminated cases')
+    assert parser.valid?
+    assert_equal({ Canql::EQUALS => 'terminated' }, parser.meta_data['patient.outcome'])
+  end
+
+  def test_should_filter_on_specific_edd
+    parser = Canql::Parser.new('all cases expected on 20/06/2015')
+    assert parser.valid?
+    assert_equal({ Canql::LIMITS => ['2015-06-20', '2015-06-20'] },
+      parser.meta_data['patient.expecteddeliverydate'])
+  end
+
+  def test_should_filter_on_edd_range
+    parser = Canql::Parser.new('all cases expected between 20/06/2015 and 25/06/2015')
+    assert parser.valid?
+    assert_equal({ Canql::LIMITS => ['2015-06-20', '2015-06-25'] },
+      parser.meta_data['patient.expecteddeliverydate'])
+  end
+
   def test_should_filter_by_missing_fields
     parser = Canql::Parser.new('all cases with missing postcode, date of birth')
     parser_v2 = Canql::Parser.new('all cases with missing postcode and date of birth')

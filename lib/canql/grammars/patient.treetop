@@ -4,6 +4,18 @@ module Canql
       space gender:('male' / 'female') word_break <Nodes::Patient::GenderNode>
     end
 
+    rule outcome
+      space outcome:('stillborn' / 'liveborn' / 'miscarried' / 'terminated' ) word_break <Nodes::Patient::OutcomeNode>
+    end
+
+    rule expected_keyword
+      space 'expected' word_break
+    end
+
+    rule expected
+      expected_keyword fuzzy_date <Nodes::Patient::ExpectedDateRangeNode>
+    end
+
     rule patient_field_existance
       and_keyword? field_existance_modifier:existance_keyword patient_field_list:patient_field_list  <Nodes::Patient::FieldExists>
     end
