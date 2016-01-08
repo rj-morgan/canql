@@ -1,5 +1,4 @@
-require 'canql/version'
+require 'active_support/time'
 
-module Canql
-  # Your code goes here...
-end
+require 'canql/version'
+require 'canql/parser'

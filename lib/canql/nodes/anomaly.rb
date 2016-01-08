@@ -1,0 +1,17 @@
+module Canql #:nodoc: all
+  module Nodes
+    module Anomaly
+      module NatalPeriod
+        def meta_data_item
+          { 'anomaly.natal_period' => { Canql::EQUALS => text_value.strip } }
+        end
+      end
+
+      module Exists
+        def meta_data_item
+          { 'anomaly.exists' => { Canql::EQUALS => existance_modifier.text_value.strip != 'no' } }
+        end
+      end
+    end
+  end
+end

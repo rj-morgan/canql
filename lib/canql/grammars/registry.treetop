@@ -1,0 +1,15 @@
+module Canql
+  grammar Registry
+    rule registry
+      space registry:(registry_code / registry_abbr) <Nodes::RegistryNode>
+    end
+
+    rule registry_code
+      [0-9] 2..2 <Nodes::RegistryCodeNode>
+    end
+
+    rule registry_abbr
+      ('thames' / 'east mids' / 'north' / 'south west' / 'wessex' / 'west mids' / 'ndscr' / 'limbo' / 'england') <Nodes::RegistryAbbrNode>
+    end
+  end
+end

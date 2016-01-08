@@ -1,0 +1,27 @@
+module Canql
+  grammar TestResult
+    rule test_results
+      and_keyword? existance_modifier:test_result_no_keyword? test_result_natal_period? test_results_keyword <Nodes::TestResult::Exists>
+    end
+
+    rule test_result_no_keyword
+      space ('no' / 'some') word_break
+    end
+
+    rule test_result_natal_period
+      (test_result_prenatal_keyword / test_result_postnatal_keyword) <Nodes::TestResult::NatalPeriod>
+    end
+
+    rule test_result_prenatal_keyword
+      space 'prenatal' word_break
+    end
+
+    rule test_result_postnatal_keyword
+      space 'postnatal' word_break
+    end
+
+    rule test_results_keyword
+      space 'tests' word_break
+    end
+  end
+end

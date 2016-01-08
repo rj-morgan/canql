@@ -1,0 +1,70 @@
+grammar Canql
+  include Registry
+  include Patient
+  include Anomaly
+  include TestResult
+
+  # The root grammar
+  rule query
+    #quantity:record_count? pre:preconditions* cases_keyword post:additional_conditions*
+    quantity:record_count? pre:preconditions* cases_keyword with_clause?
+  end
+
+  rule word_break
+    !(!(' '/',') .)
+  end
+
+  rule space
+    ' '+
+  end
+
+  rule comma
+    space? (',' / 'and') space?
+  end
+
+  rule number
+    [0-9]+
+  end
+
+  rule record_count
+    all_keyword
+    /
+    'first' space number <Nodes::RecordCountNode>
+  end
+
+  rule all_keyword
+     'all' word_break
+  end
+
+  rule cases_keyword
+     space subject:('cases' / 'babies') word_break
+  end
+
+  rule preconditions
+    registry / gender
+  end
+
+  rule with_clause
+    with_keyword post:with_conditions+
+  end
+
+  rule with_keyword
+     space 'with' word_break
+  end
+
+  rule and_keyword
+     space 'and' word_break
+  end
+
+  rule existance_keyword
+     space ('missing' / ('field' 's'?) / 'populated') word_break
+  end
+
+  rule no_keyword
+     space 'no' word_break
+  end
+
+  rule with_conditions
+    anomalies / test_results / patient_field_existance / mother_conditions
+  end
+end
