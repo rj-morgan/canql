@@ -31,7 +31,7 @@ Or install it yourself as:
 Here is a simple example showing a CANQL query of all male cases in south west registration region:
 
 ```ruby
-require 'Canql'
+require 'canql'
 require 'json'
 
 query = 'all male south west cases'
