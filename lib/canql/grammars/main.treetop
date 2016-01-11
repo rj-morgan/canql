@@ -6,6 +6,7 @@ grammar Canql
   include Dates
   include EBaseRecords
   include BatchTypes
+  include Age
 
   # The root grammar
   rule query
@@ -48,7 +49,7 @@ grammar Canql
   end
 
   rule additional_conditions
-    expected
+    and_keyword? (expected / with_birth_date / with_death_date)
   end
 
   rule with_clause
@@ -72,6 +73,6 @@ grammar Canql
   end
 
   rule with_conditions
-    anomalies / test_results / patient_field_existance / mother_conditions / action_or_ebr
+     anomalies / test_results / patient_field_existance / mother_conditions / action_or_ebr
   end
 end

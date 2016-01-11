@@ -1,5 +1,6 @@
 require 'treetop'
 
+Treetop.load File.expand_path('grammars/age', File.dirname(__FILE__))
 Treetop.load File.expand_path('grammars/dates', File.dirname(__FILE__))
 Treetop.load File.expand_path('grammars/anomaly', File.dirname(__FILE__))
 Treetop.load File.expand_path('grammars/batch_types', File.dirname(__FILE__))

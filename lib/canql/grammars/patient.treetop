@@ -9,7 +9,7 @@ module Canql
     end
 
     rule expected_keyword
-      space 'expected' word_break
+      space ('expected' / 'due') word_break
     end
 
     rule expected
@@ -33,7 +33,15 @@ module Canql
     end
 
     rule mother_conditions
-      and_keyword? space subject:'mother' word_break mother_with_clause
+      and_keyword? space subject:'mother' word_break mother_additional_conditions mother_with_clause?
+    end
+
+    rule mother_additional_conditions
+      mother_age_conditions*
+    end
+
+    rule mother_age_conditions
+      and_keyword? (with_birth_date / with_death_date)
     end
 
     rule mother_with_clause
