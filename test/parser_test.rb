@@ -32,16 +32,26 @@ class ParserTest < Minitest::Test
   # advanced tests
 
   def test_should_combine_filters
-    parser = Canql::Parser.new("first 27 male thames cases with prenatal anomalies \
+    parser = Canql::Parser.new("first 27 male liveborn thames cases \
+      expected between 20/06/2015 and 25/06/2015 \
+      were born on 22/06/2015 and were died on 01/12/2015 \
+      with prenatal anomalies \
       and postnatal tests and missing postcode and date of birth \
-      and mother with fields postcode and nhs number")
+      and wait action and unprocessed paediatric records \
+      and mother were born between 01/10/1990 and 10/01/1999 \
+      and were died on 01/01/2016 \
+      with fields postcode and nhs number")
     assert parser.valid?
-    assert_equal 9, parser.meta_data.count
+    assert_equal 17, parser.meta_data.count
     individual_queries = [
       'first 27 cases',
       'first 27 babies',
       'all male cases',
       'all male babies',
+      'all cases expected between 20/06/2015 and 25/06/2015',
+      'all babies expected between 20/06/2015 and 25/06/2015',
+      'all liveborn cases',
+      'all liveborn babies',
       'all 68 cases',
       'all 68 babies',
       'all thames cases',
@@ -59,7 +69,14 @@ class ParserTest < Minitest::Test
       'all babies with missing postcode and date of birth',
       'all babies with missing postcode, date of birth',
       'all cases with mother with fields postcode and nhs number',
-      'all cases with mother with populated postcode and nhs number'
+      'all cases with mother with populated postcode and nhs number',
+      'all cases with wait action and unprocessed paediatric records',
+      'all cases were born on 22/06/2015',
+      'all babies were born on 22/06/2015',
+      'all cases with mother were born between 01/10/1990 and 10/01/1999',
+      'all babies with mother were born between 01/10/1990 and 10/01/1999',
+      'all cases with mother were died on 01/01/2016',
+      'all cases were died on 01/12/2015'
     ]
     assert_meta_data_includes(parser, individual_queries)
   end

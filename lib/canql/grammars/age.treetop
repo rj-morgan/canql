@@ -1,0 +1,23 @@
+module Canql
+  grammar Age
+    rule with_birth_date
+      were_keyword born_keyword fuzzy_date <Nodes::Age::BirthDateNode>
+    end
+
+    rule with_death_date
+      were_keyword died_keyword fuzzy_date <Nodes::Age::DeathDateNode>
+    end
+
+    rule were_keyword
+      space 'were' word_break
+    end
+
+    rule born_keyword
+      space 'born' word_break
+    end
+
+    rule died_keyword
+      space 'died' word_break
+    end
+  end
+end

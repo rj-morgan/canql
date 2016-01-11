@@ -1,0 +1,11 @@
+module Canql
+  grammar BatchTypes
+    rule batch_type
+      paediatric <Nodes::BatchTypeNode>
+    end
+
+    rule paediatric
+      'paediatric' <Nodes::PaediatricNode>
+    end
+  end
+end

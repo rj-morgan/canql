@@ -34,7 +34,7 @@ Here is a simple example showing a CANQL query of all male cases in south west r
 require 'canql'
 require 'json'
 
-query = 'all male south west cases'
+query = 'All Male South West Cases'
 parser = Canql::Parser.new(query)
 
 if parser.valid?
@@ -50,7 +50,7 @@ would output:
 
 The parser is case insensitive. An example of an almost fully involved CANQL query is:
 
-> First 27 male thames cases with prenatal anomalies and postnatal tests and missing postcode and date of birth and mother with fields postcode and nhs number
+> First 27 Male Liveborn Thames Cases Due between 20/06/2015 and 25/06/2015 were Born on 22/06/2015 and were Diead on 07/07/2015 with Prenatal Anomalies and Postnatal Tests and Missing Postcode and Date of Birth and Wait Action and Unprocessed paediatric records and Mother were Born between 01/10/1990 and 10/01/1999 and were Died on 01/08/2015 with Populated Postcode and NHS Number
 
 Please see the tests for many more examples.
 
