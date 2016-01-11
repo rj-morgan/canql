@@ -35,9 +35,10 @@ class ParserTest < Minitest::Test
     parser = Canql::Parser.new("first 27 male liveborn thames cases \
       expected between 20/06/2015 and 25/06/2015 with prenatal anomalies \
       and postnatal tests and missing postcode and date of birth \
+      and wait action and unprocessed paediatric records \
       and mother with fields postcode and nhs number")
     assert parser.valid?
-    assert_equal 11, parser.meta_data.count
+    assert_equal 13, parser.meta_data.count
     individual_queries = [
       'first 27 cases',
       'first 27 babies',
@@ -64,7 +65,8 @@ class ParserTest < Minitest::Test
       'all babies with missing postcode and date of birth',
       'all babies with missing postcode, date of birth',
       'all cases with mother with fields postcode and nhs number',
-      'all cases with mother with populated postcode and nhs number'
+      'all cases with mother with populated postcode and nhs number',
+      'all cases with wait action and unprocessed paediatric records'
     ]
     assert_meta_data_includes(parser, individual_queries)
   end
