@@ -34,12 +34,12 @@ class ParserTest < Minitest::Test
   def test_should_combine_filters
     parser = Canql::Parser.new("first 27 male liveborn thames cases \
       expected between 20/06/2015 and 25/06/2015 \
-      were born on 22/06/2015 and were died on 01/12/2015 \
+      and born on 22/06/2015 and that died on 01/12/2015 \
       with prenatal anomalies \
       and postnatal tests and missing postcode and date of birth \
       and wait action and unprocessed paediatric records \
-      and mother were born between 01/10/1990 and 10/01/1999 \
-      and were died on 01/01/2016 \
+      and mother born between 01/10/1990 and 10/01/1999 \
+      and who died on 01/01/2016 \
       with fields postcode and nhs number")
     assert parser.valid?
     assert_equal 17, parser.meta_data.count
@@ -71,12 +71,12 @@ class ParserTest < Minitest::Test
       'all cases with mother with fields postcode and nhs number',
       'all cases with mother with populated postcode and nhs number',
       'all cases with wait action and unprocessed paediatric records',
-      'all cases were born on 22/06/2015',
-      'all babies were born on 22/06/2015',
-      'all cases with mother were born between 01/10/1990 and 10/01/1999',
-      'all babies with mother were born between 01/10/1990 and 10/01/1999',
-      'all cases with mother were died on 01/01/2016',
-      'all cases were died on 01/12/2015'
+      'all cases born on 22/06/2015',
+      'all babies born on 22/06/2015',
+      'all cases with mother born between 01/10/1990 and 10/01/1999',
+      'all babies with mother born between 01/10/1990 and 10/01/1999',
+      'all cases with mother that died on 01/01/2016',
+      'all cases who died on 01/12/2015'
     ]
     assert_meta_data_includes(parser, individual_queries)
   end

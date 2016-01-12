@@ -1,15 +1,15 @@
 module Canql
   grammar Age
     rule with_birth_date
-      were_keyword born_keyword fuzzy_date <Nodes::Age::BirthDateNode>
+      born_keyword fuzzy_date <Nodes::Age::BirthDateNode>
     end
 
     rule with_death_date
-      were_keyword died_keyword fuzzy_date <Nodes::Age::DeathDateNode>
+      that_who_keyword? died_keyword fuzzy_date <Nodes::Age::DeathDateNode>
     end
 
-    rule were_keyword
-      space 'were' word_break
+    rule that_who_keyword
+      space ('that' / 'who') word_break
     end
 
     rule born_keyword
