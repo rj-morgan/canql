@@ -8,6 +8,10 @@
 require 'canql/treetop/extensions'
 require 'canql/constants'
 
+require 'canql/nodes/age'
+require 'canql/nodes/dates'
+require 'canql/nodes/e_base_records'
+require 'canql/nodes/batch_types'
 require 'canql/nodes/anomaly'
 require 'canql/nodes/test_result'
 require 'canql/nodes/patient'

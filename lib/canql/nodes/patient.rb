@@ -7,6 +7,12 @@ module Canql #:nodoc: all
         end
       end
 
+      module OutcomeNode
+        def meta_data_item
+          { 'patient.outcome' => { Canql::EQUALS => outcome.text_value } }
+        end
+      end
+
       module FieldExists
         FIELDS = {
           'date of birth':        { patient: 'birthdate', mother: 'birthdate' },
@@ -33,6 +39,20 @@ module Canql #:nodoc: all
             actual_fields << FIELDS[f][subject] unless FIELDS[f].nil? || FIELDS[f][subject].nil?
           end
           actual_fields
+        end
+      end
+
+      module ExpectedDateRangeNode
+        def meta_data_item
+          range = fuzzy_date.to_daterange
+          { 'patient.expecteddeliverydate' =>
+            { Canql::LIMITS =>
+              [
+                range.date1.try(:to_date).try(:iso8601),
+                range.date2.try(:to_date).try(:iso8601)
+              ]
+            }
+          }
         end
       end
     end

@@ -2,6 +2,14 @@
 
 Congenital Anomaly Natural Query Language (CANQL) is a [Treetop](http://treetop.rubyforge.org/) driven Domain Specific Language (DSL) used by the Public Health England (PHE) National Congenital Anomaly and Rare Disease Registration Service (NCARDRS) to identify cohorts of cases.
 
+Used for analysis, research and day-to-day operations to empower non-technical users to write sophisticated human readable queries without the need to know or understand the underlying datastore and/or schema.
+
+CANQL is decoupled from the specifics of the NCARDRS systems by producing an intermediate representation, known as Disease Intermediate Representation (DIR). This allows us to:
+
+1. implement separate DIR adapters for different datastores (e.g. SQL and NoSQL datastores);
+2. utilize the same DIR adapters for different but over-lapping DSLs, including Tumour Natural Query Language (TNQL) ; and
+3. pass DIR queries to non-ruby backend systems using any simple format like JSON.
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -20,7 +28,31 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Here is a simple example showing a CANQL query of all male cases in south west registration region:
+
+```ruby
+require 'canql'
+require 'json'
+
+query = 'All Male South West Cases'
+parser = Canql::Parser.new(query)
+
+if parser.valid?
+  puts JSON.dump(parser.meta_data)
+end
+```
+
+would output:
+
+```json
+{"patient.sex":{"equals":"1"},"patient.registry":{"equals":"84"}}
+```
+
+The parser is case insensitive. An example of an almost fully involved CANQL query is:
+
+> First 27 Male Liveborn Thames Cases Due between 20/06/2015 and 25/06/2015 and Born on 22/06/2015 and that Died on 07/07/2015 with Prenatal Anomalies and Postnatal Tests and Missing Postcode and Date of Birth and Wait Action and Unprocessed paediatric records and Mother Born between 01/10/1990 and 10/01/1999 and who Died on 01/08/2015 with Populated Postcode and NHS Number
+
+Please see the tests for many more examples.
 
 ## Development
 

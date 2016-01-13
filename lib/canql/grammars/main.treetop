@@ -3,11 +3,15 @@ grammar Canql
   include Patient
   include Anomaly
   include TestResult
+  include Dates
+  include EBaseRecords
+  include BatchTypes
+  include Age
 
   # The root grammar
   rule query
     #quantity:record_count? pre:preconditions* cases_keyword post:additional_conditions*
-    quantity:record_count? pre:preconditions* cases_keyword with_clause?
+    quantity:record_count? pre:preconditions* cases_keyword post:additional_conditions* with_clause?
   end
 
   rule word_break
@@ -41,7 +45,11 @@ grammar Canql
   end
 
   rule preconditions
-    registry / gender
+    registry / gender / outcome
+  end
+
+  rule additional_conditions
+    and_keyword? (expected / with_birth_date / with_death_date)
   end
 
   rule with_clause
@@ -65,6 +73,6 @@ grammar Canql
   end
 
   rule with_conditions
-    anomalies / test_results / patient_field_existance / mother_conditions
+     anomalies / test_results / patient_field_existance / mother_conditions / action_or_ebr
   end
 end
