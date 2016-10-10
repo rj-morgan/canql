@@ -42,7 +42,7 @@ class ParserTest < Minitest::Test
       and who died on 01/01/2016 \
       with fields postcode and nhs number")
     assert parser.valid?
-    assert_equal 17, parser.meta_data.count
+    assert_equal 15, parser.meta_data.count
     individual_queries = [
       'first 27 cases',
       'first 27 babies',

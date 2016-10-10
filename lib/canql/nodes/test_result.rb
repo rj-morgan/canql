@@ -1,15 +1,16 @@
 module Canql #:nodoc: all
   module Nodes
     module TestResult
-      module NatalPeriod
-        def meta_data_item
-          { 'testresults.natal_period' => { Canql::EQUALS => text_value.strip } }
-        end
-      end
-
       module Exists
+        def test_result_type
+          text_value = natal_period.text_value.strip
+          return '' if '' == text_value
+
+          ".#{text_value}"
+        end
+
         def meta_data_item
-          { 'testresults.exists' => {
+          { "testresults#{test_result_type}.exists" => {
             Canql::EQUALS => existance_modifier.text_value.strip != 'no'
           } }
         end
