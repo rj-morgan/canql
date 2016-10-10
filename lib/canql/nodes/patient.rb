@@ -20,7 +20,7 @@ module Canql #:nodoc: all
           'nhs number':           { patient: 'nhsnumber', mother: 'nhsnumber' },
           'birth weight':         { patient: 'weight' },
           'place of delivery':    { patient: 'nhsnumber' }
-        }
+        }.freeze
 
         def meta_data_item
           subject = reverse_scan_for_marker(:subject) == 'mother' ? 'mother' : 'patient'

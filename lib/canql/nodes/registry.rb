@@ -23,7 +23,7 @@ module Canql #:nodoc: all
         'ndscr'      => '98',
         'limbo'      => '01',
         'england'    => '00'
-      } unless defined?(REGISTRY_ABBR)
+      }.freeze unless defined?(REGISTRY_ABBR)
 
       def to_registrycode
         REGISTRY_ABBR[text_value]

@@ -32,7 +32,7 @@ class PatientTest < Minitest::Test
     assert_equal({ Canql::EQUALS => 'miscarried' }, parser.meta_data['patient.outcome'])
   end
 
-  def test_should_filter_by_TOP_outcome
+  def test_should_filter_by_top_outcome
     parser = Canql::Parser.new('all terminated cases')
     assert parser.valid?
     assert_equal({ Canql::EQUALS => 'terminated' }, parser.meta_data['patient.outcome'])
@@ -42,14 +42,14 @@ class PatientTest < Minitest::Test
     parser = Canql::Parser.new('all cases expected on 20/06/2015')
     assert parser.valid?
     assert_equal({ Canql::LIMITS => ['2015-06-20', '2015-06-20'] },
-      parser.meta_data['patient.expecteddeliverydate'])
+                 parser.meta_data['patient.expecteddeliverydate'])
   end
 
   def test_should_filter_on_edd_range
     parser = Canql::Parser.new('all cases expected between 20/06/2015 and 25/06/2015')
     assert parser.valid?
     assert_equal({ Canql::LIMITS => ['2015-06-20', '2015-06-25'] },
-      parser.meta_data['patient.expecteddeliverydate'])
+                 parser.meta_data['patient.expecteddeliverydate'])
   end
 
   def test_should_filter_by_missing_fields

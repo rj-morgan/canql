@@ -59,7 +59,9 @@ class AgeTest < Minitest::Test
   end
 
   def test_should_filter_by_case_combined_birth_and_death_date
-    parser = Canql::Parser.new('all cases born between 10/01/2000 and 10/10/2010 and that died on 01/01/2015')
+    parser = Canql::Parser.new(
+      'all cases born between 10/01/2000 and 10/10/2010 and that died on 01/01/2015'
+    )
     assert parser.valid?
     assert_equal({ Canql::LIMITS => ['2000-01-10', '2010-10-10'] },
                  parser.meta_data['patient.birthdate'])
@@ -68,7 +70,9 @@ class AgeTest < Minitest::Test
   end
 
   def test_should_filter_by_mother_combined_birth_and_death_date
-    parser = Canql::Parser.new('all cases with mother born between 10/01/2000 and 10/10/2010 and that died on 01/01/2015')
+    parser = Canql::Parser.new(
+      'all cases with mother born between 10/01/2000 and 10/10/2010 and that died on 01/01/2015'
+    )
     assert parser.valid?
     assert_equal({ Canql::LIMITS => ['2000-01-10', '2010-10-10'] },
                  parser.meta_data['mother.birthdate'])
