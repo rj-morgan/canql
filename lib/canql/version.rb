@@ -2,5 +2,5 @@
 
 # This stores the current version of the Canql gem
 module Canql
-  VERSION = '0.1.1'.freeze
+  VERSION = '1.0.0'.freeze
 end
