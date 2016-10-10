@@ -9,7 +9,7 @@ module Canql
     end
 
     rule registry_abbr
-      ('thames' / 'east mids' / 'north' / 'south west' / 'wessex' / 'west mids' / 'ndscr' / 'limbo' / 'england') <Nodes::RegistryAbbrNode>
+      ('thames' / 'east mids' / 'north east' / 'south west' / 'wessex' / 'west mids' / 'ndscr' / 'limbo' / 'england') <Nodes::RegistryAbbrNode>
     end
   end
 end
