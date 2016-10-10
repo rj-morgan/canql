@@ -9,15 +9,7 @@ module Canql
     end
 
     rule anomalies_natal_period
-      (anomalies_prenatal_keyword / anomalies_postnatal_keyword) <Nodes::Anomaly::NatalPeriod>
-    end
-
-    rule anomalies_prenatal_keyword
-      space 'prenatal' word_break
-    end
-
-    rule anomalies_postnatal_keyword
-      space 'postnatal' word_break
+      (prenatal_keyword / postnatal_keyword) <Nodes::Anomaly::NatalPeriod>
     end
 
     rule anomalies_keyword
