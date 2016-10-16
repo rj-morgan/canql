@@ -7,7 +7,7 @@ Used for analysis, research and day-to-day operations to empower non-technical u
 CANQL is decoupled from the specifics of the NCARDRS systems by producing an intermediate representation, known as Disease Intermediate Representation (DIR). This allows us to:
 
 1. implement separate DIR adapters for different datastores (e.g. SQL and NoSQL datastores);
-2. utilize the same DIR adapters for different but over-lapping DSLs, including Tumour Natural Query Language (TNQL) ; and
+2. utilize the same DIR adapters for different but over-lapping DSLs, including Tumour Natural Query Language ([TNQL](https://github.com/PublicHealthEngland/tnql)) ; and
 3. pass DIR queries to non-ruby backend systems using any simple format like JSON.
 
 ## Installation
