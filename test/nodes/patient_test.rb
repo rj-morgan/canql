@@ -62,6 +62,13 @@ class PatientTest < Minitest::Test
                           %w(postcode birthdate)
   end
 
+  def test_should_filter_by_missing_place_of_delivery
+    parser = Canql::Parser.new('all cases with missing place of delivery')
+    assert parser.valid?
+    assert_array_includes parser.meta_data['patient.fields_missing'][Canql::EQUALS],
+                          %w(placeofdelivery)
+  end
+
   def test_should_filter_by_populated_fields
     parser = Canql::Parser.new('all cases with fields postcode, date of birth')
     parser_v2 = Canql::Parser.new('all cases with tests and fields postcode and date of birth')
