@@ -9,7 +9,116 @@ module Canql
     end
 
     rule registry_abbr
-      ('thames' / 'east mids' / 'north east' / 'south west' / 'wessex' / 'west mids' / 'ndscr' / 'limbo' / 'england') <Nodes::RegistryAbbrNode>
+      (england / east / thames / east_mids / yorkshire / north_east / north_west /
+        west_mids / south_west / wessex / london / limbo)
+    end
+
+    rule thames
+      ('thames' / 'thames valley')
+      {
+        def to_registrycode
+          '68'
+        end
+      }
+    end
+
+    rule east_mids
+      ('east mids' / 'east midlands' / 'east midlands and south yorkshire')
+      {
+        def to_registrycode
+          '72'
+        end
+      }
+    end
+
+    rule yorkshire
+      'yorkshire'
+      {
+        def to_registrycode
+          '93'
+        end
+      }
+    end
+
+    rule north_east
+      'north east'
+      {
+        def to_registrycode
+          '73'
+        end
+      }
+    end
+
+    rule north_west
+      'north west'
+      {
+        def to_registrycode
+          '94'
+        end
+      }
+    end
+
+    rule west_mids
+      ('west mids' / 'west midlands')
+      {
+        def to_registrycode
+          '99'
+        end
+      }
+    end
+
+    rule south_west
+      'south west'
+      {
+        def to_registrycode
+          '84'
+        end
+      }
+    end
+
+    rule wessex
+      'wessex'
+      {
+        def to_registrycode
+          '70'
+        end
+      }
+    end
+
+    rule london
+      ('london' / 'london and south east')
+      {
+        def to_registrycode
+          '95'
+        end
+      }
+    end
+
+    rule east
+      ('east' / 'east of england')
+      {
+        def to_registrycode
+          '96'
+        end
+      }
+    end
+
+    rule limbo
+      'limbo'
+      {
+        def to_registrycode
+          '01'
+        end
+      }
+    end
+
+    rule england
+      'england'
+      {
+        def to_registrycode
+          '00'
+        end
+      }
     end
   end
 end

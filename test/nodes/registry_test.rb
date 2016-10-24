@@ -13,4 +13,10 @@ class RegistryTest < Minitest::Test
     assert parser.valid?
     assert_equal({ Canql::EQUALS => '68' }, parser.meta_data['patient.registry'])
   end
+
+  def test_should_filter_by_london_abbreviation
+    parser = Canql::Parser.new('all london cases')
+    assert parser.valid?
+    assert_equal({ Canql::EQUALS => '95' }, parser.meta_data['patient.registry'])
+  end
 end
