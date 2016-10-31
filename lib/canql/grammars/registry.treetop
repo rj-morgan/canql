@@ -9,12 +9,12 @@ module Canql
     end
 
     rule registry_abbr
-      (england / east / thames / east_mids / yorkshire / north_east / north_west /
+      (england / east_mids / thames / east / yorkshire / north_east / north_west /
         west_mids / south_west / wessex / london / limbo)
     end
 
     rule thames
-      ('thames' / 'thames valley')
+      ('thames valley' / 'thames')
       {
         def to_registrycode
           '68'
@@ -23,7 +23,7 @@ module Canql
     end
 
     rule east_mids
-      ('east mids' / 'east midlands' / 'east midlands and south yorkshire')
+      ('east mids' / 'east midlands and south yorkshire' / 'east midlands')
       {
         def to_registrycode
           '72'
@@ -86,7 +86,7 @@ module Canql
     end
 
     rule london
-      ('london' / 'london and south east')
+      ('london and south east' / 'london')
       {
         def to_registrycode
           '95'
@@ -95,7 +95,7 @@ module Canql
     end
 
     rule east
-      ('east' / 'east of england')
+      ('east of england' / 'east')
       {
         def to_registrycode
           '96'
