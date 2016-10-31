@@ -45,7 +45,7 @@ module Canql
     end
 
     rule mother_with_clause
-      with_keyword post:mother_with_conditions+
+      with_keyword? post:mother_with_conditions+
     end
 
     rule mother_with_conditions
