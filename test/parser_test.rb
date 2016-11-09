@@ -73,6 +73,8 @@ class ParserTest < Minitest::Test
       'all cases with wait action and unprocessed paediatric records',
       'all cases born on 22/06/2015',
       'all babies born on 22/06/2015',
+      'all cases delivered on 22/06/2015',
+      'all babies delivered on 22/06/2015',
       'all cases with mother born between 01/10/1990 and 10/01/1999',
       'all babies with mother born between 01/10/1990 and 10/01/1999',
       'all cases with mother that died on 01/01/2016',

@@ -13,7 +13,7 @@ module Canql
     end
 
     rule born_keyword
-      space 'born' word_break
+      space ('born' / 'delivered') word_break
     end
 
     rule died_keyword
