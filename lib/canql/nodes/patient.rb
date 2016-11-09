@@ -19,7 +19,9 @@ module Canql #:nodoc: all
           'postcode':             { patient: 'postcode',  mother: 'postcode'  },
           'nhs number':           { patient: 'nhsnumber', mother: 'nhsnumber' },
           'birth weight':         { patient: 'weight' },
-          'place of delivery':    { patient: 'placeofdelivery' }
+          'place of delivery':    { patient: 'placeofdelivery' },
+          'sex':                  { patient: 'sex' },
+          'outcome':              { patient: 'outcome' }
         }.freeze
 
         def meta_data_item

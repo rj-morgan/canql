@@ -29,7 +29,7 @@ module Canql
     end
 
     rule patient_field_names
-      patient_field_name:('date of birth' / 'nhs number' / 'postcode' / 'birth weight' / 'place of delivery')
+      patient_field_name:('date of birth' / 'nhs number' / 'postcode' / 'birth weight' / 'place of delivery' / 'sex' / 'outcome')
     end
 
     rule mother_conditions
