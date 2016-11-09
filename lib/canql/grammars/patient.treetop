@@ -5,7 +5,7 @@ module Canql
     end
 
     rule outcome
-      space outcome:('stillborn' / 'liveborn' / 'miscarried' / 'terminated' ) word_break <Nodes::Patient::OutcomeNode>
+      space outcome:('stillborn' / 'liveborn' / 'miscarried' / 'terminated' / 'registrable' / 'non-registrable' ) word_break <Nodes::Patient::OutcomeNode>
     end
 
     rule expected_keyword
