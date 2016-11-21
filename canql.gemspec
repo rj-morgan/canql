@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
@@ -18,11 +19,10 @@ Gem::Specification.new do |spec|
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
   # delete this section to allow pushing this gem to any host.
-  if spec.respond_to?(:metadata)
-    spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com'"
-  else
-    fail 'RubyGems 2.0 or newer is required to protect against public gem pushes.'
+  unless spec.respond_to?(:metadata)
+    raise 'RubyGems 2.0 or newer is required to protect against public gem pushes.'
   end
+  spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com'"
 
   spec.files         = `git ls-files -z`.split("\x0").
                        reject { |f| f.match(%r{^(test|spec|features)/}) }
@@ -34,7 +34,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'treetop', '>= 1.4.10'
   spec.add_dependency 'chronic', '~> 0.3.0'
 
-  spec.add_development_dependency 'ndr_dev_support', '~> 1.2'
+  spec.add_development_dependency 'ndr_dev_support', '~> 1.3'
   spec.add_development_dependency 'bundler'
   spec.add_development_dependency 'rake'
   spec.add_development_dependency 'minitest'

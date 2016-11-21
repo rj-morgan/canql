@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Canql #:nodoc: all
   module Nodes
     module Age
@@ -5,9 +6,9 @@ module Canql #:nodoc: all
         def meta_data_item
           subject = reverse_scan_for_marker(:subject) == 'mother' ? 'mother' : 'patient'
           range = fuzzy_date.to_daterange
-          { "#{subject}.birthdate" =>
-            { Canql::LIMITS =>
-              [
+          {
+            "#{subject}.birthdate" => {
+              Canql::LIMITS => [
                 range.date1.try(:to_date).try(:iso8601), range.date2.try(:to_date).try(:iso8601)
               ]
             }
@@ -19,9 +20,9 @@ module Canql #:nodoc: all
         def meta_data_item
           subject = reverse_scan_for_marker(:subject) == 'mother' ? 'mother' : 'patient'
           range = fuzzy_date.to_daterange
-          { "#{subject}.deathdate" =>
-            { Canql::LIMITS =>
-              [
+          {
+            "#{subject}.deathdate" => {
+              Canql::LIMITS => [
                 range.date1.try(:to_date).try(:iso8601), range.date2.try(:to_date).try(:iso8601)
               ]
             }

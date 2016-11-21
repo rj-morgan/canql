@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Canql #:nodoc: all
   module Nodes
     module Patient
@@ -47,9 +48,9 @@ module Canql #:nodoc: all
       module ExpectedDateRangeNode
         def meta_data_item
           range = fuzzy_date.to_daterange
-          { 'patient.expecteddeliverydate' =>
-            { Canql::LIMITS =>
-              [
+          {
+            'patient.expecteddeliverydate' => {
+              Canql::LIMITS => [
                 range.date1.try(:to_date).try(:iso8601),
                 range.date2.try(:to_date).try(:iso8601)
               ]

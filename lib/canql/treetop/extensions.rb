@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Treetop
   module Runtime
     # We extend the SyntaxNode class to include a hash of meta data.

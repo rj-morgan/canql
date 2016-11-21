@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Canql #:nodoc: all
   module Nodes
     module EBaseRecordsNode
@@ -13,9 +14,7 @@ module Canql #:nodoc: all
     end
 
     module BatchTypesNode
-      def to_list
-        allowed_types.to_list
-      end
+      delegate :to_list, to: :allowed_types
     end
 
     module AllowedTypesNode
@@ -49,8 +48,8 @@ module Canql #:nodoc: all
       def meta_data_item
         # default to provider
         key = provider_type.text_value == 'cancer network' ? 'cn_ukacrname' : 'providername'
-        { "action.#{key}" =>
-          {
+        {
+          "action.#{key}" => {
             Canql::BEGINS => short_desc.text_value.upcase,
             :interval => interval
           }

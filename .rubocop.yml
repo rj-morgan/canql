@@ -1,31 +1,8 @@
+inherit_gem:
+  ndr_dev_support: .rubocop.yml
+
 AllCops:
   TargetRubyVersion: 2.3
 
-Rails:
-  Enabled: false
-
-# Multi-line method chaining should be done with trailing dots.
-Style/DotPosition:
-  EnforcedStyle: trailing
-
-HashSyntax:
-  EnforcedStyle: ruby19
-
-# Would enforce "-> { }", which we cannot use yet.
-Lambda:
-  Enabled: false
-
-# ...
-LineLength:
-  Max: 99
-
-# Relax some of the cops for tests
-Metrics/ClassLength:
-  Exclude:
-    - test/**/*.rb
-    - test/node/**/*.rb
-
-Metrics/MethodLength:
-  Exclude:
-    - test/**/*.rb
-    - test/node/**/*.rb
+Style/FrozenStringLiteralComment:
+  Enabled: true

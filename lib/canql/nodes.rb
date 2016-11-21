@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # These file contain custom mixins for treetop
 # nodes that enable them to generate meta_data_items, etc.
 

@@ -1,18 +1,15 @@
+# frozen_string_literal: true
 require 'chronic'
 require 'ndr_support/daterange'
 
 module Canql #:nodoc: all
   module Nodes
     module FuzzyDateNode
-      def to_daterange
-        date.to_daterange
-      end
+      delegate :to_daterange, to: :date
     end
 
     module SpecificDateNode
-      def to_daterange
-        date_fragment.to_daterange
-      end
+      delegate :to_daterange, to: :date_fragment
     end
 
     module FragmentedDateRangeNode
@@ -25,9 +22,7 @@ module Canql #:nodoc: all
     end
 
     module DateFragmentNode
-      def to_daterange
-        fragment.to_daterange
-      end
+      delegate :to_daterange, to: :fragment
     end
 
     module DateRangeNode
