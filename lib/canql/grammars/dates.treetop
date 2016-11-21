@@ -13,7 +13,7 @@ module Canql
     end
 
     rule date_fragment
-     fragment:(daterange / chronic_date) word_break <Nodes::DateFragmentNode>
+     fragment:(daterange / year_quarter / chronic_date) word_break <Nodes::DateFragmentNode>
     end
 
     rule daterange
@@ -26,6 +26,10 @@ module Canql
 
     rule year
       [0-9] 4..4
+    end
+
+    rule year_quarter
+      'q' [1-4] space year <Nodes::YearQuarterNode>
     end
 
     rule chronic_date

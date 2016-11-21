@@ -80,4 +80,12 @@ class AgeTest < Minitest::Test
     assert_equal({ Canql::LIMITS => ['2015-01-01', '2015-01-01'] },
                  parser.meta_data['mother.deathdate'])
   end
+
+  def test_should_filter_by_case_birth_date_quarter
+    parser = Canql::Parser.new('all cases born in Q1 2015')
+    assert parser.valid?, parser.failure_reason
+    assert_nil parser.failure_reason
+    assert_equal({ Canql::LIMITS => ['2015-04-01', '2015-06-30'] },
+                 parser.meta_data['patient.birthdate'])
+  end
 end

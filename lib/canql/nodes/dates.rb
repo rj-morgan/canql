@@ -21,6 +21,21 @@ module Canql #:nodoc: all
       end
     end
 
+    module YearQuarterNode
+      def to_daterange
+        quarter = text_value[0..1]
+        year = text_value[3..-1]
+        quarters = {
+          'q1': "01-04-#{year}",
+          'q2': "01-07-#{year}",
+          'q3': "01-10-#{year}",
+          'q4': "01-01-#{year.to_i + 1}"
+        }
+        Daterange.new(quarters[quarter.to_sym].to_date,
+                      quarters[quarter.to_sym].to_date + 3.months - 1.day)
+      end
+    end
+
     module DateFragmentNode
       delegate :to_daterange, to: :fragment
     end
