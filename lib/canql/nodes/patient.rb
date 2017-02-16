@@ -17,6 +17,7 @@ module Canql #:nodoc: all
       module FieldExists
         FIELDS = {
           'date of birth':        { patient: 'birthdate', mother: 'birthdate' },
+          'dob':                  { patient: 'birthdate', mother: 'birthdate' },
           'postcode':             { patient: 'postcode',  mother: 'postcode'  },
           'nhs number':           { patient: 'nhsnumber', mother: 'nhsnumber' },
           'birth weight':         { patient: 'weight' },
