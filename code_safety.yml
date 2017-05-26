@@ -47,7 +47,7 @@ file safety:
   canql.gemspec:
     comments: 
     reviewed_by: timgentry
-    safe_revision: 127daee4abc05c73daed0bbb488a452ee67d00e4
+    safe_revision: b67d28ae2648219607e40dc77d6aef846a64f647
   lib/canql.rb:
     comments: 
     reviewed_by: timgentry
@@ -154,7 +154,7 @@ file safety:
   lib/canql/version.rb:
     comments: 
     reviewed_by: timgentry
-    safe_revision: 174b33d1342b3e2e2bef01228b445113ee61dd40
+    safe_revision: b67d28ae2648219607e40dc77d6aef846a64f647
   test/canql_test.rb:
     comments: 
     reviewed_by: timgentry
