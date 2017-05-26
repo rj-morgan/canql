@@ -8,6 +8,12 @@ class ParserTest < Minitest::Test
     parser.parse(query.downcase)
   end
 
+  def test_should_raise_exception_on_non_string_query
+    assert_raises ArgumentError do
+      Canql::Parser.new(/all cases/)
+    end
+  end
+
   def test_should_display_error_msg_on_empty_query
     parser = Canql::Parser.new('')
     refute parser.valid?
