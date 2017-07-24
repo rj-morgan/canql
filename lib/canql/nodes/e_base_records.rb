@@ -30,6 +30,13 @@ module Canql #:nodoc: all
       end
     end
 
+    module AllOrNoneActionsNode
+      def meta_data_item
+        action_type = all_or_none_action_type.text_value.upcase.strip
+        { 'action.actioninitiated' => { Canql::ALL => action_type == 'AN OUTSTANDING' } }
+      end
+    end
+
     module ActionsNode
       def meta_data_item
         { 'action.actioninitiated' => { Canql::EQUALS => action_type.text_value.upcase.strip } }

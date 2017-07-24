@@ -16,6 +16,18 @@ class EBaseRecordsTest < Minitest::Test
     assert_equal({ Canql::EQUALS => 'RGT01' }, parser.meta_data['action.providercode'])
   end
 
+  def test_should_filter_by_no_outstanding_actions
+    parser = Canql::Parser.new('all cases with no outstanding actions')
+    assert parser.valid?
+    assert_equal({ Canql::ALL => false }, parser.meta_data['action.actioninitiated'])
+  end
+
+  def test_should_filter_by_an_outstanding_action
+    parser = Canql::Parser.new('all cases with an outstanding action')
+    assert parser.valid?
+    assert_equal({ Canql::ALL => true }, parser.meta_data['action.actioninitiated'])
+  end
+
   def test_should_filter_by_action_hosital_name
     parser = Canql::Parser.new('all cases with search action at addenbrookes hospital')
     assert parser.valid?

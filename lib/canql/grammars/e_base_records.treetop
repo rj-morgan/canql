@@ -1,7 +1,7 @@
 module Canql
   grammar EBaseRecords
     rule action_or_ebr
-      and_keyword? action_and_ebr / actions / e_base_records
+      and_keyword? action_and_ebr / all_or_none_actions / actions / e_base_records
     end
 
     rule action_and_ebr
@@ -45,8 +45,20 @@ module Canql
       'scr_check' / 'scr_checked' / 'search' / 'technical'
     end
 
+    rule all_or_none_actions
+      all_or_none_action_type action_keyword <Nodes::AllOrNoneActionsNode>
+    end
+
+    rule all_or_none_action_type
+      space all_or_none_action word_break
+    end
+
+    rule all_or_none_action
+      'no outstanding' / 'an outstanding'
+    end
+
     rule action_keyword
-      space 'action' word_break
+      space 'action' 's'? word_break
     end
 
     rule at_keyword
