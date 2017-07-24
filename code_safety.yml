@@ -31,7 +31,7 @@ file safety:
   README.md:
     comments: 
     reviewed_by: timgentry
-    safe_revision: cb1bd5162935d259f67a42044cbe5644fe6a76f8
+    safe_revision: 3951ebc4b8d0a4cf30f3ce048a4ce33ffccdbd26
   Rakefile:
     comments: 
     reviewed_by: timgentry
@@ -82,7 +82,7 @@ file safety:
   lib/canql/grammars/e_base_records.treetop:
     comments: 
     reviewed_by: timgentry
-    safe_revision: 41d8f146c456e7bf252784476438574a9d283408
+    safe_revision: 1c30c1e78d86b74d747204ea40ae709ceaaf66b5
   lib/canql/grammars/main.treetop:
     comments: It is a known issue that this is potentially susceptible to certain
       kinds of DoS attack
@@ -122,11 +122,11 @@ file safety:
   lib/canql/nodes/dates.rb:
     comments: 
     reviewed_by: timgentry
-    safe_revision: 2346abb4435bf95cbe9b4d8c124123b9fefe60d6
+    safe_revision: 9b72e0c6f96aaa8b8d45e137bed846d76d357028
   lib/canql/nodes/e_base_records.rb:
     comments: 
     reviewed_by: timgentry
-    safe_revision: d6f1ccac606735190d30c962b7681ed12aec374a
+    safe_revision: 1c30c1e78d86b74d747204ea40ae709ceaaf66b5
   lib/canql/nodes/main.rb:
     comments: 
     reviewed_by: timgentry
@@ -154,7 +154,7 @@ file safety:
   lib/canql/version.rb:
     comments: 
     reviewed_by: timgentry
-    safe_revision: b67d28ae2648219607e40dc77d6aef846a64f647
+    safe_revision: 578a3f31d507cb2c73ea37c3cec14731a364f73c
   test/canql_test.rb:
     comments: 
     reviewed_by: timgentry
@@ -174,7 +174,7 @@ file safety:
   test/nodes/e_base_rescords_test.rb:
     comments: 
     reviewed_by: timgentry
-    safe_revision: d6f1ccac606735190d30c962b7681ed12aec374a
+    safe_revision: 1c30c1e78d86b74d747204ea40ae709ceaaf66b5
   test/nodes/main_test.rb:
     comments: 
     reviewed_by: timgentry
@@ -182,7 +182,7 @@ file safety:
   test/nodes/patient_test.rb:
     comments: 
     reviewed_by: timgentry
-    safe_revision: 0bf684b681372d16145cae8c6bb831f1bb96f442
+    safe_revision: 9b72e0c6f96aaa8b8d45e137bed846d76d357028
   test/nodes/registry_test.rb:
     comments: 
     reviewed_by: timgentry
@@ -194,7 +194,7 @@ file safety:
   test/parser_test.rb:
     comments: 
     reviewed_by: timgentry
-    safe_revision: a923656606f581c220ea7af16196f2c68b5248f2
+    safe_revision: 3951ebc4b8d0a4cf30f3ce048a4ce33ffccdbd26
   test/test_helper.rb:
     comments: 
     reviewed_by: timgentry
