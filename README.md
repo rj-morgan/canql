@@ -50,7 +50,7 @@ would output:
 
 The parser is case insensitive. An example of an almost fully involved CANQL query is:
 
-> First 27 Male Liveborn Thames Cases Due between 20/06/2015 and 25/06/2015 and Born on 22/06/2015 and that Died on 07/07/2015 with Prenatal Anomalies and Postnatal Tests and Missing Postcode and Date of Birth and Wait Action and Unprocessed paediatric records and Mother Born between 01/10/1990 and 10/01/1999 and who Died on 01/08/2015 with Populated Postcode and NHS Number
+> First 27 Male Liveborn Thames Cases Due between 20/06/2015 and 25/06/2015 and Born on 22/06/2015 and that Died on 07/07/2015 with Prenatal Anomalies and Postnatal Tests and Missing Postcode and Date of Birth and Check Action and Unprocessed paediatric records and Mother Born between 01/10/1990 and 10/01/1999 and who Died on 01/08/2015 with Populated Postcode and NHS Number
 
 Please see the tests for many more examples.
 

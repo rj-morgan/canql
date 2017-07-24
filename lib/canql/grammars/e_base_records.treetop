@@ -41,9 +41,8 @@ module Canql
     end
 
     rule accepted_action
-     'wait' / 'proforma' / 'transfer' / 'notes' / 'child' /
-      'qa' / 'tag' / 'qc' / 'query' /
-      'moreinfo' / 'search' / 'check' / 'gpsearch'
+      'check' / 'coding_clinic' / 'coding_group' / 'complete' / 'reg_group' /
+      'scr_check' / 'scr_checked' / 'search' / 'technical'
     end
 
     rule action_keyword
