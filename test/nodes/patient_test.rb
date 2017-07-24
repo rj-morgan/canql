@@ -53,6 +53,17 @@ class PatientTest < Minitest::Test
                  parser.meta_data['patient.expecteddeliverydate'])
   end
 
+  def test_should_filter_on_edd_word_range
+    parser = Canql::Parser.new('all cases expected between today and tomorrow')
+    assert parser.valid?
+    today = Date.today
+    tomorrow = today + 1
+    assert_equal(
+      { Canql::LIMITS => [today.strftime('%Y-%m-%d'), tomorrow.strftime('%Y-%m-%d')] },
+      parser.meta_data['patient.expecteddeliverydate']
+    )
+  end
+
   def test_should_filter_by_missing_fields
     parser = Canql::Parser.new('all cases with missing postcode, date of birth')
     parser_v2 = Canql::Parser.new('all cases with missing postcode and date of birth')
