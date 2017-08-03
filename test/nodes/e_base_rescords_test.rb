@@ -4,9 +4,9 @@ require 'test_helper'
 # registration action and unprocessed record tests
 class EBaseRecordsTest < Minitest::Test
   def test_should_filter_by_check_action
-    parser = Canql::Parser.new('all cases with check action')
+    parser = Canql::Parser.new('all cases with qa action')
     assert parser.valid?
-    assert_equal({ Canql::EQUALS => 'CHECK' }, parser.meta_data['action.actioninitiated'])
+    assert_equal({ Canql::EQUALS => 'QA' }, parser.meta_data['action.actioninitiated'])
   end
 
   def test_should_filter_by_action_hosital_code

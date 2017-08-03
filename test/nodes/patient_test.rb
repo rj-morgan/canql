@@ -151,7 +151,7 @@ class PatientTest < Minitest::Test
       and born on 22/06/2015 and that died on 01/12/2015 \
       with prenatal anomalies \
       and postnatal tests and missing postcode and date of birth \
-      and check action and unprocessed paediatric records \
+      and qa action and unprocessed paediatric records \
       and mother born between 01/10/1990 and 10/01/1999 \
       and who died on 01/01/2016 \
       with fields postcode and nhs number"
@@ -160,7 +160,7 @@ class PatientTest < Minitest::Test
       and born on 22/06/2015 and that died on 01/12/2015 \
       with prenatal anomalies \
       and postnatal tests and missing postcode and dob \
-      and check action and unprocessed paediatric records \
+      and qa action and unprocessed paediatric records \
       and mother born between 01/10/1990 and 10/01/1999 \
       and who died on 01/01/2016 \
       with fields postcode and nhs number"

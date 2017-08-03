@@ -44,7 +44,7 @@ class ParserTest < Minitest::Test
       and born on 22/06/2015 and that died on 01/12/2015 \
       with prenatal anomalies \
       and postnatal tests and missing postcode and date of birth \
-      and check action and unprocessed paediatric records \
+      and qa action and unprocessed paediatric records \
       and mother born between 01/10/1990 and 10/01/1999 \
       and who died on 01/01/2016 \
       with fields postcode and nhs number")
@@ -77,7 +77,7 @@ class ParserTest < Minitest::Test
       'all babies with missing postcode, date of birth',
       'all cases with mother with fields postcode and nhs number',
       'all cases with mother with populated postcode and nhs number',
-      'all cases with check action and unprocessed paediatric records',
+      'all cases with qa action and unprocessed paediatric records',
       'all cases born on 22/06/2015',
       'all babies born on 22/06/2015',
       'all cases delivered on 22/06/2015',
