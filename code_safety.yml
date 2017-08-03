@@ -31,7 +31,7 @@ file safety:
   README.md:
     comments: 
     reviewed_by: timgentry
-    safe_revision: 3951ebc4b8d0a4cf30f3ce048a4ce33ffccdbd26
+    safe_revision: 336a2445709947df89a739ca611cf02f10783c08
   Rakefile:
     comments: 
     reviewed_by: timgentry
@@ -82,7 +82,7 @@ file safety:
   lib/canql/grammars/e_base_records.treetop:
     comments: 
     reviewed_by: timgentry
-    safe_revision: 1c30c1e78d86b74d747204ea40ae709ceaaf66b5
+    safe_revision: 336a2445709947df89a739ca611cf02f10783c08
   lib/canql/grammars/main.treetop:
     comments: It is a known issue that this is potentially susceptible to certain
       kinds of DoS attack
@@ -154,7 +154,7 @@ file safety:
   lib/canql/version.rb:
     comments: 
     reviewed_by: timgentry
-    safe_revision: 578a3f31d507cb2c73ea37c3cec14731a364f73c
+    safe_revision: 12ec7fb0820499d3a712f7484090da2a4ed5cde9
   test/canql_test.rb:
     comments: 
     reviewed_by: timgentry
@@ -174,7 +174,7 @@ file safety:
   test/nodes/e_base_rescords_test.rb:
     comments: 
     reviewed_by: timgentry
-    safe_revision: 1c30c1e78d86b74d747204ea40ae709ceaaf66b5
+    safe_revision: 336a2445709947df89a739ca611cf02f10783c08
   test/nodes/main_test.rb:
     comments: 
     reviewed_by: timgentry
@@ -182,7 +182,7 @@ file safety:
   test/nodes/patient_test.rb:
     comments: 
     reviewed_by: timgentry
-    safe_revision: 9b72e0c6f96aaa8b8d45e137bed846d76d357028
+    safe_revision: 336a2445709947df89a739ca611cf02f10783c08
   test/nodes/registry_test.rb:
     comments: 
     reviewed_by: timgentry
@@ -194,7 +194,7 @@ file safety:
   test/parser_test.rb:
     comments: 
     reviewed_by: timgentry
-    safe_revision: 3951ebc4b8d0a4cf30f3ce048a4ce33ffccdbd26
+    safe_revision: 336a2445709947df89a739ca611cf02f10783c08
   test/test_helper.rb:
     comments: 
     reviewed_by: timgentry
