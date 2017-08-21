@@ -82,7 +82,7 @@ file safety:
   lib/canql/grammars/e_base_records.treetop:
     comments: 
     reviewed_by: timgentry
-    safe_revision: 336a2445709947df89a739ca611cf02f10783c08
+    safe_revision: 03f7a8fbee06a947e60bc554dcc1d1311c5632ac
   lib/canql/grammars/main.treetop:
     comments: It is a known issue that this is potentially susceptible to certain
       kinds of DoS attack
@@ -154,7 +154,7 @@ file safety:
   lib/canql/version.rb:
     comments: 
     reviewed_by: timgentry
-    safe_revision: 12ec7fb0820499d3a712f7484090da2a4ed5cde9
+    safe_revision: 9a1b4b24ff53f60d505c6b6f02e3b913ab88ff04
   test/canql_test.rb:
     comments: 
     reviewed_by: timgentry
