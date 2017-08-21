@@ -9,6 +9,18 @@ class EBaseRecordsTest < Minitest::Test
     assert_equal({ Canql::EQUALS => 'QA' }, parser.meta_data['action.actioninitiated'])
   end
 
+  def test_should_filter_by_scr_check_action
+    parser = Canql::Parser.new('all cases with scr_check action')
+    assert parser.valid?
+    assert_equal({ Canql::EQUALS => 'SCR_CHECK' }, parser.meta_data['action.actioninitiated'])
+  end
+
+  def test_should_filter_by_scr_checked_action
+    parser = Canql::Parser.new('all cases with scr_checked action')
+    assert parser.valid?
+    assert_equal({ Canql::EQUALS => 'SCR_CHECKED' }, parser.meta_data['action.actioninitiated'])
+  end
+
   def test_should_filter_by_action_hosital_code
     parser = Canql::Parser.new('all cases with search action at hospital RGT01')
     assert parser.valid?
