@@ -9,4 +9,8 @@ sudo: false
 
 cache: bundler
 
+before_install:
+  - gem update --system
+  - gem install bundler
+
 before_script: "bundle update"
