@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'test_helper'
 
 # case anomaly tests
@@ -29,6 +30,12 @@ class AnomalyTest < Minitest::Test
 
   def test_should_filter_by_no_postnatal_anomaly
     parser = Canql::Parser.new('all cases with no postnatal anomalies')
+    assert parser.valid?
+    assert_equal({ Canql::EQUALS => false }, parser.meta_data['anomaly.postnatal.exists'])
+  end
+
+  def test_should_filter_by_no_postnatal_anomaly_and_prenatal_anomalies
+    parser = Canql::Parser.new('all cases with no postnatal anomalies and prenatal anomalies')
     assert parser.valid?
     assert_equal({ Canql::EQUALS => false }, parser.meta_data['anomaly.postnatal.exists'])
   end

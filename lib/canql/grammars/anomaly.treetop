@@ -1,7 +1,7 @@
 module Canql
   grammar Anomaly
     rule anomalies
-      and_keyword? existance_modifier:anomalies_no_keyword? natal_period:anomalies_natal_period? anomalies_keyword <Nodes::Anomaly::Exists>
+      and_keyword? existance_modifier:anomalies_no_keyword? status_type:anomaly_status? natal_period:anomalies_natal_period? code_data:(space first:anomalies_icd_code rest:more_anomalies_icd_codes* word_break)? anomalies_keyword <Nodes::Anomaly::Exists>
     end
 
     rule anomalies_no_keyword
@@ -12,8 +12,24 @@ module Canql
       (prenatal_keyword / postnatal_keyword)
     end
 
+    rule anomaly_status
+      (suspected_keyword / confirmed_keyword / probable_keyword)
+    end
+
     rule anomalies_keyword
       space 'anomalies' word_break
+    end
+
+    rule more_anomalies_icd_codes
+      ','? space? ('and' space)? anomalies_icd_code <Nodes::Anomaly::AdditionalIcdCodeNode>
+    end
+
+    rule anomalies_icd_code
+      icd_code_name <Nodes::Anomaly::SingleIcdCodeNode>
+    end
+
+    rule icd_code_name
+      [a-z] [0-9] 1..3
     end
   end
 end
