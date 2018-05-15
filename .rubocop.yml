@@ -4,7 +4,8 @@ Rails:
   Enabled: false
 
 AllCops:
-  TargetRubyVersion: 2.3
+  TargetRailsVersion: 4.2
+  TargetRubyVersion: 2.4
 
 Style/FrozenStringLiteralComment:
   Enabled: true
