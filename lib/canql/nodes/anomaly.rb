@@ -40,7 +40,8 @@ module Canql #:nodoc: all
           code_data.rest.elements.each do |code|
             code_array << code.try(:to_code)
           end
-          code_array.flatten.delete_if(&:blank?)
+          code_array.flatten!
+          code_array.delete_if(&:blank?)
 
           { "anomaly#{anomaly_qualifier}.icd_code" => { Canql::BEGINS => code_array } }
         end
