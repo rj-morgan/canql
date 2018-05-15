@@ -37,10 +37,10 @@ module Canql #:nodoc: all
         def code_filter
           return {} if code_data.text_value.blank?
           code_array = [code_data.first.to_code]
-          code_data.rest.elements.map do |e|
-            code_array << e.to_code if !e.nil? && e.respond_to?(:to_code)
+          code_data.rest.elements.each do |code|
+            code_array << code.try(:to_code)
           end
-          code_array.flatten.delete_if { |a| a.nil? || a.empty? }
+          code_array.flatten.delete_if(&:blank?)
 
           { "anomaly#{anomaly_qualifier}.icd_code" => { Canql::BEGINS => code_array } }
         end

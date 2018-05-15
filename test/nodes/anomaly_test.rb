@@ -38,6 +38,7 @@ class AnomalyTest < Minitest::Test
     parser = Canql::Parser.new('all cases with no postnatal anomalies and prenatal anomalies')
     assert parser.valid?
     assert_equal({ Canql::EQUALS => false }, parser.meta_data['anomaly.postnatal.exists'])
+    assert_equal({ Canql::EQUALS => true }, parser.meta_data['anomaly.prenatal.exists'])
   end
 
   def test_should_filter_by_no_prenatal_anomaly
