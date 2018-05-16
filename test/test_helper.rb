@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'canql'
 
@@ -32,4 +33,35 @@ end
 
 def assert_array_includes(array, subset)
   (subset - array).empty?
+end
+
+def assert_dir_block_count(parser, block_type, numder_of_blocks)
+  return true if parser.meta_data[block_type].blank? && numder_of_anomalies.zero?
+  assert parser.meta_data[block_type].present?, 'No DIR blocks to count'
+  assert_equal numder_of_blocks, parser.meta_data.dig(block_type, Canql::ALL).count
+end
+
+def assert_dir_block_values(parser, block_type, all_keys = nil, index = 0, expected = {})
+  dir_blocks = parser.meta_data.dig(block_type, Canql::ALL)
+  assert dir_blocks.present?, 'There are no DIR blocks to check'
+  assert index < dir_blocks.count, "The requested DIR block #{index} does not exist"
+
+  dir_block = dir_blocks[index]
+  assert_dir_block_keys_valid dir_block, all_keys
+  assert_dir_block_has_expected_keys dir_block, expected
+  dir_block.each_key do |key|
+    assert_nil dir_block[key] if expected.keys.exclude?(key)
+    assert_equal expected[key], dir_block[key] if expected.keys.include?(key)
+  end
+  true
+end
+
+def assert_dir_block_keys_valid(dir_block, all_keys = nil)
+  assert dir_block.keys.reject { |key| all_keys.include?(key) }.none?,
+         'DIR block has unknown keys'
+end
+
+def assert_dir_block_has_expected_keys(dir_block, expected = {})
+  assert expected.keys.reject { |key| dir_block.include?(key) }.none?,
+         'Expected key not present in DIR block'
 end

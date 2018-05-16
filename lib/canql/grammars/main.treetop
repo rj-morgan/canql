@@ -53,7 +53,7 @@ grammar Canql
   end
 
   rule with_clause
-    with_keyword post:with_conditions+
+    with_keyword post:with_conditions+ <Nodes::WithConditions>
   end
 
   rule with_keyword
@@ -90,6 +90,10 @@ grammar Canql
 
   rule probable_keyword
     space 'probable' word_break
+  end
+
+  rule diagnosed_keyword
+    space 'diagnosed' word_break
   end
 
   rule with_conditions
