@@ -3,39 +3,38 @@
 module Canql #:nodoc: all
   module Nodes
     module Anomaly
-      module Exists
+      module WithCondition
         def anomaly_type
-          text_value = natal_period.text_value.strip
-          return '' if '' == text_value
-
-          ".#{text_value}"
+          natal_period.text_value.strip
         end
 
         def anomaly_status_type
-          text_value = status_type.text_value.strip
-          return '' if '' == text_value
-
-          ".#{text_value}"
+          status_type.text_value.strip
         end
 
-        def anomaly_qualifier
-          anomaly_status_type + anomaly_type
-        end
-
-        def meta_data_item
-          existance_filter.merge(code_filter)
+        def to_anomaly
+          anomaly_hash = { 'exists' => existance_filter }
+          anomaly_hash['type'] = anomaly_type_filter if anomaly_type.present?
+          anomaly_hash['status'] = anomaly_status_type_filter if anomaly_status_type.present?
+          anomaly_hash['icd_codes'] = code_filter if code_filter.any?
+          anomaly_hash
         end
 
         def existance_filter
-          {
-            "anomaly#{anomaly_qualifier}.exists" => {
-              Canql::EQUALS => existance_modifier.text_value.strip != 'no'
-            }
-          }
+          { Canql::EQUALS => existance_modifier.text_value.strip != 'no' }
+        end
+
+        def anomaly_type_filter
+          { Canql::EQUALS => anomaly_type }
+        end
+
+        def anomaly_status_type_filter
+          { Canql::EQUALS => anomaly_status_type }
         end
 
         def code_filter
           return {} if code_data.text_value.blank?
+
           code_array = [code_data.first.to_code]
           code_data.rest.elements.each do |code|
             code_array << code.try(:to_code)
@@ -43,7 +42,7 @@ module Canql #:nodoc: all
           code_array.flatten!
           code_array.delete_if(&:blank?)
 
-          { "anomaly#{anomaly_qualifier}.icd_code" => { Canql::BEGINS => code_array } }
+          { Canql::BEGINS => code_array }
         end
       end
 
