@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'test_helper'
 
 # case host patient tests
@@ -69,16 +70,16 @@ class PatientTest < Minitest::Test
     parser_v2 = Canql::Parser.new('all cases with missing postcode and date of birth')
     assert parser.valid?
     assert_array_includes parser.meta_data['patient.fields_missing'][Canql::EQUALS],
-                          %w(postcode birthdate)
+                          %w[postcode birthdate]
     assert_array_includes parser_v2.meta_data['patient.fields_missing'][Canql::EQUALS],
-                          %w(postcode birthdate)
+                          %w[postcode birthdate]
   end
 
   def test_should_filter_by_missing_place_of_delivery
     parser = Canql::Parser.new('all cases with missing place of delivery')
     assert parser.valid?
     assert_array_includes parser.meta_data['patient.fields_missing'][Canql::EQUALS],
-                          %w(placeofdelivery)
+                          %w[placeofdelivery]
   end
 
   def test_should_filter_by_populated_fields
@@ -86,9 +87,9 @@ class PatientTest < Minitest::Test
     parser_v2 = Canql::Parser.new('all cases with tests and fields postcode and date of birth')
     assert parser.valid?
     assert_array_includes parser.meta_data['patient.fields_populated'][Canql::EQUALS],
-                          %w(postcode birthdate)
+                          %w[postcode birthdate]
     assert_array_includes parser_v2.meta_data['patient.fields_populated'][Canql::EQUALS],
-                          %w(postcode birthdate)
+                          %w[postcode birthdate]
   end
 
   def test_should_filter_by_missing_mother_fields
@@ -96,9 +97,9 @@ class PatientTest < Minitest::Test
     parser_v2 = Canql::Parser.new('all cases with mother with missing postcode and date of birth')
     assert parser.valid?
     assert_array_includes parser.meta_data['mother.fields_missing'][Canql::EQUALS],
-                          %w(postcode birthdate)
+                          %w[postcode birthdate]
     assert_array_includes parser_v2.meta_data['mother.fields_missing'][Canql::EQUALS],
-                          %w(postcode birthdate)
+                          %w[postcode birthdate]
   end
 
   def test_should_filter_by_missing_mother_fields_v2
@@ -106,9 +107,9 @@ class PatientTest < Minitest::Test
     parser_v2 = Canql::Parser.new('all cases with mother missing postcode and date of birth')
     assert parser.valid?
     assert_array_includes parser.meta_data['mother.fields_missing'][Canql::EQUALS],
-                          %w(postcode birthdate)
+                          %w[postcode birthdate]
     assert_array_includes parser_v2.meta_data['mother.fields_missing'][Canql::EQUALS],
-                          %w(postcode birthdate)
+                          %w[postcode birthdate]
   end
 
   def test_should_filter_by_populated_mother_fields
@@ -116,9 +117,9 @@ class PatientTest < Minitest::Test
     parser_v2 = Canql::Parser.new('all cases with mother with fields postcode and date of birth')
     assert parser.valid?
     assert_array_includes parser.meta_data['mother.fields_populated'][Canql::EQUALS],
-                          %w(postcode birthdate)
+                          %w[postcode birthdate]
     assert_array_includes parser_v2.meta_data['mother.fields_populated'][Canql::EQUALS],
-                          %w(postcode birthdate)
+                          %w[postcode birthdate]
   end
 
   def test_dob_alias_valid

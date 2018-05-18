@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'chronic'
 require 'ndr_support/daterange'
 

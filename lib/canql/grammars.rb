@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'treetop'
 
 Treetop.load File.expand_path('grammars/age', File.dirname(__FILE__))
