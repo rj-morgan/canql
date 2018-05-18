@@ -154,7 +154,7 @@ file safety:
   lib/canql/version.rb:
     comments: 
     reviewed_by: timgentry
-    safe_revision: a9ecb88b231487439ebfc91f31748e9c612c7774
+    safe_revision: fff6aa11e725708b9e077feb6bef28aa27fa43f5
   test/anomaly_test_helper.rb:
     comments: 
     reviewed_by: timgentry
