@@ -11,11 +11,11 @@ file safety:
   ".rubocop.yml":
     comments: 
     reviewed_by: timgentry
-    safe_revision: 618d1e7fa4793df5bff0bdb763ff90dd5ea63236
+    safe_revision: 5bc563431f7822e2baf37bbeac9861c36675602d
   ".travis.yml":
     comments: 
     reviewed_by: timgentry
-    safe_revision: 5c88b8eec43f7e7fd18fae6ac952ea6c2efddbbc
+    safe_revision: b0b9a616908e7aab28c8c47f997b6af8062aa83a
   CODE_OF_CONDUCT.md:
     comments: 
     reviewed_by: drewthorp
@@ -23,7 +23,7 @@ file safety:
   Gemfile:
     comments: 
     reviewed_by: timgentry
-    safe_revision: d6f1ccac606735190d30c962b7681ed12aec374a
+    safe_revision: 6932d590299ad4a9d2ba24b425b158c67142bf74
   LICENSE.txt:
     comments: 
     reviewed_by: timgentry
@@ -31,11 +31,11 @@ file safety:
   README.md:
     comments: 
     reviewed_by: timgentry
-    safe_revision: 336a2445709947df89a739ca611cf02f10783c08
+    safe_revision: d3ea041b101e40e6847608705ecc2c3f6e0ca03f
   Rakefile:
     comments: 
     reviewed_by: timgentry
-    safe_revision: 16a9dac62316fbc2ef953457732bc7d9b2f67111
+    safe_revision: 6932d590299ad4a9d2ba24b425b158c67142bf74
   bin/console:
     comments: 
     reviewed_by: timgentry
@@ -47,11 +47,11 @@ file safety:
   canql.gemspec:
     comments: 
     reviewed_by: timgentry
-    safe_revision: b67d28ae2648219607e40dc77d6aef846a64f647
+    safe_revision: 6932d590299ad4a9d2ba24b425b158c67142bf74
   lib/canql.rb:
     comments: 
     reviewed_by: timgentry
-    safe_revision: d6f1ccac606735190d30c962b7681ed12aec374a
+    safe_revision: 6932d590299ad4a9d2ba24b425b158c67142bf74
   lib/canql/constants.rb:
     comments: 
     reviewed_by: timgentry
@@ -59,7 +59,7 @@ file safety:
   lib/canql/grammars.rb:
     comments: 
     reviewed_by: timgentry
-    safe_revision: d6f1ccac606735190d30c962b7681ed12aec374a
+    safe_revision: 6932d590299ad4a9d2ba24b425b158c67142bf74
   lib/canql/grammars/age.treetop:
     comments: It is a known issue that this is potentially susceptible to certain
       kinds of DoS attack
@@ -69,7 +69,7 @@ file safety:
     comments: It is a known issue that this is potentially susceptible to certain
       kinds of DoS attack
     reviewed_by: timgentry
-    safe_revision: a7b0ddabf0c3f7d8b129b4cd206b6e1d65781a10
+    safe_revision: bf2fbe12794f8b53e30a1ace01677cf6f215dbca
   lib/canql/grammars/batch_types.treetop:
     comments: 
     reviewed_by: timgentry
@@ -87,7 +87,7 @@ file safety:
     comments: It is a known issue that this is potentially susceptible to certain
       kinds of DoS attack
     reviewed_by: timgentry
-    safe_revision: 67be9ba603f1f1d1bd73c696fc1d814b4138ba5f
+    safe_revision: bf2fbe12794f8b53e30a1ace01677cf6f215dbca
   lib/canql/grammars/patient.treetop:
     comments: It is a known issue that this is potentially susceptible to certain
       kinds of DoS attack
@@ -102,100 +102,108 @@ file safety:
     comments: It is a known issue that this is potentially susceptible to certain
       kinds of DoS attack
     reviewed_by: timgentry
-    safe_revision: a7b0ddabf0c3f7d8b129b4cd206b6e1d65781a10
+    safe_revision: c39d24bb500719971969762e94545e82866bf92f
   lib/canql/nodes.rb:
     comments: 
     reviewed_by: timgentry
-    safe_revision: d6f1ccac606735190d30c962b7681ed12aec374a
+    safe_revision: 6932d590299ad4a9d2ba24b425b158c67142bf74
   lib/canql/nodes/age.rb:
     comments: 
     reviewed_by: timgentry
-    safe_revision: d6f1ccac606735190d30c962b7681ed12aec374a
+    safe_revision: 6932d590299ad4a9d2ba24b425b158c67142bf74
   lib/canql/nodes/anomaly.rb:
     comments: 
     reviewed_by: timgentry
-    safe_revision: d6f1ccac606735190d30c962b7681ed12aec374a
+    safe_revision: bf2fbe12794f8b53e30a1ace01677cf6f215dbca
   lib/canql/nodes/batch_types.rb:
     comments: 
     reviewed_by: timgentry
-    safe_revision: d6f1ccac606735190d30c962b7681ed12aec374a
+    safe_revision: 6932d590299ad4a9d2ba24b425b158c67142bf74
   lib/canql/nodes/dates.rb:
     comments: 
     reviewed_by: timgentry
-    safe_revision: 9b72e0c6f96aaa8b8d45e137bed846d76d357028
+    safe_revision: 6932d590299ad4a9d2ba24b425b158c67142bf74
   lib/canql/nodes/e_base_records.rb:
     comments: 
     reviewed_by: timgentry
-    safe_revision: 1c30c1e78d86b74d747204ea40ae709ceaaf66b5
+    safe_revision: 6932d590299ad4a9d2ba24b425b158c67142bf74
   lib/canql/nodes/main.rb:
     comments: 
     reviewed_by: timgentry
-    safe_revision: d6f1ccac606735190d30c962b7681ed12aec374a
+    safe_revision: c39d24bb500719971969762e94545e82866bf92f
   lib/canql/nodes/patient.rb:
     comments: 
     reviewed_by: timgentry
-    safe_revision: 0bf684b681372d16145cae8c6bb831f1bb96f442
+    safe_revision: 6932d590299ad4a9d2ba24b425b158c67142bf74
   lib/canql/nodes/registry.rb:
     comments: 
     reviewed_by: timgentry
-    safe_revision: d6f1ccac606735190d30c962b7681ed12aec374a
+    safe_revision: 6932d590299ad4a9d2ba24b425b158c67142bf74
   lib/canql/nodes/test_result.rb:
     comments: 
     reviewed_by: timgentry
-    safe_revision: d6f1ccac606735190d30c962b7681ed12aec374a
+    safe_revision: c39d24bb500719971969762e94545e82866bf92f
   lib/canql/parser.rb:
     comments: 
     reviewed_by: timgentry
-    safe_revision: a923656606f581c220ea7af16196f2c68b5248f2
+    safe_revision: 6932d590299ad4a9d2ba24b425b158c67142bf74
   lib/canql/treetop/extensions.rb:
     comments: 
     reviewed_by: timgentry
-    safe_revision: d6f1ccac606735190d30c962b7681ed12aec374a
+    safe_revision: 6932d590299ad4a9d2ba24b425b158c67142bf74
   lib/canql/version.rb:
     comments: 
     reviewed_by: timgentry
-    safe_revision: 9a1b4b24ff53f60d505c6b6f02e3b913ab88ff04
+    safe_revision: a9ecb88b231487439ebfc91f31748e9c612c7774
+  test/anomaly_test_helper.rb:
+    comments: 
+    reviewed_by: timgentry
+    safe_revision: bf2fbe12794f8b53e30a1ace01677cf6f215dbca
   test/canql_test.rb:
     comments: 
     reviewed_by: timgentry
-    safe_revision: d6f1ccac606735190d30c962b7681ed12aec374a
+    safe_revision: 6932d590299ad4a9d2ba24b425b158c67142bf74
   test/minitest_helper.rb:
     comments: 
     reviewed_by: timgentry
-    safe_revision: d6f1ccac606735190d30c962b7681ed12aec374a
+    safe_revision: 6932d590299ad4a9d2ba24b425b158c67142bf74
   test/nodes/age_test.rb:
     comments: 
     reviewed_by: timgentry
-    safe_revision: 2346abb4435bf95cbe9b4d8c124123b9fefe60d6
+    safe_revision: 6932d590299ad4a9d2ba24b425b158c67142bf74
   test/nodes/anomaly_test.rb:
     comments: 
     reviewed_by: timgentry
-    safe_revision: d6f1ccac606735190d30c962b7681ed12aec374a
+    safe_revision: bf2fbe12794f8b53e30a1ace01677cf6f215dbca
+  test/nodes/code_test.rb:
+    comments: 
+    reviewed_by: timgentry
+    safe_revision: bf2fbe12794f8b53e30a1ace01677cf6f215dbca
   test/nodes/e_base_records_test.rb:
     comments: 
     reviewed_by: timgentry
-    safe_revision: e97a98051e1adfc03fa977f0d0da587df0d48f63
+    safe_revision: 6932d590299ad4a9d2ba24b425b158c67142bf74
   test/nodes/main_test.rb:
     comments: 
     reviewed_by: timgentry
-    safe_revision: d6f1ccac606735190d30c962b7681ed12aec374a
+    safe_revision: 6932d590299ad4a9d2ba24b425b158c67142bf74
   test/nodes/patient_test.rb:
     comments: 
     reviewed_by: timgentry
-    safe_revision: 336a2445709947df89a739ca611cf02f10783c08
+    safe_revision: 6932d590299ad4a9d2ba24b425b158c67142bf74
   test/nodes/registry_test.rb:
     comments: 
     reviewed_by: timgentry
-    safe_revision: d6f1ccac606735190d30c962b7681ed12aec374a
+    safe_revision: 6932d590299ad4a9d2ba24b425b158c67142bf74
   test/nodes/test_results_test.rb:
     comments: 
     reviewed_by: timgentry
-    safe_revision: d6f1ccac606735190d30c962b7681ed12aec374a
+    safe_revision: c39d24bb500719971969762e94545e82866bf92f
   test/parser_test.rb:
     comments: 
     reviewed_by: timgentry
-    safe_revision: 336a2445709947df89a739ca611cf02f10783c08
+    safe_revision: c39d24bb500719971969762e94545e82866bf92f
   test/test_helper.rb:
     comments: 
     reviewed_by: timgentry
-    safe_revision: d6f1ccac606735190d30c962b7681ed12aec374a
+    safe_revision: bf2fbe12794f8b53e30a1ace01677cf6f215dbca
