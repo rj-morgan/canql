@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'test_helper'
 
 class ParserTest < Minitest::Test
@@ -42,7 +43,7 @@ class ParserTest < Minitest::Test
     parser = Canql::Parser.new("first 27 male liveborn thames cases \
       expected between 20/06/2015 and 25/06/2015 \
       and born on 22/06/2015 and that died on 01/12/2015 \
-      with prenatal anomalies \
+      with suspected prenatal q20 anomalies \
       and postnatal tests and missing postcode and date of birth \
       and qa action and unprocessed paediatric records \
       and mother born between 01/10/1990 and 10/01/1999 \
@@ -63,14 +64,14 @@ class ParserTest < Minitest::Test
       'all 68 babies',
       'all thames cases',
       'all thames babies',
-      'all cases with prenatal anomalies',
+      'all cases with suspected prenatal q20 anomalies',
       'all cases with postnatal tests',
-      'all babies with prenatal anomalies',
+      'all babies with suspected prenatal q20 anomalies',
       'all babies with postnatal tests',
       'all babies with some postnatal tests',
-      'all babies with some prenatal anomalies',
+      'all babies with suspected prenatal q20 anomalies',
       'all cases with some postnatal tests',
-      'all cases with some prenatal anomalies',
+      'all cases with suspected prenatal q20 anomalies',
       'all cases with missing postcode and date of birth',
       'all cases with missing postcode, date of birth',
       'all babies with missing postcode and date of birth',
