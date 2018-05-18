@@ -20,12 +20,15 @@ module Canql #:nodoc: all
       def meta_data_item
         conditions = {}
         anomalies = []
+        test_results = []
 
         post.elements.each do |element|
           anomalies << element.to_anomaly if element.respond_to?(:to_anomaly)
+          test_results << element.to_test_result if element.respond_to?(:to_test_result)
         end
 
         conditions['anomalies'] = { Canql::ALL => anomalies } if anomalies.any?
+        conditions['test_results'] = { Canql::ALL => test_results } if test_results.any?
         conditions
       end
     end

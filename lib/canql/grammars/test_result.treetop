@@ -1,7 +1,7 @@
 module Canql
   grammar TestResult
     rule test_results
-      and_keyword? existance_modifier:test_result_no_keyword? natal_period:test_result_natal_period? test_results_keyword <Nodes::TestResult::Exists>
+      and_keyword? existance_modifier:test_result_no_keyword? natal_period:test_result_natal_period? test_results_keyword <Nodes::TestResult::WithCondition>
     end
 
     rule test_result_no_keyword
