@@ -21,7 +21,7 @@ module Canql
     end
 
     rule more_anomalies_icd_codes
-      ','? space? ('and' space)? anomalies_icd_code <Nodes::Anomaly::AdditionalIcdCodeNode>
+      ','? space? ('or' space)? anomalies_icd_code <Nodes::Anomaly::AdditionalIcdCodeNode>
     end
 
     rule anomalies_icd_code

@@ -17,7 +17,7 @@ class CodeTest < Minitest::Test
   end
 
   def test_should_filter_by_multiple_codes_v1
-    parser = Canql::Parser.new('all cases with q2 and q3 anomalies')
+    parser = Canql::Parser.new('all cases with q2 or q3 anomalies')
     assert parser.valid?
     assert_anomaly_count parser, 1
     assert_anomaly_values parser, 0,
@@ -35,7 +35,7 @@ class CodeTest < Minitest::Test
   end
 
   def test_should_filter_by_multiple_codes_v3
-    parser = Canql::Parser.new('all cases with q1, q2 and q3 anomalies')
+    parser = Canql::Parser.new('all cases with q1, q2 or q3 anomalies')
     assert parser.valid?
     assert_anomaly_count parser, 1
     assert_anomaly_values parser, 0,
@@ -54,7 +54,7 @@ class CodeTest < Minitest::Test
   end
 
   def test_should_filter_by_multiple_prenatal_codes_v1
-    parser = Canql::Parser.new('all cases with prenatal q2 and q3 anomalies')
+    parser = Canql::Parser.new('all cases with prenatal q2 or q3 anomalies')
     assert parser.valid?
     assert_anomaly_count parser, 1
     assert_anomaly_values parser, 0,
@@ -74,7 +74,7 @@ class CodeTest < Minitest::Test
   end
 
   def test_should_filter_by_multiple_prenatal_codes_v3
-    parser = Canql::Parser.new('all cases with prenatal q1, q2 and q3 anomalies')
+    parser = Canql::Parser.new('all cases with prenatal q1, q2 or q3 anomalies')
     assert parser.valid?
     assert_anomaly_count parser, 1
     assert_anomaly_values parser, 0,
@@ -94,7 +94,7 @@ class CodeTest < Minitest::Test
   end
 
   def test_should_filter_by_multiple_postnatal_codes_v1
-    parser = Canql::Parser.new('all cases with postnatal q2 and q3 anomalies')
+    parser = Canql::Parser.new('all cases with postnatal q2 or q3 anomalies')
     assert parser.valid?
     assert_anomaly_count parser, 1
     assert_anomaly_values parser, 0,
@@ -114,7 +114,7 @@ class CodeTest < Minitest::Test
   end
 
   def test_should_filter_by_multiple_postnatal_codes_v3
-    parser = Canql::Parser.new('all cases with postnatal q1, q2 and q3 anomalies')
+    parser = Canql::Parser.new('all cases with postnatal q1, q2 or q3 anomalies')
     assert parser.valid?
     assert_anomaly_count parser, 1
     assert_anomaly_values parser, 0,
@@ -134,7 +134,7 @@ class CodeTest < Minitest::Test
   end
 
   def test_should_filter_by_multiple_suspected_codes_v1
-    parser = Canql::Parser.new('all cases with suspected q2 and q3 anomalies')
+    parser = Canql::Parser.new('all cases with suspected q2 or q3 anomalies')
     assert parser.valid?
     assert_anomaly_count parser, 1
     assert_anomaly_values parser, 0,
@@ -154,7 +154,7 @@ class CodeTest < Minitest::Test
   end
 
   def test_should_filter_by_multiple_suspected_codes_v3
-    parser = Canql::Parser.new('all cases with suspected q1, q2 and q3 anomalies')
+    parser = Canql::Parser.new('all cases with suspected q1, q2 or q3 anomalies')
     assert parser.valid?
     assert_anomaly_count parser, 1
     assert_anomaly_values parser, 0,
@@ -175,7 +175,7 @@ class CodeTest < Minitest::Test
   end
 
   def test_should_filter_by_multiple_suspected_prenatal_codes_v1
-    parser = Canql::Parser.new('all cases with suspected prenatal q2 and q3 anomalies')
+    parser = Canql::Parser.new('all cases with suspected prenatal q2 or q3 anomalies')
     assert parser.valid?
     assert_anomaly_count parser, 1
     assert_anomaly_values parser, 0,
@@ -197,7 +197,7 @@ class CodeTest < Minitest::Test
   end
 
   def test_should_filter_by_multiple_suspected_prenatal_codes_v3
-    parser = Canql::Parser.new('all cases with suspected prenatal q1, q2 and q3 anomalies')
+    parser = Canql::Parser.new('all cases with suspected prenatal q1, q2 or q3 anomalies')
     assert parser.valid?
     assert_anomaly_count parser, 1
     assert_anomaly_values parser, 0,
@@ -219,7 +219,7 @@ class CodeTest < Minitest::Test
   end
 
   def test_should_filter_by_multiple_suspected_postnatal_codes_v1
-    parser = Canql::Parser.new('all cases with suspected postnatal q2 and q3 anomalies')
+    parser = Canql::Parser.new('all cases with suspected postnatal q2 or q3 anomalies')
     assert parser.valid?
     assert_anomaly_count parser, 1
     assert_anomaly_values parser, 0,
@@ -241,7 +241,7 @@ class CodeTest < Minitest::Test
   end
 
   def test_should_filter_by_multiple_suspected_postnatal_codes_v3
-    parser = Canql::Parser.new('all cases with suspected postnatal q1, q2 and q3 anomalies')
+    parser = Canql::Parser.new('all cases with suspected postnatal q1, q2 or q3 anomalies')
     assert parser.valid?
     assert_anomaly_count parser, 1
     assert_anomaly_values parser, 0,
@@ -262,7 +262,7 @@ class CodeTest < Minitest::Test
   end
 
   def test_should_filter_by_multiple_confirmed_codes_v1
-    parser = Canql::Parser.new('all cases with confirmed q2 and q3 anomalies')
+    parser = Canql::Parser.new('all cases with confirmed q2 or q3 anomalies')
     assert parser.valid?
     assert_anomaly_count parser, 1
     assert_anomaly_values parser, 0,
@@ -282,7 +282,7 @@ class CodeTest < Minitest::Test
   end
 
   def test_should_filter_by_multiple_confirmed_codes_v3
-    parser = Canql::Parser.new('all cases with confirmed q1, q2 and q3 anomalies')
+    parser = Canql::Parser.new('all cases with confirmed q1, q2 or q3 anomalies')
     assert parser.valid?
     assert_anomaly_count parser, 1
     assert_anomaly_values parser, 0,
@@ -303,7 +303,7 @@ class CodeTest < Minitest::Test
   end
 
   def test_should_filter_by_multiple_confirmed_prenatal_codes_v1
-    parser = Canql::Parser.new('all cases with confirmed prenatal q2 and q3 anomalies')
+    parser = Canql::Parser.new('all cases with confirmed prenatal q2 or q3 anomalies')
     assert parser.valid?
     assert_anomaly_count parser, 1
     assert_anomaly_values parser, 0,
@@ -325,7 +325,7 @@ class CodeTest < Minitest::Test
   end
 
   def test_should_filter_by_multiple_confirmed_prenatal_codes_v3
-    parser = Canql::Parser.new('all cases with confirmed prenatal q1, q2 and q3 anomalies')
+    parser = Canql::Parser.new('all cases with confirmed prenatal q1, q2 or q3 anomalies')
     assert parser.valid?
     assert_anomaly_count parser, 1
     assert_anomaly_values parser, 0,
@@ -347,7 +347,7 @@ class CodeTest < Minitest::Test
   end
 
   def test_should_filter_by_multiple_confirmed_postnatal_codes_v1
-    parser = Canql::Parser.new('all cases with confirmed postnatal q2 and q3 anomalies')
+    parser = Canql::Parser.new('all cases with confirmed postnatal q2 or q3 anomalies')
     assert parser.valid?
     assert_anomaly_count parser, 1
     assert_anomaly_values parser, 0,
@@ -369,7 +369,7 @@ class CodeTest < Minitest::Test
   end
 
   def test_should_filter_by_multiple_confirmed_postnatal_codes_v3
-    parser = Canql::Parser.new('all cases with confirmed postnatal q1, q2 and q3 anomalies')
+    parser = Canql::Parser.new('all cases with confirmed postnatal q1, q2 or q3 anomalies')
     assert parser.valid?
     assert_anomaly_count parser, 1
     assert_anomaly_values parser, 0,
@@ -390,7 +390,7 @@ class CodeTest < Minitest::Test
   end
 
   def test_should_filter_by_multiple_probable_codes_v1
-    parser = Canql::Parser.new('all cases with probable q2 and q3 anomalies')
+    parser = Canql::Parser.new('all cases with probable q2 or q3 anomalies')
     assert parser.valid?
     assert_anomaly_count parser, 1
     assert_anomaly_values parser, 0,
@@ -410,7 +410,7 @@ class CodeTest < Minitest::Test
   end
 
   def test_should_filter_by_multiple_probable_codes_v3
-    parser = Canql::Parser.new('all cases with probable q1, q2 and q3 anomalies')
+    parser = Canql::Parser.new('all cases with probable q1, q2 or q3 anomalies')
     assert parser.valid?
     assert_anomaly_count parser, 1
     assert_anomaly_values parser, 0,
@@ -431,7 +431,7 @@ class CodeTest < Minitest::Test
   end
 
   def test_should_filter_by_multiple_probable_prenatal_codes_v1
-    parser = Canql::Parser.new('all cases with probable prenatal q2 and q3 anomalies')
+    parser = Canql::Parser.new('all cases with probable prenatal q2 or q3 anomalies')
     assert parser.valid?
     assert_anomaly_count parser, 1
     assert_anomaly_values parser, 0,
@@ -453,7 +453,7 @@ class CodeTest < Minitest::Test
   end
 
   def test_should_filter_by_multiple_probable_prenatal_codes_v3
-    parser = Canql::Parser.new('all cases with probable prenatal q1, q2 and q3 anomalies')
+    parser = Canql::Parser.new('all cases with probable prenatal q1, q2 or q3 anomalies')
     assert parser.valid?
     assert_anomaly_count parser, 1
     assert_anomaly_values parser, 0,
@@ -475,7 +475,7 @@ class CodeTest < Minitest::Test
   end
 
   def test_should_filter_by_multiple_probable_postnatal_codes_v1
-    parser = Canql::Parser.new('all cases with probable postnatal q2 and q3 anomalies')
+    parser = Canql::Parser.new('all cases with probable postnatal q2 or q3 anomalies')
     assert parser.valid?
     assert_anomaly_count parser, 1
     assert_anomaly_values parser, 0,
@@ -497,7 +497,7 @@ class CodeTest < Minitest::Test
   end
 
   def test_should_filter_by_multiple_probable_postnatal_codes_v3
-    parser = Canql::Parser.new('all cases with probable postnatal q1, q2 and q3 anomalies')
+    parser = Canql::Parser.new('all cases with probable postnatal q1, q2 or q3 anomalies')
     assert parser.valid?
     assert_anomaly_count parser, 1
     assert_anomaly_values parser, 0,
@@ -518,7 +518,7 @@ class CodeTest < Minitest::Test
   end
 
   def test_should_filter_by_multiple_diagnosed_codes_v1
-    parser = Canql::Parser.new('all cases with diagnosed q2 and q3 anomalies')
+    parser = Canql::Parser.new('all cases with diagnosed q2 or q3 anomalies')
     assert parser.valid?
     assert_anomaly_count parser, 1
     assert_anomaly_values parser, 0,
@@ -538,7 +538,7 @@ class CodeTest < Minitest::Test
   end
 
   def test_should_filter_by_multiple_diagnosed_codes_v3
-    parser = Canql::Parser.new('all cases with diagnosed q1, q2 and q3 anomalies')
+    parser = Canql::Parser.new('all cases with diagnosed q1, q2 or q3 anomalies')
     assert parser.valid?
     assert_anomaly_count parser, 1
     assert_anomaly_values parser, 0,
@@ -559,7 +559,7 @@ class CodeTest < Minitest::Test
   end
 
   def test_should_filter_by_multiple_diagnosed_prenatal_codes_v1
-    parser = Canql::Parser.new('all cases with diagnosed prenatal q2 and q3 anomalies')
+    parser = Canql::Parser.new('all cases with diagnosed prenatal q2 or q3 anomalies')
     assert parser.valid?
     assert_anomaly_count parser, 1
     assert_anomaly_values parser, 0,
@@ -581,7 +581,7 @@ class CodeTest < Minitest::Test
   end
 
   def test_should_filter_by_multiple_diagnosed_prenatal_codes_v3
-    parser = Canql::Parser.new('all cases with diagnosed prenatal q1, q2 and q3 anomalies')
+    parser = Canql::Parser.new('all cases with diagnosed prenatal q1, q2 or q3 anomalies')
     assert parser.valid?
     assert_anomaly_count parser, 1
     assert_anomaly_values parser, 0,
@@ -603,7 +603,7 @@ class CodeTest < Minitest::Test
   end
 
   def test_should_filter_by_multiple_diagnosed_postnatal_codes_v1
-    parser = Canql::Parser.new('all cases with diagnosed postnatal q2 and q3 anomalies')
+    parser = Canql::Parser.new('all cases with diagnosed postnatal q2 or q3 anomalies')
     assert parser.valid?
     assert_anomaly_count parser, 1
     assert_anomaly_values parser, 0,
@@ -625,7 +625,7 @@ class CodeTest < Minitest::Test
   end
 
   def test_should_filter_by_multiple_diagnosed_postnatal_codes_v3
-    parser = Canql::Parser.new('all cases with diagnosed postnatal q1, q2 and q3 anomalies')
+    parser = Canql::Parser.new('all cases with diagnosed postnatal q1, q2 or q3 anomalies')
     assert parser.valid?
     assert_anomaly_count parser, 1
     assert_anomaly_values parser, 0,
@@ -675,7 +675,7 @@ class CodeTest < Minitest::Test
 
   def test_should_filter_with_multiple_anomaly_types
     parser = Canql::Parser.new('all cases with suspected prenatal q2 anomalies and '\
-                               'no confirmed postnatal q3 and q4 anomalies')
+                               'no confirmed postnatal q3 or q4 anomalies')
     assert parser.valid?
 
     assert_anomaly_count parser, 2
