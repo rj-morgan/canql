@@ -68,8 +68,8 @@ file safety:
   lib/canql/grammars/anomaly.treetop:
     comments: It is a known issue that this is potentially susceptible to certain
       kinds of DoS attack
-    reviewed_by: timgentry
-    safe_revision: bf2fbe12794f8b53e30a1ace01677cf6f215dbca
+    reviewed_by: josh.pencheon
+    safe_revision: 03d2f9e0a1d3c178241a28e20bcd222165027e01
   lib/canql/grammars/batch_types.treetop:
     comments: 
     reviewed_by: timgentry
@@ -153,8 +153,8 @@ file safety:
     safe_revision: 6932d590299ad4a9d2ba24b425b158c67142bf74
   lib/canql/version.rb:
     comments: 
-    reviewed_by: timgentry
-    safe_revision: fff6aa11e725708b9e077feb6bef28aa27fa43f5
+    reviewed_by: josh.pencheon
+    safe_revision: 518365b3f1ffc28debccb6bcef055b4329e90739
   test/anomaly_test_helper.rb:
     comments: 
     reviewed_by: timgentry
@@ -177,8 +177,8 @@ file safety:
     safe_revision: bf2fbe12794f8b53e30a1ace01677cf6f215dbca
   test/nodes/code_test.rb:
     comments: 
-    reviewed_by: timgentry
-    safe_revision: bf2fbe12794f8b53e30a1ace01677cf6f215dbca
+    reviewed_by: josh.pencheon
+    safe_revision: 03d2f9e0a1d3c178241a28e20bcd222165027e01
   test/nodes/e_base_records_test.rb:
     comments: 
     reviewed_by: timgentry
