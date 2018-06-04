@@ -690,4 +690,80 @@ class CodeTest < Minitest::Test
                           'icd_codes' => { Canql::BEGINS => %w[Q3 Q4] },
                           'type' => { Canql::EQUALS => 'postnatal' }
   end
+
+  def test_should_filter_by_sigle_code_group
+    parser = Canql::Parser.new('all cases with fasp anomalies')
+    assert parser.valid?
+    assert_anomaly_count parser, 1
+    assert_anomaly_values parser, 0,
+                          'exists' => { Canql::EQUALS => true },
+                          'code_groups' => { Canql::EQUALS => ['FASP'] }
+  end
+
+  def test_should_filter_by_multiple_code_group
+    parser = Canql::Parser.new('all cases with structural, trisomy anomalies')
+    assert parser.valid?
+    assert_anomaly_count parser, 1
+    assert_anomaly_values parser, 0,
+                          'exists' => { Canql::EQUALS => true },
+                          'code_groups' => { Canql::EQUALS => %w[STRUCTURAL TRISOMY] }
+  end
+
+  def test_should_filter_by_multiple_code_group_and_codes
+    parser = Canql::Parser.new('all cases with q2, structural, trisomy or q3 anomalies')
+    assert parser.valid?
+    assert_anomaly_count parser, 1
+    assert_anomaly_values parser, 0,
+                          'exists' => { Canql::EQUALS => true },
+                          'code_groups' => { Canql::EQUALS => %w[STRUCTURAL TRISOMY] },
+                          'icd_codes' => { Canql::BEGINS => %w[Q2 Q3] }
+  end
+
+  def test_should_filter_by_code_group_and_type
+    parser = Canql::Parser.new('all cases with prenatal structural, trisomy anomalies')
+    assert parser.valid?
+    assert_anomaly_count parser, 1
+    assert_anomaly_values parser, 0,
+                          'exists' => { Canql::EQUALS => true },
+                          'type' => { Canql::EQUALS => 'prenatal' },
+                          'code_groups' => { Canql::EQUALS => %w[STRUCTURAL TRISOMY] }
+  end
+
+  def test_should_filter_by_multiple_code_group_and_status
+    parser = Canql::Parser.new('all cases with suspected structural, trisomy anomalies')
+    assert parser.valid?
+    assert_anomaly_count parser, 1
+    assert_anomaly_values parser, 0,
+                          'exists' => { Canql::EQUALS => true },
+                          'status' => { Canql::EQUALS => 'suspected' },
+                          'code_groups' => { Canql::EQUALS => %w[STRUCTURAL TRISOMY] }
+  end
+
+  def test_should_filter_by_multiple_code_group_type_and_status
+    parser = Canql::Parser.new('all cases with confirmed postnatal structural or trisomy anomalies')
+    assert parser.valid?
+    assert_anomaly_count parser, 1
+    assert_anomaly_values parser, 0,
+                          'exists' => { Canql::EQUALS => true },
+                          'type' => { Canql::EQUALS => 'postnatal' },
+                          'status' => { Canql::EQUALS => 'confirmed' },
+                          'code_groups' => { Canql::EQUALS => %w[STRUCTURAL TRISOMY] }
+  end
+
+  def test_should_filter_by_code_group_with_multiple_anomaly_clauses
+    parser = Canql::Parser.new(
+      'all cases with prenatal structural, trisomy anomalies and no diagnosed fasp anomalies'
+    )
+    assert parser.valid?
+
+    assert_anomaly_count parser, 2
+    assert_anomaly_values parser, 0,
+                          'exists' => { Canql::EQUALS => true },
+                          'type' => { Canql::EQUALS => 'prenatal' },
+                          'code_groups' => { Canql::EQUALS => %w[STRUCTURAL TRISOMY] }
+    assert_anomaly_values parser, 1,
+                          'exists' => { Canql::EQUALS => false },
+                          'status' => { Canql::EQUALS => 'diagnosed' },
+                          'code_groups' => { Canql::EQUALS => %w[FASP] }
+  end
 end

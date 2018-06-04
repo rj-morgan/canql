@@ -21,15 +21,19 @@ module Canql
     end
 
     rule more_anomalies_icd_codes
-      ','? space? ('or' space)? anomalies_icd_code <Nodes::Anomaly::AdditionalIcdCodeNode>
+      ','? space? ('or' space)? anomalies_icd_code <Nodes::Anomaly::AdditionalCodeNode>
     end
 
     rule anomalies_icd_code
-      icd_code_name <Nodes::Anomaly::SingleIcdCodeNode>
+      (icd_code_name / code_group)
     end
 
     rule icd_code_name
-      [a-z] [0-9] 1..3
+      [a-z] [0-9] 1..3 <Nodes::Anomaly::SingleIcdCodeNode>
+    end
+
+    rule code_group
+      ('fasp' / 'structural' / 'trisomy') <Nodes::Anomaly::SingleCodeGroupNode>
     end
   end
 end

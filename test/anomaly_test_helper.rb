@@ -5,7 +5,11 @@ module AnomalyTestHelper
   private
 
   def assert_anomaly_values(parser, index = 0, expected = {})
-    assert_dir_block_values(parser, 'anomalies', %w[exists type status icd_codes], index, expected)
+    assert_dir_block_values(
+      parser, 'anomalies',
+      %w[exists type status icd_codes code_groups],
+      index, expected
+    )
   end
 
   def assert_anomaly_count(parser, numder_of_blocks)

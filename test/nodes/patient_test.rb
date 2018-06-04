@@ -175,4 +175,13 @@ class PatientTest < Minitest::Test
     assert parser2.valid?, message2
     assert_equal(parser1.meta_data, parser2.meta_data, message3)
   end
+
+  def test_should_be_no_fields_for_field_existance_on_nonmother_field
+    parser = Canql::Parser.new('all cases with mother with populated outcome')
+    assert parser.valid?
+    assert_equal(
+      { Canql::EQUALS => [] },
+      parser.meta_data['mother.fields_populated']
+    )
+  end
 end
