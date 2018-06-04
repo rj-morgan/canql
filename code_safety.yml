@@ -153,8 +153,8 @@ file safety:
     safe_revision: 6932d590299ad4a9d2ba24b425b158c67142bf74
   lib/canql/version.rb:
     comments: 
-    reviewed_by: josh.pencheon
-    safe_revision: 518365b3f1ffc28debccb6bcef055b4329e90739
+    reviewed_by: timgentry
+    safe_revision: 78fc6f6aaee47fc11b073a8d8d975b4f7c9101cc
   test/anomaly_test_helper.rb:
     comments: 
     reviewed_by: timgentry
