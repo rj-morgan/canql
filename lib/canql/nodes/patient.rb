@@ -17,14 +17,17 @@ module Canql #:nodoc: all
 
       module FieldExists
         FIELDS = {
-          'date of birth':        { patient: 'birthdate', mother: 'birthdate' },
-          'dob':                  { patient: 'birthdate', mother: 'birthdate' },
-          'postcode':             { patient: 'postcode',  mother: 'postcode'  },
-          'nhs number':           { patient: 'nhsnumber', mother: 'nhsnumber' },
-          'birth weight':         { patient: 'weight' },
-          'place of delivery':    { patient: 'placeofdelivery' },
-          'sex':                  { patient: 'sex' },
-          'outcome':              { patient: 'outcome' }
+          'date of birth':          { patient: 'birthdate', mother: 'birthdate' },
+          'dob':                    { patient: 'birthdate', mother: 'birthdate' },
+          'postcode':               { patient: 'postcode',  mother: 'postcode'  },
+          'nhs number':             { patient: 'nhsnumber', mother: 'nhsnumber' },
+          'birth weight':           { patient: 'weight' },
+          'place of delivery':      { patient: 'placeofdelivery' },
+          'sex':                    { patient: 'sex' },
+          'outcome':                { patient: 'outcome' },
+          'edd':                    { patient: 'expecteddeliverydate' },
+          'expected delivery date': { patient: 'expecteddeliverydate' },
+          'booking hospital':       { patient: 'booking_hospital' }
         }.freeze
 
         def meta_data_item

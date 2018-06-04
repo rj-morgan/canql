@@ -32,7 +32,7 @@ def assert_meta_data_includes(combined_query, individual_queries)
 end
 
 def assert_array_includes(array, subset)
-  (subset - array).empty?
+  assert((subset - array).empty?)
 end
 
 def assert_dir_block_count(parser, block_type, numder_of_blocks)

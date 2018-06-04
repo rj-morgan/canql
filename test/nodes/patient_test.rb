@@ -184,4 +184,74 @@ class PatientTest < Minitest::Test
       parser.meta_data['mother.fields_populated']
     )
   end
+
+  def test_should_filter_on_missing_edd
+    parser = Canql::Parser.new('all cases with missing edd')
+    assert parser.valid?
+    assert_array_includes parser.meta_data['patient.fields_missing'][Canql::EQUALS],
+                          %w[expecteddeliverydate]
+
+    parser = Canql::Parser.new('all cases with missing expected delivery date')
+    assert parser.valid?
+    assert_array_includes parser.meta_data['patient.fields_missing'][Canql::EQUALS],
+                          %w[expecteddeliverydate]
+  end
+
+  def test_should_filter_on_missing_booking_hospital
+    parser = Canql::Parser.new('all cases with missing booking hospital')
+    assert parser.valid?
+    assert_array_includes parser.meta_data['patient.fields_missing'][Canql::EQUALS],
+                          %w[booking_hospital]
+  end
+
+  def test_should_filter_on_populated_edd
+    parser = Canql::Parser.new('all cases with populated edd')
+    assert parser.valid?
+    assert_array_includes parser.meta_data['patient.fields_populated'][Canql::EQUALS],
+                          %w[expecteddeliverydate]
+
+    parser = Canql::Parser.new('all cases with populated expected delivery date')
+    assert parser.valid?
+    assert_array_includes parser.meta_data['patient.fields_populated'][Canql::EQUALS],
+                          %w[expecteddeliverydate]
+  end
+
+  def test_should_filter_on_populated_booking_hospital
+    parser = Canql::Parser.new('all cases with populated booking hospital')
+    assert parser.valid?
+    assert_array_includes parser.meta_data['patient.fields_populated'][Canql::EQUALS],
+                          %w[booking_hospital]
+  end
+
+  def test_should_not_filter_on_missing_edd_on_mother
+    parser = Canql::Parser.new('all cases with mother with missing edd')
+    assert parser.valid?
+    assert parser.meta_data['mother.fields_missing'][Canql::EQUALS].empty?
+
+    parser = Canql::Parser.new('all cases with mother with missing expected delivery date')
+    assert parser.valid?
+    assert parser.meta_data['mother.fields_missing'][Canql::EQUALS].empty?
+  end
+
+  def test_should_not_filter_on_missing_booking_hospital_on_mother
+    parser = Canql::Parser.new('all cases with mother with missing booking hospital')
+    assert parser.valid?
+    assert parser.meta_data['mother.fields_missing'][Canql::EQUALS].empty?
+  end
+
+  def test_should_not_filter_on_populated_edd_on_mother
+    parser = Canql::Parser.new('all cases with mother with populated edd')
+    assert parser.valid?
+    assert parser.meta_data['mother.fields_populated'][Canql::EQUALS].empty?
+
+    parser = Canql::Parser.new('all cases with mother with populated expected delivery date')
+    assert parser.valid?
+    assert parser.meta_data['mother.fields_populated'][Canql::EQUALS].empty?
+  end
+
+  def test_should_not_filter_on_missing_booking_hospital_on_mother
+    parser = Canql::Parser.new('all cases with mother with populated booking hospital')
+    assert parser.valid?
+    assert parser.meta_data['mother.fields_populated'][Canql::EQUALS].empty?
+  end
 end
