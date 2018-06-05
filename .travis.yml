@@ -1,16 +1,18 @@
 language: ruby
-
 rvm:
-  - 2.3
-  - 2.4
-  - 2.5
-
+- 2.3
+- 2.4
+- 2.5
 sudo: false
-
 cache: bundler
-
 before_install:
-  - gem update --system
-  - gem install bundler
-
-before_script: "bundle update"
+- gem update --system
+- gem install bundler
+before_script: bundle update
+notifications:
+  slack:
+    on_pull_requests: false
+    on_success: always
+    on_failure: always
+    rooms:
+      secure: ixok7nqnRMtP4IqhLhSetpK8AI70aUhqUYiijoCkQ65I/TwRz0cbkl4PChTBLMbUiN1lhXtujg8CcVf++6QMj+vzrpfTIPkw3W/TG4zTJa0FaSg9h1zHX/9hXXw4QOIUvwstH51ay2ONZDVvm2Z1dIMkOFkcw2ndl4VnvtX5Xnekf3jUUvAmCNboLaKiUx5mqKo6KvMq3w7yakik5kQ3462QXoaI7PCEYiPK+CoskqX6aEyDREhCjV6nnzbEaZPBfpJjDp5KLRoFN6BT+Px8tD/lrAHMrW5gkzOtN5zGw9jjgjxp8cOsPoaYsCApQWjnSnRjcXy+g2Pw+SyxIshPE07cazB9fjTVDEiz2P+tb7hh/YEjM3uSJQFs37mIqir2NaUlFQSLwLP2HAX3DvYZeVKQMj8X+pH7Ad6iYGs8soGxrjznL7e1hfUoB89SkNHYTzBbsFy7pMVmTEfPG/MvjFmUgTai40lEvWyRJ4CbDsJ6W/KaLKUOMZpFZ+x/Sc10r9O1FZCKVpfnuRHLQXUj8cqcDags9evB5x6/ECn8zEGs7aX6ZTebPx+2D9sywmvy2LFL9Sjx+L8FYtzTXGBwip3rZOTNZhByzPDVwb0gJqamqRF0cET5RwNqb0Pohs9ScMMQwJnZGznvUbmjMQcemq/s51A6n+5g/Z31j+T482g=
