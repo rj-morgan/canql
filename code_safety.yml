@@ -14,8 +14,8 @@ file safety:
     safe_revision: 5bc563431f7822e2baf37bbeac9861c36675602d
   ".travis.yml":
     comments: 
-    reviewed_by: timgentry
-    safe_revision: b0b9a616908e7aab28c8c47f997b6af8062aa83a
+    reviewed_by: josh.pencheon
+    safe_revision: ce5d961ef757500c8d12d7ca72a900ff7040378a
   CODE_OF_CONDUCT.md:
     comments: 
     reviewed_by: drewthorp
