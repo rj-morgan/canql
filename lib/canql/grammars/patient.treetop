@@ -53,7 +53,7 @@ module Canql
     end
 
     rule mother_with_conditions
-      patient_field_existance
+      patient_field_existance / action_or_ebr
     end
   end
 end
