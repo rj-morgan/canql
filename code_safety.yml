@@ -91,8 +91,8 @@ file safety:
   lib/canql/grammars/patient.treetop:
     comments: It is a known issue that this is potentially susceptible to certain
       kinds of DoS attack
-    reviewed_by: josh.pencheon
-    safe_revision: a1686a3905ee6d7ebc8c5b1786efba4f8df42a2d
+    reviewed_by: timgentry
+    safe_revision: 1b73bdcf483c6e44979e183c5873a1f0612a49a1
   lib/canql/grammars/registry.treetop:
     comments: It is a known issue that this is potentially susceptible to certain
       kinds of DoS attack
@@ -126,7 +126,7 @@ file safety:
   lib/canql/nodes/e_base_records.rb:
     comments: 
     reviewed_by: timgentry
-    safe_revision: 6932d590299ad4a9d2ba24b425b158c67142bf74
+    safe_revision: 1b73bdcf483c6e44979e183c5873a1f0612a49a1
   lib/canql/nodes/main.rb:
     comments: 
     reviewed_by: timgentry
@@ -153,8 +153,8 @@ file safety:
     safe_revision: 6932d590299ad4a9d2ba24b425b158c67142bf74
   lib/canql/version.rb:
     comments: 
-    reviewed_by: josh.pencheon
-    safe_revision: fd9111207d7d42f278568eddbc677789219f0109
+    reviewed_by: timgentry
+    safe_revision: df59353b99c2536124308c7c137e8f0587676200
   test/anomaly_test_helper.rb:
     comments: 
     reviewed_by: timgentry
@@ -187,6 +187,10 @@ file safety:
     comments: 
     reviewed_by: timgentry
     safe_revision: 6932d590299ad4a9d2ba24b425b158c67142bf74
+  test/nodes/mother_e_base_records_test.rb:
+    comments: 
+    reviewed_by: timgentry
+    safe_revision: 1b73bdcf483c6e44979e183c5873a1f0612a49a1
   test/nodes/patient_test.rb:
     comments: 
     reviewed_by: josh.pencheon
