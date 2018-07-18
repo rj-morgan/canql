@@ -1,0 +1,15 @@
+module Canql
+  grammar GeneticTest
+    rule genetic_tests
+      and_keyword? existance_modifier:genetic_tests_no_keyword? genetic_tests_keyword <Nodes::GeneticTest::WithCondition>
+    end
+
+    rule genetic_tests_no_keyword
+      space ('no' / 'some') word_break
+    end
+
+    rule genetic_tests_keyword
+      space 'genetic tests' word_break
+    end
+  end
+end
