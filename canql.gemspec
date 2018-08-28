@@ -36,7 +36,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'guard-minitest'
   spec.add_development_dependency 'guard-rubocop'
   spec.add_development_dependency 'minitest'
-  spec.add_development_dependency 'ndr_dev_support', '>= 3.0', '<6'
+  spec.add_development_dependency 'ndr_dev_support', '~> 3.1', '>= 3.1.2'
   spec.add_development_dependency 'pry'
   spec.add_development_dependency 'rake'
   spec.add_development_dependency 'terminal-notifier-guard' if RUBY_PLATFORM =~ /darwin/
