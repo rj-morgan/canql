@@ -1,0 +1,15 @@
+## [Unreleased]
+### Fixed
+* Support Ruby 2.6.
+
+## 2.4.0 / 2018-07-19
+### Added
+* add ability to filter by genetic tests (#17)
+
+## 2.3.0 / 2018-06-08
+### Added
+* Added action and ebr clauses for mother patients (#16)
+
+## 2.2.0 / 2018-06-05
+### Added
+* Added EDD and booking hospital to missing and populated field clause (#15)
