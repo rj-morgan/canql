@@ -1,6 +1,6 @@
 ## [Unreleased]
 ### Fixed
-* Support Ruby 2.6.
+* Support Ruby 2.6 - minimum is now 2.4
 
 ## 2.4.0 / 2018-07-19
 ### Added
