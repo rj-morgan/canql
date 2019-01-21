@@ -29,6 +29,13 @@ class EBaseRecordsTest < Minitest::Test
     assert_equal({ Canql::EQUALS => 'RGT01' }, parser.meta_data['action.providercode'])
   end
 
+  def test_should_filter_by_action_trust_code
+    parser = Canql::Parser.new('all cases with search action at trust RGT')
+    assert parser.valid?
+    assert_equal({ Canql::EQUALS => 'SEARCH' }, parser.meta_data['action.actioninitiated'])
+    assert_equal({ Canql::BEGINS => 'RGT' }, parser.meta_data['action.providercode'])
+  end
+
   def test_should_filter_by_no_outstanding_actions
     parser = Canql::Parser.new('all cases with no outstanding actions')
     assert parser.valid?
@@ -46,6 +53,14 @@ class EBaseRecordsTest < Minitest::Test
     assert parser.valid?
     assert_equal({ Canql::EQUALS => 'SEARCH' }, parser.meta_data['action.actioninitiated'])
     assert_equal({ Canql::BEGINS => 'ADDENBROOKES', :interval => 32...53 },
+                 parser.meta_data['action.providername'])
+  end
+
+  def test_should_filter_by_action_trust_name
+    parser = Canql::Parser.new('all cases with search action at addenbrookes trust')
+    assert parser.valid?
+    assert_equal({ Canql::EQUALS => 'SEARCH' }, parser.meta_data['action.actioninitiated'])
+    assert_equal({ Canql::BEGINS => 'ADDENBROOKES', :interval => 32...50 },
                  parser.meta_data['action.providername'])
   end
 
