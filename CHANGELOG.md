@@ -1,4 +1,7 @@
 ## [Unreleased]
+*no unreleased changes*
+
+## 2.5.0 / 2019-01-25
 ### Added
 * Added the abiltity to filter actions by trust as well as hospital (#18)
 * Added the abiltity to filter cases by booking and delivery hospital & trust (#18)
