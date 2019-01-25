@@ -31,7 +31,6 @@ class MotherEBaseRecordsTest < Minitest::Test
 
   def test_should_filter_mother_by_action_hosital_name
     parser = Canql::Parser.new('all cases with mother with search action at addenbrookes hospital')
-    assert parser.valid?
     assert_equal({ Canql::EQUALS => 'SEARCH' }, parser.meta_data['action.mother.actioninitiated'])
     assert_equal({ Canql::BEGINS => 'ADDENBROOKES', :interval => 44...65 },
                  parser.meta_data['action.mother.providername'])

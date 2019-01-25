@@ -61,21 +61,12 @@ module Canql
       space 'action' 's'? word_break
     end
 
-    rule at_keyword
-      space 'at' word_break
-    end
-
     rule action_provider_code
-      provider_type space code:(!' ' .)+ <Nodes::ActionProviderCodeNode>
+      provider_code <Nodes::ActionProviderCodeNode>
     end
 
     rule action_provider_name
-      short_desc:(!(space provider_type) .)+ space provider_type <Nodes::ActionProviderNameNode>
-    end
-
-    # TODO: support cancer network?
-    rule provider_type
-      'hospital'
+      provider_name <Nodes::ActionProviderNameNode>
     end
 
     rule unprocessed_keyword

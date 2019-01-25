@@ -44,13 +44,15 @@ class ParserTest < Minitest::Test
       expected between 20/06/2015 and 25/06/2015 \
       and born on 22/06/2015 and that died on 01/12/2015 \
       with suspected prenatal q20 anomalies \
+      and booking at hospital RGT01 \
+      and delivery at addenbrookes trust \
       and postnatal tests and missing postcode and date of birth \
       and qa action and unprocessed paediatric records \
       and mother born between 01/10/1990 and 10/01/1999 \
       and who died on 01/01/2016 \
       with fields postcode and nhs number")
     assert parser.valid?
-    assert_equal 15, parser.meta_data.count
+    assert_equal 17, parser.meta_data.count
     individual_queries = [
       'first 27 cases',
       'first 27 babies',
@@ -86,7 +88,9 @@ class ParserTest < Minitest::Test
       'all cases with mother born between 01/10/1990 and 10/01/1999',
       'all babies with mother born between 01/10/1990 and 10/01/1999',
       'all cases with mother that died on 01/01/2016',
-      'all cases who died on 01/12/2015'
+      'all cases who died on 01/12/2015',
+      'all cases with booking at hospital RGT01',
+      'all case delivery at addenbrookes trust'
     ]
     assert_meta_data_includes(parser, individual_queries)
   end

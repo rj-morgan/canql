@@ -1,0 +1,15 @@
+module Canql
+  grammar Provider
+    rule provider_type
+      'hospital' / 'trust'
+    end
+
+    rule provider_code
+      provider_type space code:(!' ' .)+
+    end
+
+    rule provider_name
+      short_desc:(!(space provider_type) .)+ space provider_type
+    end
+  end
+end

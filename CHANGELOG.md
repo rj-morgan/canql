@@ -1,4 +1,7 @@
 ## [Unreleased]
+### Added
+* Added the abiltity to filter actions by trust as well as hospital (#18)
+* Added the abiltity to filter cases by booking and delivery hospital & trust (#18)
 ### Fixed
 * Support Ruby 2.6 - minimum is now 2.4
 

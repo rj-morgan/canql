@@ -54,7 +54,8 @@ module Canql #:nodoc: all
         # default to provider
         subject = reverse_scan_for_marker(:subject) == 'mother' ? '.mother' : ''
         key = 'providercode'
-        { "action#{subject}.#{key}" => { Canql::EQUALS => code.text_value.upcase } }
+        condition = provider_type.text_value == 'trust' ? Canql::BEGINS : Canql::EQUALS
+        { "action#{subject}.#{key}" => { condition => code.text_value.upcase } }
       end
     end
 
@@ -62,7 +63,7 @@ module Canql #:nodoc: all
       def meta_data_item
         # default to provider
         subject = reverse_scan_for_marker(:subject) == 'mother' ? '.mother' : ''
-        key = provider_type.text_value == 'cancer network' ? 'cn_ukacrname' : 'providername'
+        key = 'providername'
         {
           "action#{subject}.#{key}" => {
             Canql::BEGINS => short_desc.text_value.upcase,

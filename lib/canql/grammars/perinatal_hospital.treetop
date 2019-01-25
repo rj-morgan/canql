@@ -1,0 +1,31 @@
+module Canql
+  grammar PerinatalHospital
+    rule perinatal_hospital
+      and_keyword? space hospital_event:perinatal_hospital_type space perinatal_provider word_break
+    end
+
+    rule perinatal_provider
+      'at' space provider:(perinatal_provider_code / perinatal_provider_name)
+    end
+
+    rule perinatal_provider_code
+      provider_code <Nodes::PerinatalProviderCodeNode>
+    end
+
+    rule perinatal_provider_name
+      provider_name <Nodes::PerinatalProviderNameNode>
+    end
+
+    rule perinatal_hospital_type
+      booking_hospital_keyword / delivery_hospital_keyword
+    end
+
+    rule booking_hospital_keyword
+      'booking'
+    end
+
+    rule delivery_hospital_keyword
+      'delivery'
+    end
+  end
+end
