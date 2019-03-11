@@ -1,5 +1,6 @@
 ## [Unreleased]
-*no unreleased changes*
+### Added
+* Added the ability to limit cases to primary or alias patients (#20)
 
 ## 2.5.0 / 2019-01-25
 ### Added

@@ -8,6 +8,10 @@ module Canql
       space outcome:('stillborn' / 'liveborn' / 'miscarried' / 'terminated' / 'registrable' / 'non-registrable' ) word_break <Nodes::Patient::OutcomeNode>
     end
 
+    rule primacy
+      space primacy:('primary' / 'alias' ) word_break <Nodes::Patient::PrimacyNode>
+    end
+
     rule expected_keyword
       space ('expected' / 'due') word_break
     end

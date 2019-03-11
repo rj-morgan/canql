@@ -15,6 +15,12 @@ module Canql #:nodoc: all
         end
       end
 
+      module PrimacyNode
+        def meta_data_item
+          { 'patient.primacy' => { Canql::EQUALS => primacy.text_value } }
+        end
+      end
+
       module FieldExists
         FIELDS = {
           'date of birth':          { patient: 'birthdate', mother: 'birthdate' },
