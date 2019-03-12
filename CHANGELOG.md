@@ -1,4 +1,7 @@
 ## [Unreleased]
+*no unreleased changes*
+
+## 2.6.0 / 2019-03-12
 ### Added
 * Added the ability to limit cases to primary or alias patients (#20)
 * Added support for ENOTE2, BADGER and UCYTO batched types (#21)
