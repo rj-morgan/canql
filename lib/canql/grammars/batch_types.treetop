@@ -1,11 +1,23 @@
 module Canql
   grammar BatchTypes
     rule batch_type
-      paediatric <Nodes::BatchTypeNode>
+      (paediatric / enote2 / badger / ucyto) <Nodes::BatchTypeNode>
     end
 
     rule paediatric
       'paediatric' <Nodes::PaediatricNode>
+    end
+
+    rule enote2
+      ('enote' / 'electronic notification') <Nodes::Enote2Node>
+    end
+
+    rule badger
+      'badger' <Nodes::BadgerNode>
+    end
+
+    rule ucyto
+      ('ucyto' / 'cytogenetic' / 'cyto') <Nodes::UcytoNode>
     end
   end
 end
