@@ -40,6 +40,18 @@ class PatientTest < Minitest::Test
     assert_equal({ Canql::EQUALS => 'terminated' }, parser.meta_data['patient.outcome'])
   end
 
+  def test_should_filter_by_primary_patient
+    parser = Canql::Parser.new('all primary cases')
+    assert parser.valid?
+    assert_equal({ Canql::EQUALS => 'primary' }, parser.meta_data['patient.primacy'])
+  end
+
+  def test_should_filter_by_alias_patient
+    parser = Canql::Parser.new('all alias cases')
+    assert parser.valid?
+    assert_equal({ Canql::EQUALS => 'alias' }, parser.meta_data['patient.primacy'])
+  end
+
   def test_should_filter_on_specific_edd
     parser = Canql::Parser.new('all cases expected on 20/06/2015')
     assert parser.valid?
@@ -245,12 +257,6 @@ class PatientTest < Minitest::Test
     assert parser.meta_data['mother.fields_populated'][Canql::EQUALS].empty?
 
     parser = Canql::Parser.new('all cases with mother with populated expected delivery date')
-    assert parser.valid?
-    assert parser.meta_data['mother.fields_populated'][Canql::EQUALS].empty?
-  end
-
-  def test_should_not_filter_on_missing_booking_hospital_on_mother
-    parser = Canql::Parser.new('all cases with mother with populated booking hospital')
     assert parser.valid?
     assert parser.meta_data['mother.fields_populated'][Canql::EQUALS].empty?
   end

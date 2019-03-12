@@ -14,5 +14,23 @@ module Canql #:nodoc: all
         'paediatric'
       end
     end
+
+    module Enote2Node
+      def normalise
+        'enote2'
+      end
+    end
+
+    module BadgerNode
+      def normalise
+        'badger'
+      end
+    end
+
+    module UcytoNode
+      def normalise
+        'ucyto'
+      end
+    end
   end
 end

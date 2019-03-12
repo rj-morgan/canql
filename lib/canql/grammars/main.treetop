@@ -48,7 +48,7 @@ grammar Canql
   end
 
   rule preconditions
-    registry / gender / outcome
+    registry / gender / outcome / primacy
   end
 
   rule additional_conditions

@@ -48,4 +48,40 @@ class MotherEBaseRecordsTest < Minitest::Test
     assert_equal({ Canql::EQUALS => ['PAEDIATRIC'] },
                  parser.meta_data['unprocessed_records.mother.sources'])
   end
+
+  def test_should_filter_mothers_by_unprocessed_enote2_records
+    parser = Canql::Parser.new('all cases with mother with unprocessed enote records')
+    assert parser.valid?
+    assert_equal({ Canql::EQUALS => ['ENOTE2'] },
+                 parser.meta_data['unprocessed_records.mother.sources'])
+
+    parser = Canql::Parser.new('all cases with mother with unprocessed electronic notification records')
+    assert parser.valid?
+    assert_equal({ Canql::EQUALS => ['ENOTE2'] },
+                 parser.meta_data['unprocessed_records.mother.sources'])
+  end
+
+  def test_should_filter_mothers_by_unprocessed_badger_records
+    parser = Canql::Parser.new('all cases with mother with unprocessed badger records')
+    assert parser.valid?
+    assert_equal({ Canql::EQUALS => ['BADGER'] },
+                 parser.meta_data['unprocessed_records.mother.sources'])
+  end
+
+  def test_should_filter_mothers_by_unprocessed_ucyto_records
+    parser = Canql::Parser.new('all cases with mother with unprocessed ucyto records')
+    assert parser.valid?
+    assert_equal({ Canql::EQUALS => ['UCYTO'] },
+                 parser.meta_data['unprocessed_records.mother.sources'])
+
+    parser = Canql::Parser.new('all cases with mother with unprocessed cyto records')
+    assert parser.valid?
+    assert_equal({ Canql::EQUALS => ['UCYTO'] },
+                 parser.meta_data['unprocessed_records.mother.sources'])
+
+    parser = Canql::Parser.new('all cases with mother with unprocessed cytogenetic records')
+    assert parser.valid?
+    assert_equal({ Canql::EQUALS => ['UCYTO'] },
+                 parser.meta_data['unprocessed_records.mother.sources'])
+  end
 end
