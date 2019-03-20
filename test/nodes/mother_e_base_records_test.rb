@@ -84,4 +84,35 @@ class MotherEBaseRecordsTest < Minitest::Test
     assert_equal({ Canql::EQUALS => ['UCYTO'] },
                  parser.meta_data['unprocessed_records.mother.sources'])
   end
+
+  def test_should_filter_mothers_by_unprocessed_nipt_records
+    parser = Canql::Parser.new('all cases with mother with unprocessed nipt records')
+    assert parser.valid?
+    assert_equal({ Canql::EQUALS => ['NIPT'] },
+                 parser.meta_data['unprocessed_records.mother.sources'])
+  end
+
+  def test_should_filter_mothers_by_unprocessed_rddeath_records
+    parser = Canql::Parser.new('all cases with mother with unprocessed rddeath records')
+    assert parser.valid?
+    assert_equal({ Canql::EQUALS => ['RD_DEATH'] },
+                 parser.meta_data['unprocessed_records.mother.sources'])
+
+    parser = Canql::Parser.new('all cases with mother with unprocessed rare disease death records')
+    assert parser.valid?
+    assert_equal({ Canql::EQUALS => ['RD_DEATH'] },
+                 parser.meta_data['unprocessed_records.mother.sources'])
+  end
+
+  def test_should_filter_mothers_by_unprocessed_umum_records
+    parser = Canql::Parser.new('all cases with mother with unprocessed umum records')
+    assert parser.valid?
+    assert_equal({ Canql::EQUALS => ['UMUM'] },
+                 parser.meta_data['unprocessed_records.mother.sources'])
+
+    parser = Canql::Parser.new('all cases with mother with unprocessed mum records')
+    assert parser.valid?
+    assert_equal({ Canql::EQUALS => ['UMUM'] },
+                 parser.meta_data['unprocessed_records.mother.sources'])
+  end
 end

@@ -32,5 +32,23 @@ module Canql #:nodoc: all
         'ucyto'
       end
     end
+
+    module NiptNode
+      def normalise
+        'nipt'
+      end
+    end
+
+    module RddeathNode
+      def normalise
+        'rd_death'
+      end
+    end
+
+    module UmumNode
+      def normalise
+        'umum'
+      end
+    end
   end
 end
