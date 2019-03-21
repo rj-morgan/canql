@@ -1,5 +1,5 @@
 ## [Unreleased]
-*no unreleased changes*
++ Added support for NIPT, RD_DEATH and UMUM batch types (#23)
 
 ## 2.6.0 / 2019-03-12
 ### Added
