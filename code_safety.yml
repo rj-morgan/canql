@@ -19,7 +19,7 @@ file safety:
   CHANGELOG.md:
     comments: 
     reviewed_by: josh.pencheon
-    safe_revision: d26cf2ffd4e2615c9c140cce56be1a809252f331
+    safe_revision: 1c52e8012fa111fc6d07bd1b67b30b43bc0e5fd2
   CODE_OF_CONDUCT.md:
     comments: 
     reviewed_by: drewthorp
@@ -77,7 +77,7 @@ file safety:
   lib/canql/grammars/batch_types.treetop:
     comments: 
     reviewed_by: josh.pencheon
-    safe_revision: '0967ae095f7215d4972856133f5c36bf00a28391'
+    safe_revision: 1892161f3c300f3b199aa318b3fe23a54dd80829
   lib/canql/grammars/dates.treetop:
     comments: It is a known issue that this is potentially susceptible to certain
       kinds of DoS attack
@@ -134,7 +134,7 @@ file safety:
   lib/canql/nodes/batch_types.rb:
     comments: 
     reviewed_by: josh.pencheon
-    safe_revision: '0967ae095f7215d4972856133f5c36bf00a28391'
+    safe_revision: 1892161f3c300f3b199aa318b3fe23a54dd80829
   lib/canql/nodes/dates.rb:
     comments: 
     reviewed_by: timgentry
@@ -178,7 +178,7 @@ file safety:
   lib/canql/version.rb:
     comments: 
     reviewed_by: josh.pencheon
-    safe_revision: d26cf2ffd4e2615c9c140cce56be1a809252f331
+    safe_revision: 1c52e8012fa111fc6d07bd1b67b30b43bc0e5fd2
   test/anomaly_test_helper.rb:
     comments: 
     reviewed_by: timgentry
@@ -206,7 +206,7 @@ file safety:
   test/nodes/e_base_records_test.rb:
     comments: 
     reviewed_by: josh.pencheon
-    safe_revision: '0967ae095f7215d4972856133f5c36bf00a28391'
+    safe_revision: 1892161f3c300f3b199aa318b3fe23a54dd80829
   test/nodes/genetic_tests_test.rb:
     comments: 
     reviewed_by: josh.pencheon
@@ -218,7 +218,7 @@ file safety:
   test/nodes/mother_e_base_records_test.rb:
     comments: 
     reviewed_by: josh.pencheon
-    safe_revision: '0967ae095f7215d4972856133f5c36bf00a28391'
+    safe_revision: 1892161f3c300f3b199aa318b3fe23a54dd80829
   test/nodes/patient_test.rb:
     comments: 
     reviewed_by: josh.pencheon
