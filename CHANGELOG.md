@@ -1,5 +1,5 @@
 ## [Unreleased]
-*no unreleased changes*
+* Add filtering by anomaly screening status (#25)
 
 ## 2.7.0 / 2019-03-21
 ### Added

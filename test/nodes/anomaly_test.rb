@@ -94,4 +94,24 @@ class AnomalyTest < Minitest::Test
                           'exists' => { Canql::EQUALS => true },
                           'type' => { Canql::EQUALS => 'prenatal' }
   end
+
+  def test_should_filter_by_screening_status
+    possible_statuses = [
+      'unscreened', 'fa detected', 'fapos', 'combined detected', 'ctpos', 'quad detected',
+      'qtpos', 'fa undetected', 'faneg', 'combined undetected', 'ctneg', 'quad undetected',
+      'qtneg', 'nonwindow', 'nws', 'incomplete screen', 'ics', 'ineligible unbooked', 'inb',
+      'early detected', 'ied', 'screen declined', 'sd', 'ineligible early loss', 'iefl',
+      'ineligible top', 'itop', 'missed screen', 'ms', 'excluded', 'exc', 'detected',
+      'undetected', 'ineligible'
+    ]
+    possible_statuses.each do |screening_status|
+      query = "all cases with some #{screening_status} anomalies"
+      parser = Canql::Parser.new(query)
+      assert parser.valid?
+      assert_anomaly_count parser, 1
+      assert_anomaly_values parser, 0,
+                            'exists' => { Canql::EQUALS => true },
+                            'screening_status' => { Canql::EQUALS => screening_status }
+    end
+  end
 end
