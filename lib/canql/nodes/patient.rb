@@ -33,7 +33,8 @@ module Canql #:nodoc: all
           'outcome':                { patient: 'outcome' },
           'edd':                    { patient: 'expecteddeliverydate' },
           'expected delivery date': { patient: 'expecteddeliverydate' },
-          'booking hospital':       { patient: 'booking_hospital' }
+          'booking hospital':       { patient: 'booking_hospital' },
+          'screening status':       { patient: 'screeningstatus' }
         }.freeze
 
         def meta_data_item

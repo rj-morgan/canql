@@ -1,5 +1,6 @@
 ## [Unreleased]
-* Add filtering by anomaly screening status (#25)
+* Added filtering by anomaly screening status (#25)
+* Added anomaly screening status to field existance list (#26)
 
 ## 2.7.0 / 2019-03-21
 ### Added

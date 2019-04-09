@@ -36,7 +36,7 @@ module Canql
       patient_field_name:(
         'date of birth' / 'dob' / 'nhs number' / 'postcode' / 'birth weight' /
         'place of delivery' / 'sex' / 'outcome' / 'edd' /
-        'expected delivery date' / 'booking hospital'
+        'expected delivery date' / 'booking hospital' / 'screening status'
       )
     end
 
