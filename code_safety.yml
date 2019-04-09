@@ -19,7 +19,7 @@ file safety:
   CHANGELOG.md:
     comments: 
     reviewed_by: josh.pencheon
-    safe_revision: 1c52e8012fa111fc6d07bd1b67b30b43bc0e5fd2
+    safe_revision: 6275607eaf61d9f767977c4e1984c57bb3080984
   CODE_OF_CONDUCT.md:
     comments: 
     reviewed_by: drewthorp
@@ -72,8 +72,8 @@ file safety:
   lib/canql/grammars/anomaly.treetop:
     comments: It is a known issue that this is potentially susceptible to certain
       kinds of DoS attack
-    reviewed_by: timgentry
-    safe_revision: 695cec7ee61f36a9ef054a4079f290421d814666
+    reviewed_by: josh.pencheon
+    safe_revision: 73a7dac17b20fcc77bcbd9d38777c8aa4d524816
   lib/canql/grammars/batch_types.treetop:
     comments: 
     reviewed_by: josh.pencheon
@@ -100,7 +100,7 @@ file safety:
     comments: It is a known issue that this is potentially susceptible to certain
       kinds of DoS attack
     reviewed_by: josh.pencheon
-    safe_revision: 1b5795e8b5e20395f17277050f17ff0db6f0f556
+    safe_revision: 38369f1f26167f396d1705ec88611103d5262726
   lib/canql/grammars/perinatal_hospital.treetop:
     comments: 
     reviewed_by: josh.pencheon
@@ -129,8 +129,8 @@ file safety:
     safe_revision: 6932d590299ad4a9d2ba24b425b158c67142bf74
   lib/canql/nodes/anomaly.rb:
     comments: 
-    reviewed_by: timgentry
-    safe_revision: 695cec7ee61f36a9ef054a4079f290421d814666
+    reviewed_by: josh.pencheon
+    safe_revision: 73a7dac17b20fcc77bcbd9d38777c8aa4d524816
   lib/canql/nodes/batch_types.rb:
     comments: 
     reviewed_by: josh.pencheon
@@ -154,7 +154,7 @@ file safety:
   lib/canql/nodes/patient.rb:
     comments: 
     reviewed_by: josh.pencheon
-    safe_revision: 1b5795e8b5e20395f17277050f17ff0db6f0f556
+    safe_revision: 38369f1f26167f396d1705ec88611103d5262726
   lib/canql/nodes/perinatal_hospital.rb:
     comments: 
     reviewed_by: josh.pencheon
@@ -178,11 +178,11 @@ file safety:
   lib/canql/version.rb:
     comments: 
     reviewed_by: josh.pencheon
-    safe_revision: 1c52e8012fa111fc6d07bd1b67b30b43bc0e5fd2
+    safe_revision: 6275607eaf61d9f767977c4e1984c57bb3080984
   test/anomaly_test_helper.rb:
     comments: 
-    reviewed_by: timgentry
-    safe_revision: 695cec7ee61f36a9ef054a4079f290421d814666
+    reviewed_by: josh.pencheon
+    safe_revision: 73a7dac17b20fcc77bcbd9d38777c8aa4d524816
   test/canql_test.rb:
     comments: 
     reviewed_by: timgentry
@@ -197,8 +197,8 @@ file safety:
     safe_revision: 6932d590299ad4a9d2ba24b425b158c67142bf74
   test/nodes/anomaly_test.rb:
     comments: 
-    reviewed_by: timgentry
-    safe_revision: bf2fbe12794f8b53e30a1ace01677cf6f215dbca
+    reviewed_by: josh.pencheon
+    safe_revision: 73a7dac17b20fcc77bcbd9d38777c8aa4d524816
   test/nodes/code_test.rb:
     comments: 
     reviewed_by: timgentry
@@ -222,7 +222,7 @@ file safety:
   test/nodes/patient_test.rb:
     comments: 
     reviewed_by: josh.pencheon
-    safe_revision: 1b5795e8b5e20395f17277050f17ff0db6f0f556
+    safe_revision: 38369f1f26167f396d1705ec88611103d5262726
   test/nodes/perinatal_hospital_test.rb:
     comments: 
     reviewed_by: josh.pencheon
