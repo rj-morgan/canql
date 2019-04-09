@@ -12,10 +12,17 @@ module Canql #:nodoc: all
           status_type.text_value.strip
         end
 
+        def anomaly_screening_status_type
+          screening_status_type.text_value.strip
+        end
+
         def to_anomaly
           anomaly_hash = { 'exists' => existance_filter }
           anomaly_hash['type'] = anomaly_type_filter if anomaly_type.present?
           anomaly_hash['status'] = anomaly_status_type_filter if anomaly_status_type.present?
+          if anomaly_screening_status_type.present?
+            anomaly_hash['screening_status'] = anomaly_screening_status_type_filter
+          end
           anomaly_hash['icd_codes'] = code_filter[:icd_code] if code_filter[:icd_code].present?
           return anomaly_hash if code_filter[:code_group].blank?
           anomaly_hash['code_groups'] = code_filter[:code_group]
@@ -32,6 +39,10 @@ module Canql #:nodoc: all
 
         def anomaly_status_type_filter
           { Canql::EQUALS => anomaly_status_type }
+        end
+
+        def anomaly_screening_status_type_filter
+          { Canql::EQUALS => anomaly_screening_status_type }
         end
 
         def code_type(code)

@@ -1,7 +1,7 @@
 module Canql
   grammar Anomaly
     rule anomalies
-      and_keyword? existance_modifier:anomalies_no_keyword? status_type:anomaly_status? natal_period:anomalies_natal_period? code_data:(space first:anomalies_icd_code rest:more_anomalies_icd_codes* word_break)? anomalies_keyword <Nodes::Anomaly::WithCondition>
+      and_keyword? existance_modifier:anomalies_no_keyword? status_type:anomaly_status? natal_period:anomalies_natal_period? screening_status_type:anomaly_screening_status? code_data:(space first:anomalies_icd_code rest:more_anomalies_icd_codes* word_break)? anomalies_keyword <Nodes::Anomaly::WithCondition>
     end
 
     rule anomalies_no_keyword
@@ -14,6 +14,16 @@ module Canql
 
     rule anomaly_status
       (suspected_keyword / confirmed_keyword / probable_keyword / diagnosed_keyword)
+    end
+
+    rule anomaly_screening_status
+      space ('unscreened' / 'fa detected' / 'fapos' / 'combined detected' / 'ctpos' /
+       'quad detected' / 'qtpos' / 'fa undetected' / 'faneg' / 'combined undetected' /
+       'ctneg' / 'quad undetected' / 'qtneg' / 'nonwindow' / 'nws' / 'incomplete screen' /
+       'ics' / 'ineligible unbooked' / 'inb' / 'early detected' / 'ied' /
+       'screen declined' / 'sd' / 'ineligible early loss' / 'iefl' / 'ineligible top' /
+       'itop' / 'missed screen' / 'ms' / 'excluded' / 'exc' / 'detected' /
+       'undetected' / 'ineligible') word_break
     end
 
     rule anomalies_keyword
