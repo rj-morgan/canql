@@ -1,4 +1,8 @@
 ## [Unreleased]
+*no unreleased changes*
+
+## 2.8.0 / 2019-04-09
+### Added
 * Added filtering by anomaly screening status (#25)
 * Added anomaly screening status to field existance list (#26)
 
