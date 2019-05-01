@@ -1,5 +1,5 @@
 ## [Unreleased]
-*no unreleased changes*
+* Add filter for processing date for unprocessed records (#28)
 
 ## 2.8.0 / 2019-04-09
 ### Added
