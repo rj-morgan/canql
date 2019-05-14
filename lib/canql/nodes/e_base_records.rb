@@ -72,5 +72,19 @@ module Canql #:nodoc: all
         }
       end
     end
+
+    module ProcessingDateNode
+      def meta_data_item
+        subject = reverse_scan_for_marker(:subject) == 'mother' ? '.mother' : ''
+        range = fuzzy_date.to_daterange
+        {
+          "unprocessed_records#{subject}.processing_date" => {
+            Canql::LIMITS => [
+              range.date1.try(:to_date).try(:iso8601), range.date2.try(:to_date).try(:iso8601)
+            ]
+          }
+        }
+      end
+    end
   end
 end

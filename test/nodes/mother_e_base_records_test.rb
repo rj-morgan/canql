@@ -115,4 +115,48 @@ class MotherEBaseRecordsTest < Minitest::Test
     assert_equal({ Canql::EQUALS => ['UMUM'] },
                  parser.meta_data['unprocessed_records.mother.sources'])
   end
+
+  def test_should_filter_mother_on_ebr_specific_processing_date
+    parser = Canql::Parser.new('all cases with mother with unprocessed records dated on 20/06/2015')
+    assert parser.valid?
+    assert_equal({ Canql::LIMITS => ['2015-06-20', '2015-06-20'] },
+                 parser.meta_data['unprocessed_records.mother.processing_date'])
+
+    parser = Canql::Parser.new('all cases with mother with unprocessed records dated for processing on 20/06/2015')
+    assert parser.valid?
+    assert_equal({ Canql::LIMITS => ['2015-06-20', '2015-06-20'] },
+                 parser.meta_data['unprocessed_records.mother.processing_date'])
+  end
+
+  def test_should_filter_mother_on_ebr_processing_date_range
+    parser = Canql::Parser.new('all cases with mother with unprocessed records dated between 20/06/2015 and 25/06/2015')
+    assert parser.valid?
+    assert_equal({ Canql::LIMITS => ['2015-06-20', '2015-06-25'] },
+                 parser.meta_data['unprocessed_records.mother.processing_date'])
+
+    parser = Canql::Parser.new('all cases with mother with unprocessed records dated for processing between 20/06/2015 and 25/06/2015')
+    assert parser.valid?
+    assert_equal({ Canql::LIMITS => ['2015-06-20', '2015-06-25'] },
+                 parser.meta_data['unprocessed_records.mother.processing_date'])
+  end
+
+  def test_should_filter_mother_on_ebr_processing_date_word_range
+    parser = Canql::Parser.new('all cases with mother with unprocessed records dated between today and tomorrow')
+    assert parser.valid?
+    today = Date.today
+    tomorrow = today + 1
+    assert_equal(
+      { Canql::LIMITS => [today.strftime('%Y-%m-%d'), tomorrow.strftime('%Y-%m-%d')] },
+      parser.meta_data['unprocessed_records.mother.processing_date']
+    )
+
+    parser = Canql::Parser.new('all cases with mother with unprocessed records dated for processing between today and tomorrow')
+    assert parser.valid?
+    today = Date.today
+    tomorrow = today + 1
+    assert_equal(
+      { Canql::LIMITS => [today.strftime('%Y-%m-%d'), tomorrow.strftime('%Y-%m-%d')] },
+      parser.meta_data['unprocessed_records.mother.processing_date']
+    )
+  end
 end

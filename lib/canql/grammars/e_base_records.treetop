@@ -1,11 +1,11 @@
 module Canql
   grammar EBaseRecords
     rule action_or_ebr
-      and_keyword? action_and_ebr / all_or_none_actions / actions / e_base_records
+      and_keyword? action_and_ebr / all_or_none_actions / actions / e_base_records / processing_date
     end
 
     rule action_and_ebr
-      actions and_keyword e_base_records
+      actions and_keyword e_base_records processing_date?
     end
 
     rule e_base_records
@@ -22,6 +22,14 @@ module Canql
 
     rule more_types
       ','? space? ('or' space)? batch_type <Nodes::MoreTypesNode>
+    end
+
+    rule processing_date
+      space processing_date_keyword fuzzy_date <Nodes::ProcessingDateNode>
+    end
+
+    rule processing_date_keyword
+      'dated' ' for processing'?
     end
 
     rule with_keyword
