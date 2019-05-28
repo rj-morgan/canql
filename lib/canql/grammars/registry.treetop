@@ -4,6 +4,10 @@ module Canql
       space registry:(registry_code / registry_abbr) <Nodes::RegistryNode>
     end
 
+    rule processing_registry
+      space registry:(registry_code / registry_abbr) <Nodes::ProcessingRegistryNode>
+    end
+
     rule registry_code
       [0-9] 2..2 <Nodes::RegistryCodeNode>
     end

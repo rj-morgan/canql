@@ -5,11 +5,11 @@ module Canql
     end
 
     rule action_and_ebr
-      actions and_keyword e_base_records processing_date?
+      actions and_keyword e_base_records processing_date? processing_registry?
     end
 
     rule e_base_records
-      unprocessed_keyword types:batch_types? records_keyword <Nodes::EBaseRecordsNode>
+      unprocessed_keyword types:batch_types? processing_registry? records_keyword <Nodes::EBaseRecordsNode>
     end
 
     rule batch_types
