@@ -1,5 +1,5 @@
 ## [Unreleased]
-*no unreleased changes*
+* Add filter for processing region (#32)
 
 ## 2.9.0 / 2019-05-14
 ### Added

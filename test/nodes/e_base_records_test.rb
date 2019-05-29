@@ -187,4 +187,20 @@ class EBaseRecordsTest < Minitest::Test
       parser.meta_data['unprocessed_records.processing_date']
     )
   end
+
+  def test_should_filter_on_ebr_processing_registry
+    parser = Canql::Parser.new('all cases with unprocessed east records')
+    assert parser.valid?
+    assert_equal(
+      { Canql::EQUALS => '96' }, parser.meta_data['unprocessed_records.processing_registry']
+    )
+  end
+
+  def test_should_filter_on_mother_ebr_processing_registry
+    parser = Canql::Parser.new('all cases with mother with unprocessed east records')
+    assert parser.valid?
+    assert_equal(
+      { Canql::EQUALS => '96' }, parser.meta_data['unprocessed_records.mother.processing_registry']
+    )
+  end
 end
