@@ -19,7 +19,7 @@ file safety:
   CHANGELOG.md:
     comments: 
     reviewed_by: josh.pencheon
-    safe_revision: 48060910ebf28f1ee88fe0faa4e7bd70daeaa3c6
+    safe_revision: '098751876ada572fd6dd7137e7c8eab28ca3b8e5'
   CODE_OF_CONDUCT.md:
     comments: 
     reviewed_by: drewthorp
@@ -86,7 +86,7 @@ file safety:
   lib/canql/grammars/e_base_records.treetop:
     comments: 
     reviewed_by: josh.pencheon
-    safe_revision: 4805609963f75639e2444df8f42d2d6d65005b7c
+    safe_revision: 4e26ac746098452b01dac88373e401e39f309b74
   lib/canql/grammars/genetic_test.treetop:
     comments: 
     reviewed_by: josh.pencheon
@@ -112,8 +112,8 @@ file safety:
   lib/canql/grammars/registry.treetop:
     comments: It is a known issue that this is potentially susceptible to certain
       kinds of DoS attack
-    reviewed_by: timgentry
-    safe_revision: c095990308c4a90316964cbe0d9bc8f4747ca8cc
+    reviewed_by: josh.pencheon
+    safe_revision: 4e26ac746098452b01dac88373e401e39f309b74
   lib/canql/grammars/test_result.treetop:
     comments: It is a known issue that this is potentially susceptible to certain
       kinds of DoS attack
@@ -161,8 +161,8 @@ file safety:
     safe_revision: c431b8a476b84d077e9c39a2a13c2b17a296773d
   lib/canql/nodes/registry.rb:
     comments: 
-    reviewed_by: timgentry
-    safe_revision: 6932d590299ad4a9d2ba24b425b158c67142bf74
+    reviewed_by: josh.pencheon
+    safe_revision: 4e26ac746098452b01dac88373e401e39f309b74
   lib/canql/nodes/test_result.rb:
     comments: 
     reviewed_by: timgentry
@@ -178,7 +178,7 @@ file safety:
   lib/canql/version.rb:
     comments: 
     reviewed_by: josh.pencheon
-    safe_revision: 48060910ebf28f1ee88fe0faa4e7bd70daeaa3c6
+    safe_revision: '098751876ada572fd6dd7137e7c8eab28ca3b8e5'
   test/anomaly_test_helper.rb:
     comments: 
     reviewed_by: josh.pencheon
@@ -206,7 +206,7 @@ file safety:
   test/nodes/e_base_records_test.rb:
     comments: 
     reviewed_by: josh.pencheon
-    safe_revision: 4805609963f75639e2444df8f42d2d6d65005b7c
+    safe_revision: 4e26ac746098452b01dac88373e401e39f309b74
   test/nodes/genetic_tests_test.rb:
     comments: 
     reviewed_by: josh.pencheon
