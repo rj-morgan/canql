@@ -8,6 +8,14 @@ class EBaseRecordsTest < Minitest::Test
     parser = Canql::Parser.new('all cases with qa action')
     assert parser.valid?
     assert_equal({ Canql::EQUALS => 'QA' }, parser.meta_data['action.actioninitiated'])
+    assert_equal({ Canql::EQUALS => 'case' }, parser.meta_data['results.subject'])
+  end
+
+  def test_should_filter_by_qa_action_on_patients
+    parser = Canql::Parser.new('all patients with qa action')
+    assert parser.valid?
+    assert_equal({ Canql::EQUALS => 'QA' }, parser.meta_data['action.actioninitiated'])
+    assert_equal({ Canql::EQUALS => 'patient' }, parser.meta_data['results.subject'])
   end
 
   def test_should_filter_by_scr_check_action
@@ -68,6 +76,14 @@ class EBaseRecordsTest < Minitest::Test
     parser = Canql::Parser.new('all cases with unprocessed records')
     assert parser.valid?
     assert_equal({ Canql::ALL => true }, parser.meta_data['unprocessed_records.sources'])
+    assert_equal({ Canql::EQUALS => 'case' }, parser.meta_data['results.subject'])
+  end
+
+  def test_should_filter_by_unprocessed_records_on_patients
+    parser = Canql::Parser.new('all patients with unprocessed records')
+    assert parser.valid?
+    assert_equal({ Canql::ALL => true }, parser.meta_data['unprocessed_records.sources'])
+    assert_equal({ Canql::EQUALS => 'patient' }, parser.meta_data['results.subject'])
   end
 
   def test_should_filter_by_unprocessed_paediatric_records

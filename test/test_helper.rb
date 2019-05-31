@@ -65,3 +65,7 @@ def assert_dir_block_has_expected_keys(dir_block, expected = {})
   assert expected.keys.reject { |key| dir_block.include?(key) }.none?,
          'Expected key not present in DIR block'
 end
+
+def base_meta_data(result_type = :case)
+  { 'results.subject' => { Canql::EQUALS => result_type.to_s } }
+end

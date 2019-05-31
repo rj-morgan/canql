@@ -14,6 +14,16 @@ end
 
 module Canql #:nodoc: all
   module Nodes
+    # Returns a filter detailing the require result type (cases or patients)
+    module SubjectNode
+      def meta_data_item
+        type_map = { cases: 'case', babies: 'case', patients: 'patient' }
+        raise 'Unknown result type' if type_map[subject.text_value.to_sym].nil?
+
+        { 'results.subject' => { Canql::EQUALS => type_map[subject.text_value.to_sym] } }
+      end
+    end
+
     # Provides meta data for with conditions that return
     # multiple instances of a condition type as an array
     module WithConditions

@@ -13,8 +13,15 @@ grammar Canql
 
   # The root grammar
   rule query
-    #quantity:record_count? pre:preconditions* cases_keyword post:additional_conditions*
-    quantity:record_count? pre:preconditions* cases_keyword post:additional_conditions* with_clause?
+    case_query / patient_query
+  end
+
+  rule case_query
+    quantity:record_count? pre:case_preconditions* cases_keyword post:case_additional_conditions* case_with_clause?
+  end
+
+  rule patient_query
+    quantity:record_count? pre:patient_preconditions* patient_keyword post:patient_additional_conditions* patient_with_clause?
   end
 
   rule word_break
@@ -44,19 +51,35 @@ grammar Canql
   end
 
   rule cases_keyword
-     space subject:('cases' / 'babies') word_break
+     space subject:('cases' / 'babies') word_break <Nodes::SubjectNode>
   end
 
-  rule preconditions
+  rule patient_keyword
+    space subject:'patients' word_break <Nodes::SubjectNode>
+  end
+
+  rule case_preconditions
     registry / gender / outcome / primacy
   end
 
-  rule additional_conditions
+  rule patient_preconditions
+     gender / primacy
+  end
+
+  rule case_additional_conditions
     and_keyword? (expected / with_birth_date / with_death_date)
   end
 
-  rule with_clause
-    with_keyword post:with_conditions+ <Nodes::WithConditions>
+  rule patient_additional_conditions
+    and_keyword? (with_birth_date / with_death_date)
+  end
+
+  rule case_with_clause
+    with_keyword post:case_with_conditions+ <Nodes::WithConditions>
+  end
+
+  rule patient_with_clause
+    with_keyword post:patient_with_conditions+ <Nodes::WithConditions>
   end
 
   rule with_keyword
@@ -103,7 +126,11 @@ grammar Canql
     space 'at' word_break
   end
 
-  rule with_conditions
-     anomalies / genetic_tests / test_results / perinatal_hospital / patient_field_existance / mother_conditions / action_or_ebr
+  rule case_with_conditions
+     anomalies / genetic_tests / test_results / perinatal_hospital / case_field_existance / mother_conditions / action_or_ebr
+  end
+
+  rule patient_with_conditions
+     anomalies / genetic_tests / test_results / patient_field_existance / action_or_ebr
   end
 end

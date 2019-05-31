@@ -45,7 +45,7 @@ end
 would output:
 
 ```json
-{"patient.sex":{"equals":"1"},"patient.registry":{"equals":"84"}}
+{"results.subject":{"equals":"case"},"patient.sex":{"equals":"1"},"patient.registry":{"equals":"84"}}
 ```
       and booking at hospital RGT01 and delivery at addenbrookes trust
 The parser is case insensitive. An example of an almost fully involved CANQL query is:

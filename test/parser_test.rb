@@ -33,13 +33,15 @@ class ParserTest < Minitest::Test
   def test_should_cope_with_a_mixed_case_query
     parser = Canql::Parser.new('All Cases')
     assert parser.valid?
-    assert parser.meta_data.empty?
+    assert_equal 1, parser.meta_data.count
+    assert_equal base_meta_data, parser.meta_data
     assert_nil parser.failure_reason
   end
 
   # advanced tests
 
   def test_should_combine_filters
+    # TODO: Add unprocessed record clauses
     parser = Canql::Parser.new("first 27 male liveborn thames primary cases \
       expected between 20/06/2015 and 25/06/2015 \
       and born on 22/06/2015 and that died on 01/12/2015 \
@@ -52,7 +54,7 @@ class ParserTest < Minitest::Test
       and who died on 01/01/2016 \
       with fields postcode and nhs number")
     assert parser.valid?
-    assert_equal 18, parser.meta_data.count
+    assert_equal 19, parser.meta_data.count
     individual_queries = [
       'first 27 cases',
       'first 27 babies',
