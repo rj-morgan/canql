@@ -1,5 +1,9 @@
 ## [Unreleased]
-* Added new branch of CANQL for querying all patient not just child patients (#29)
+*no unreleased changes*
+
+## 3.0.0 / 2019-06-04
+### Changed
+* Added new branch of CANQL for querying all patient not just child patients - modifies DIR (#29)
 
 ## 2.10.0 / 2019-05-29
 ### Added
