@@ -169,7 +169,7 @@ class Patientest < Minitest::Test
     refute parser.valid?
   end
 
-  def test_should_not_filter_on__mother
+  def test_should_not_filter_on_mother
     parser = Canql::Parser.new('all patients with mother with populated dob')
     refute parser.valid?
   end
