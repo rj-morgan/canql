@@ -9,6 +9,19 @@ class TestResultsTest < Minitest::Test
     assert parser.valid?
     assert_test_result_count parser, 1
     assert_test_result_values parser, 0, 'exists' => { Canql::EQUALS => true }
+    assert_equal({ Canql::EQUALS => 'case' }, parser.meta_data['results.subject'])
+  end
+
+  # As the test clause is the same for patient & case
+  # only this test is specifically on 'patients'.  All other
+  # anomaly clauses can be assumed to be true for patients as
+  # well as cases
+  def test_should_filter_by_test_result_on_patient_results
+    parser = Canql::Parser.new('all patients with tests')
+    assert parser.valid?
+    assert_test_result_count parser, 1
+    assert_test_result_values parser, 0, 'exists' => { Canql::EQUALS => true }
+    assert_equal({ Canql::EQUALS => 'patient' }, parser.meta_data['results.subject'])
   end
 
   def test_should_filter_by_prenatal_test_result

@@ -20,6 +20,10 @@ module Canql
       expected_keyword fuzzy_date <Nodes::Patient::ExpectedDateRangeNode>
     end
 
+    rule case_field_existance
+      and_keyword? field_existance_modifier:existance_keyword patient_field_list:case_field_list  <Nodes::Patient::FieldExists>
+    end
+
     rule patient_field_existance
       and_keyword? field_existance_modifier:existance_keyword patient_field_list:patient_field_list  <Nodes::Patient::FieldExists>
     end
@@ -28,15 +32,25 @@ module Canql
       space 'field' 's'? word_break
     end
 
+    rule case_field_list
+      space case_field_names (comma case_field_names)*
+    end
+
     rule patient_field_list
       space patient_field_names (comma patient_field_names)*
     end
 
-    rule patient_field_names
+    rule case_field_names
       patient_field_name:(
         'date of birth' / 'dob' / 'nhs number' / 'postcode' / 'birth weight' /
         'place of delivery' / 'sex' / 'outcome' / 'edd' /
         'expected delivery date' / 'booking hospital' / 'screening status'
+      )
+    end
+
+    rule patient_field_names
+      patient_field_name:(
+        'date of birth' / 'dob' / 'nhs number' / 'postcode' / 'sex'
       )
     end
 

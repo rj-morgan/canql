@@ -8,6 +8,12 @@ class RegistryTest < Minitest::Test
     parser = Canql::Parser.new('all 68 cases')
     assert parser.valid?
     assert_equal({ Canql::EQUALS => '68' }, parser.meta_data['patient.registry'])
+    assert_equal({ Canql::EQUALS => 'case' }, parser.meta_data['results.subject'])
+  end
+
+  def test_should_not_filter_by_registry_code_on_patient
+    parser = Canql::Parser.new('all 68 patients')
+    refute parser.valid?
   end
 
   def test_should_filter_by_thames_abbreviation

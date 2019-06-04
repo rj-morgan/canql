@@ -8,6 +8,12 @@ class PerinatalHospitalTest < Minitest::Test
     parser = Canql::Parser.new('all cases with booking at hospital RGT01')
     assert parser.valid?
     assert_equal({ Canql::EQUALS => 'RGT01' }, parser.meta_data['booking.providercode'])
+    assert_equal({ Canql::EQUALS => 'case' }, parser.meta_data['results.subject'])
+  end
+
+  def test_should_not_filter_by_booking_hosital_code_on_patients
+    parser = Canql::Parser.new('all patients with booking at hospital RGT01')
+    refute parser.valid?
   end
 
   def test_should_filter_by_booking_trust_code
