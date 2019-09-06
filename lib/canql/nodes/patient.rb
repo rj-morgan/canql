@@ -25,7 +25,8 @@ module Canql #:nodoc: all
         FIELDS = {
           'date of birth':          { patient: 'birthdate', mother: 'birthdate' },
           'dob':                    { patient: 'birthdate', mother: 'birthdate' },
-          'postcode':               { patient: 'postcode',  mother: 'postcode'  },
+          'delivery postcode':      { patient: 'delivery_postcode' },
+          'booking postcode':       { patient: 'booking_postcode' },
           'nhs number':             { patient: 'nhsnumber', mother: 'nhsnumber' },
           'birth weight':           { patient: 'weight' },
           'place of delivery':      { patient: 'placeofdelivery' },

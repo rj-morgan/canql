@@ -25,6 +25,7 @@ module Canql #:nodoc: all
           end
           anomaly_hash['icd_codes'] = code_filter[:icd_code] if code_filter[:icd_code].present?
           return anomaly_hash if code_filter[:code_group].blank?
+
           anomaly_hash['code_groups'] = code_filter[:code_group]
           anomaly_hash
         end
@@ -48,11 +49,13 @@ module Canql #:nodoc: all
         def code_type(code)
           return :icd_code if code.respond_to?(:to_code) && code.to_code.present?
           return :code_group if code.respond_to?(:to_code_group) && code.to_code_group.present?
+
           raise 'Unable to find code type'
         end
 
         def code_value(code)
           return code.to_code if :icd_code == code_type(code)
+
           code.to_code_group
         end
 
@@ -67,6 +70,7 @@ module Canql #:nodoc: all
             code_filters[:icd_code] = { Canql::BEGINS => code_array[:icd_code] }
           end
           return code_filters if code_array[:code_group].blank?
+
           code_filters[:code_group] = { Canql::EQUALS => code_array[:code_group] }
           code_filters
         end
@@ -86,6 +90,7 @@ module Canql #:nodoc: all
       module AdditionalCodeNode
         def code_type
           return :icd_code if anomalies_icd_code.respond_to?(:to_code)
+
           :code_group
         end
 
@@ -106,7 +111,7 @@ module Canql #:nodoc: all
 
       module SingleCodeGroupNode
         def to_code_group
-          text_value.upcase
+          text_value.gsub(/( )/, '_').upcase
         end
       end
     end

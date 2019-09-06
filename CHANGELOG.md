@@ -1,5 +1,6 @@
 ## [Unreleased]
-*no unreleased changes*
+* Added case filters for delivery and booking postcode fields and removed all simple postcode field filters (#36)
+* Added fasp and fasp plus code groups (#37)
 
 ## 3.0.0 / 2019-06-04
 ### Changed

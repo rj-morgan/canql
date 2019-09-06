@@ -89,13 +89,13 @@ class CaseTest < Minitest::Test
   end
 
   def test_should_filter_by_missing_fields
-    parser = Canql::Parser.new('all cases with missing postcode, date of birth')
-    parser_v2 = Canql::Parser.new('all cases with missing postcode and date of birth')
+    parser = Canql::Parser.new('all cases with missing delivery postcode, date of birth')
+    parser_v2 = Canql::Parser.new('all cases with missing booking postcode and date of birth')
     assert parser.valid?
     assert_array_includes parser.meta_data['patient.fields_missing'][Canql::EQUALS],
-                          %w[postcode birthdate]
+                          %w[delivery_postcode birthdate]
     assert_array_includes parser_v2.meta_data['patient.fields_missing'][Canql::EQUALS],
-                          %w[postcode birthdate]
+                          %w[booking_postcode birthdate]
     assert_equal({ Canql::EQUALS => 'case' }, parser.meta_data['results.subject'])
   end
 
@@ -116,46 +116,46 @@ class CaseTest < Minitest::Test
   end
 
   def test_should_filter_by_populated_fields
-    parser = Canql::Parser.new('all cases with fields postcode, date of birth')
-    parser_v2 = Canql::Parser.new('all cases with tests and fields postcode and date of birth')
+    parser = Canql::Parser.new('all cases with fields delivery postcode, date of birth')
+    parser_v2 = Canql::Parser.new('all cases with tests and fields booking postcode and date of birth')
     assert parser.valid?
     assert_array_includes parser.meta_data['patient.fields_populated'][Canql::EQUALS],
-                          %w[postcode birthdate]
+                          %w[delivery_postcode birthdate]
     assert_array_includes parser_v2.meta_data['patient.fields_populated'][Canql::EQUALS],
-                          %w[postcode birthdate]
+                          %w[booking_postcode birthdate]
     assert_equal({ Canql::EQUALS => 'case' }, parser.meta_data['results.subject'])
   end
 
   def test_should_filter_by_missing_mother_fields
-    parser = Canql::Parser.new('all cases with mother with missing postcode, date of birth')
-    parser_v2 = Canql::Parser.new('all cases with mother with missing postcode and date of birth')
+    parser = Canql::Parser.new('all cases with mother with missing nhs number, date of birth')
+    parser_v2 = Canql::Parser.new('all cases with mother with missing nhs number and date of birth')
     assert parser.valid?
     assert_array_includes parser.meta_data['mother.fields_missing'][Canql::EQUALS],
-                          %w[postcode birthdate]
+                          %w[nhsnumber birthdate]
     assert_array_includes parser_v2.meta_data['mother.fields_missing'][Canql::EQUALS],
-                          %w[postcode birthdate]
+                          %w[nhsnumber birthdate]
     assert_equal({ Canql::EQUALS => 'case' }, parser.meta_data['results.subject'])
   end
 
   def test_should_filter_by_missing_mother_fields_v2
-    parser = Canql::Parser.new('all cases with mother missing postcode, date of birth')
-    parser_v2 = Canql::Parser.new('all cases with mother missing postcode and date of birth')
+    parser = Canql::Parser.new('all cases with mother missing nhs number, date of birth')
+    parser_v2 = Canql::Parser.new('all cases with mother missing nhs number and date of birth')
     assert parser.valid?
     assert_array_includes parser.meta_data['mother.fields_missing'][Canql::EQUALS],
-                          %w[postcode birthdate]
+                          %w[nhsnumber birthdate]
     assert_array_includes parser_v2.meta_data['mother.fields_missing'][Canql::EQUALS],
-                          %w[postcode birthdate]
+                          %w[nhsnumber birthdate]
     assert_equal({ Canql::EQUALS => 'case' }, parser.meta_data['results.subject'])
   end
 
   def test_should_filter_by_populated_mother_fields
-    parser = Canql::Parser.new('all cases with mother with fields postcode, date of birth')
-    parser_v2 = Canql::Parser.new('all cases with mother with fields postcode and date of birth')
+    parser = Canql::Parser.new('all cases with mother with fields nhs number, date of birth')
+    parser_v2 = Canql::Parser.new('all cases with mother with fields nhs number and date of birth')
     assert parser.valid?
     assert_array_includes parser.meta_data['mother.fields_populated'][Canql::EQUALS],
-                          %w[postcode birthdate]
+                          %w[nhsnumber birthdate]
     assert_array_includes parser_v2.meta_data['mother.fields_populated'][Canql::EQUALS],
-                          %w[postcode birthdate]
+                          %w[nhsnumber birthdate]
     assert_equal({ Canql::EQUALS => 'case' }, parser.meta_data['results.subject'])
   end
 
@@ -178,8 +178,8 @@ class CaseTest < Minitest::Test
   end
 
   def test_dob_alias_query
-    query1 = 'all babies with missing postcode, date of birth'
-    query2 = 'all babies with missing postcode, dob'
+    query1 = 'all babies with missing delivery postcode, date of birth'
+    query2 = 'all babies with missing delivery postcode, dob'
     parser1 = Canql::Parser.new(query1)
     parser2 = Canql::Parser.new(query2)
     message = '\'dob\' doesn\'t work as an alias of \'date of birth\'!'
@@ -191,20 +191,20 @@ class CaseTest < Minitest::Test
       expected between 20/06/2015 and 25/06/2015 \
       and born on 22/06/2015 and that died on 01/12/2015 \
       with prenatal anomalies \
-      and postnatal tests and missing postcode and date of birth \
+      and postnatal tests and missing booking postcode and date of birth \
       and qa action and unprocessed paediatric records \
       and mother born between 01/10/1990 and 10/01/1999 \
       and who died on 01/01/2016 \
-      with fields postcode and nhs number"
+      with fields nhs number"
     query2 = "first 27 male liveborn thames cases \
       expected between 20/06/2015 and 25/06/2015 \
       and born on 22/06/2015 and that died on 01/12/2015 \
       with prenatal anomalies \
-      and postnatal tests and missing postcode and dob \
+      and postnatal tests and missing booking postcode and dob \
       and qa action and unprocessed paediatric records \
       and mother born between 01/10/1990 and 10/01/1999 \
       and who died on 01/01/2016 \
-      with fields postcode and nhs number"
+      with fields nhs number"
     parser1 = Canql::Parser.new(query1)
     parser2 = Canql::Parser.new(query2)
     message1 = 'parser1 is not valid!'
