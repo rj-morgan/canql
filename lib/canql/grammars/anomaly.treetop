@@ -43,7 +43,7 @@ module Canql
     end
 
     rule code_group
-      ('fasp' / 'structural' / 'trisomy') <Nodes::Anomaly::SingleCodeGroupNode>
+      ('fasp plus' / 'plus' / 'fasp' / 'structural' / 'trisomy') <Nodes::Anomaly::SingleCodeGroupNode>
     end
   end
 end

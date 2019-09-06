@@ -700,6 +700,24 @@ class CodeTest < Minitest::Test
                           'code_groups' => { Canql::EQUALS => ['FASP'] }
   end
 
+  def test_should_filter_by_fasp_plus_code_group
+    parser = Canql::Parser.new('all cases with fasp plus anomalies')
+    assert parser.valid?
+    assert_anomaly_count parser, 1
+    assert_anomaly_values parser, 0,
+                          'exists' => { Canql::EQUALS => true },
+                          'code_groups' => { Canql::EQUALS => ['FASP_PLUS'] }
+  end
+
+  def test_should_filter_by_plus_code_group
+    parser = Canql::Parser.new('all cases with plus anomalies')
+    assert parser.valid?
+    assert_anomaly_count parser, 1
+    assert_anomaly_values parser, 0,
+                          'exists' => { Canql::EQUALS => true },
+                          'code_groups' => { Canql::EQUALS => ['PLUS'] }
+  end
+
   def test_should_filter_by_multiple_code_group
     parser = Canql::Parser.new('all cases with structural, trisomy anomalies')
     assert parser.valid?
