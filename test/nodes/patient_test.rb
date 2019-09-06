@@ -63,13 +63,13 @@ class Patientest < Minitest::Test
   end
 
   def test_should_filter_by_missing_fields
-    parser = Canql::Parser.new('all patients with missing postcode, date of birth')
-    parser_v2 = Canql::Parser.new('all patients with missing postcode and date of birth')
+    parser = Canql::Parser.new('all patients with missing sex, date of birth')
+    parser_v2 = Canql::Parser.new('all patients with missing sex and date of birth')
     assert parser.valid?
     assert_array_includes parser.meta_data['patient.fields_missing'][Canql::EQUALS],
-                          %w[postcode birthdate]
+                          %w[sex birthdate]
     assert_array_includes parser_v2.meta_data['patient.fields_missing'][Canql::EQUALS],
-                          %w[postcode birthdate]
+                          %w[sex birthdate]
     assert_equal({ Canql::EQUALS => 'patient' }, parser.meta_data['results.subject'])
   end
 
@@ -84,13 +84,13 @@ class Patientest < Minitest::Test
   end
 
   def test_should_filter_by_populated_fields
-    parser = Canql::Parser.new('all patients with fields postcode, date of birth')
-    parser_v2 = Canql::Parser.new('all patients with tests and fields postcode and date of birth')
+    parser = Canql::Parser.new('all patients with fields sex, date of birth')
+    parser_v2 = Canql::Parser.new('all patients with tests and fields sex and date of birth')
     assert parser.valid?
     assert_array_includes parser.meta_data['patient.fields_populated'][Canql::EQUALS],
-                          %w[postcode birthdate]
+                          %w[sex birthdate]
     assert_array_includes parser_v2.meta_data['patient.fields_populated'][Canql::EQUALS],
-                          %w[postcode birthdate]
+                          %w[sex birthdate]
     assert_equal({ Canql::EQUALS => 'patient' }, parser.meta_data['results.subject'])
   end
 
@@ -113,8 +113,8 @@ class Patientest < Minitest::Test
   end
 
   def test_dob_alias_query
-    query1 = 'all patients with missing postcode, date of birth'
-    query2 = 'all patients with missing postcode, dob'
+    query1 = 'all patients with missing sex, date of birth'
+    query2 = 'all patients with missing sex, dob'
     parser1 = Canql::Parser.new(query1)
     parser2 = Canql::Parser.new(query2)
     message = '\'dob\' doesn\'t work as an alias of \'date of birth\'!'
@@ -125,12 +125,12 @@ class Patientest < Minitest::Test
     query1 = "first 27 male patients \
       born on 22/06/2015 and that died on 01/12/2015 \
       with prenatal anomalies \
-      and postnatal tests and missing postcode and date of birth \
+      and postnatal tests and missing sex and date of birth \
       and qa action and unprocessed paediatric records"
     query2 = "first 27 male patients \
       and born on 22/06/2015 and that died on 01/12/2015 \
       with prenatal anomalies \
-      and postnatal tests and missing postcode and dob \
+      and postnatal tests and missing sex and dob \
       and qa action and unprocessed paediatric records"
     parser1 = Canql::Parser.new(query1)
     parser2 = Canql::Parser.new(query2)

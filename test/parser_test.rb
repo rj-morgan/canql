@@ -48,11 +48,11 @@ class ParserTest < Minitest::Test
       with suspected prenatal q20 anomalies \
       and booking at hospital RGT01 \
       and delivery at addenbrookes trust \
-      and postnatal tests and missing postcode and date of birth \
+      and postnatal tests and missing delivery postcode and date of birth \
       and qa action and unprocessed paediatric records \
       and mother born between 01/10/1990 and 10/01/1999 \
       and who died on 01/01/2016 \
-      with fields postcode and nhs number")
+      with fields sex and nhs number")
     assert parser.valid?
     assert_equal 19, parser.meta_data.count
     individual_queries = [
@@ -78,12 +78,12 @@ class ParserTest < Minitest::Test
       'all babies with suspected prenatal q20 anomalies',
       'all cases with some postnatal tests',
       'all cases with suspected prenatal q20 anomalies',
-      'all cases with missing postcode and date of birth',
-      'all cases with missing postcode, date of birth',
-      'all babies with missing postcode and date of birth',
-      'all babies with missing postcode, date of birth',
-      'all cases with mother with fields postcode and nhs number',
-      'all cases with mother with populated postcode and nhs number',
+      'all cases with missing delivery postcode and date of birth',
+      'all cases with missing delivery postcode, date of birth',
+      'all babies with missing delivery postcode and date of birth',
+      'all babies with missing delivery postcode, date of birth',
+      'all cases with mother with fields sex and nhs number',
+      'all cases with mother with populated sex and nhs number',
       'all cases with qa action and unprocessed paediatric records',
       'all cases born on 22/06/2015',
       'all babies born on 22/06/2015',
