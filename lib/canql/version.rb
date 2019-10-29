@@ -2,5 +2,5 @@
 
 # This stores the current version of the Canql gem
 module Canql
-  VERSION = '4.0.0'
+  VERSION = '4.0.1'
 end

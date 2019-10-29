@@ -1,6 +1,10 @@
 ## [Unreleased]
 *no unreleased changes*
 
+## 4.0.1 / 2019-10-29
+### Fixed
+* Relax `chronic` dependency
+
 ## 4.0.0 / 2019-09-06
 ### Changed
 * Added case filters for delivery and booking postcode fields and removed all simple postcode field filters (#36)
