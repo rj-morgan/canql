@@ -19,7 +19,7 @@ file safety:
   CHANGELOG.md:
     comments: 
     reviewed_by: josh.pencheon
-    safe_revision: ba4bdef05af213f77898488fc975407114c88e82
+    safe_revision: 03c6aaec256bc3b0500f422e0f97f84804bfeffa
   CODE_OF_CONDUCT.md:
     comments: 
     reviewed_by: drewthorp
@@ -35,7 +35,7 @@ file safety:
   README.md:
     comments: 
     reviewed_by: josh.pencheon
-    safe_revision: 511e4238f83eb5b32839c25d94ec2a59145539bb
+    safe_revision: 33feeeaa4b2089e33f563e4c766e91c38b108e36
   Rakefile:
     comments: 
     reviewed_by: timgentry
@@ -51,7 +51,7 @@ file safety:
   canql.gemspec:
     comments: 
     reviewed_by: josh.pencheon
-    safe_revision: 16abb8206a3d36c7532427cd7137df79d2733d1d
+    safe_revision: c3a0f7aae0658ce6236b82c715a4ace57e4bf513
   lib/canql.rb:
     comments: 
     reviewed_by: timgentry
@@ -178,7 +178,7 @@ file safety:
   lib/canql/version.rb:
     comments: 
     reviewed_by: josh.pencheon
-    safe_revision: ba4bdef05af213f77898488fc975407114c88e82
+    safe_revision: 03c6aaec256bc3b0500f422e0f97f84804bfeffa
   test/anomaly_test_helper.rb:
     comments: 
     reviewed_by: josh.pencheon
