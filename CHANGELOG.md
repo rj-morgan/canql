@@ -1,5 +1,6 @@
 ## [Unreleased]
-*no unreleased changes*
+### Added
+* Added filters for EUROCAT RAG rating (#39)
 
 ## 4.0.1 / 2019-10-29
 ### Fixed

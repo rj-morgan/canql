@@ -52,6 +52,35 @@ class Patientest < Minitest::Test
     assert_equal({ Canql::EQUALS => 'patient' }, parser.meta_data['results.subject'])
   end
 
+  def test_should_filter_by_eurocat_category
+    parser = Canql::Parser.new('all eurocat patients')
+    assert parser.valid?
+    assert_equal({ Canql::EQUALS => 'eurocat' }, parser.meta_data['patient.category'])
+    assert_equal({ Canql::EQUALS => 'patient' }, parser.meta_data['results.subject'])
+  end
+
+  def test_should_filter_by_eurocat_red_category
+    parser = Canql::Parser.new('all eurocat red patients')
+    assert parser.valid?
+    assert_equal({ Canql::EQUALS => 'eurocat_red' }, parser.meta_data['patient.category'])
+    assert_equal({ Canql::EQUALS => 'patient' }, parser.meta_data['results.subject'])
+  end
+
+  def test_should_filter_by_eurocat_amber_category
+    parser = Canql::Parser.new('all eurocat amber patients')
+    assert parser.valid?
+    assert_equal({ Canql::EQUALS => 'eurocat_amber' }, parser.meta_data['patient.category'])
+    assert_equal({ Canql::EQUALS => 'patient' }, parser.meta_data['results.subject'])
+  end
+
+  def test_should_filter_by_eurocat_green_category
+    parser = Canql::Parser.new('all eurocat green patients')
+    assert parser.valid?
+    assert_equal({ Canql::EQUALS => 'eurocat_green' }, parser.meta_data['patient.category'])
+    assert_equal({ Canql::EQUALS => 'patient' }, parser.meta_data['results.subject'])
+  end
+
+
   def test_should_not_filter_on_specific_edd
     parser = Canql::Parser.new('all patient expected on 20/06/2015')
     refute parser.valid?

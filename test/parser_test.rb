@@ -42,7 +42,7 @@ class ParserTest < Minitest::Test
 
   def test_should_combine_filters
     # TODO: Add unprocessed record clauses
-    parser = Canql::Parser.new("first 27 male liveborn thames primary cases \
+    parser = Canql::Parser.new("first 27 male liveborn thames primary eurocat cases \
       expected between 20/06/2015 and 25/06/2015 \
       and born on 22/06/2015 and that died on 01/12/2015 \
       with suspected prenatal q20 anomalies \
@@ -54,7 +54,7 @@ class ParserTest < Minitest::Test
       and who died on 01/01/2016 \
       with fields sex and nhs number")
     assert parser.valid?
-    assert_equal 19, parser.meta_data.count
+    assert_equal 20, parser.meta_data.count
     individual_queries = [
       'first 27 cases',
       'first 27 babies',
@@ -66,6 +66,8 @@ class ParserTest < Minitest::Test
       'all liveborn babies',
       'all primary cases',
       'all primary babies',
+      'all eurocat cases',
+      'all eurocat babies',
       'all 68 cases',
       'all 68 babies',
       'all thames cases',

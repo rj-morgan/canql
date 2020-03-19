@@ -21,6 +21,20 @@ module Canql #:nodoc: all
         end
       end
 
+      module CategoryNode
+        def meta_data_item
+          { 'patient.category' => { Canql::EQUALS => clean_category } }
+        end
+
+        def clean_category
+          return 'eurocat_red' if 'eurocat red' == category.text_value
+          return 'eurocat_amber' if 'eurocat amber' == category.text_value
+          return 'eurocat_green' if 'eurocat green' == category.text_value
+
+          category.text_value
+        end
+      end
+
       module FieldExists
         FIELDS = {
           'date of birth':          { patient: 'birthdate', mother: 'birthdate' },

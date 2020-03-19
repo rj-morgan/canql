@@ -59,11 +59,11 @@ grammar Canql
   end
 
   rule case_preconditions
-    registry / gender / outcome / primacy
+    registry / gender / outcome / primacy / category
   end
 
   rule patient_preconditions
-     gender / primacy
+     gender / primacy / category
   end
 
   rule case_additional_conditions

@@ -12,6 +12,10 @@ module Canql
       space primacy:('primary' / 'alias' ) word_break <Nodes::Patient::PrimacyNode>
     end
 
+    rule category
+      space category:('eurocat red' / 'eurocat amber' / 'eurocat green' / 'eurocat') word_break <Nodes::Patient::CategoryNode>
+    end
+
     rule expected_keyword
       space ('expected' / 'due') word_break
     end
