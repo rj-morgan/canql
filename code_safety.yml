@@ -18,8 +18,8 @@ file safety:
     safe_revision: 8adb767031a19aa6b3cea3f1cb05b4a9bcc964f3
   CHANGELOG.md:
     comments: 
-    reviewed_by: josh.pencheon
-    safe_revision: 03c6aaec256bc3b0500f422e0f97f84804bfeffa
+    reviewed_by: timgentry
+    safe_revision: cef1ddd804f00d7639947464f2f0e5660e9f0fc7
   CODE_OF_CONDUCT.md:
     comments: 
     reviewed_by: drewthorp
@@ -177,8 +177,8 @@ file safety:
     safe_revision: 6932d590299ad4a9d2ba24b425b158c67142bf74
   lib/canql/version.rb:
     comments: 
-    reviewed_by: josh.pencheon
-    safe_revision: 03c6aaec256bc3b0500f422e0f97f84804bfeffa
+    reviewed_by: timgentry
+    safe_revision: cef1ddd804f00d7639947464f2f0e5660e9f0fc7
   test/anomaly_test_helper.rb:
     comments: 
     reviewed_by: josh.pencheon
