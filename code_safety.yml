@@ -50,8 +50,8 @@ file safety:
     safe_revision: 6a666fcabe027056b1c774b2eabb3fdf686911d2
   canql.gemspec:
     comments: 
-    reviewed_by: josh.pencheon
-    safe_revision: c3a0f7aae0658ce6236b82c715a4ace57e4bf513
+    reviewed_by: timgentry
+    safe_revision: 6cb13f43b4353ab7c90ff0406ec13ac169b8e64c
   lib/canql.rb:
     comments: 
     reviewed_by: timgentry
@@ -94,13 +94,13 @@ file safety:
   lib/canql/grammars/main.treetop:
     comments: It is a known issue that this is potentially susceptible to certain
       kinds of DoS attack
-    reviewed_by: josh.pencheon
-    safe_revision: 511e4238f83eb5b32839c25d94ec2a59145539bb
+    reviewed_by: timgentry
+    safe_revision: 05ccd47fcbba92bf5525c4d36118274696169d61
   lib/canql/grammars/patient.treetop:
     comments: It is a known issue that this is potentially susceptible to certain
       kinds of DoS attack
-    reviewed_by: josh.pencheon
-    safe_revision: e258a1a403b7474f8919b1a76127f9ad71a640ad
+    reviewed_by: timgentry
+    safe_revision: 05ccd47fcbba92bf5525c4d36118274696169d61
   lib/canql/grammars/perinatal_hospital.treetop:
     comments: 
     reviewed_by: josh.pencheon
@@ -153,8 +153,8 @@ file safety:
     safe_revision: 511e4238f83eb5b32839c25d94ec2a59145539bb
   lib/canql/nodes/patient.rb:
     comments: 
-    reviewed_by: josh.pencheon
-    safe_revision: e258a1a403b7474f8919b1a76127f9ad71a640ad
+    reviewed_by: timgentry
+    safe_revision: 05ccd47fcbba92bf5525c4d36118274696169d61
   lib/canql/nodes/perinatal_hospital.rb:
     comments: 
     reviewed_by: josh.pencheon
@@ -201,8 +201,8 @@ file safety:
     safe_revision: 511e4238f83eb5b32839c25d94ec2a59145539bb
   test/nodes/case_test.rb:
     comments: 
-    reviewed_by: josh.pencheon
-    safe_revision: e258a1a403b7474f8919b1a76127f9ad71a640ad
+    reviewed_by: timgentry
+    safe_revision: 05ccd47fcbba92bf5525c4d36118274696169d61
   test/nodes/code_test.rb:
     comments: 
     reviewed_by: josh.pencheon
@@ -233,8 +233,8 @@ file safety:
     safe_revision: 511e4238f83eb5b32839c25d94ec2a59145539bb
   test/nodes/patient_test.rb:
     comments: 
-    reviewed_by: josh.pencheon
-    safe_revision: e258a1a403b7474f8919b1a76127f9ad71a640ad
+    reviewed_by: timgentry
+    safe_revision: 05ccd47fcbba92bf5525c4d36118274696169d61
   test/nodes/perinatal_hospital_test.rb:
     comments: 
     reviewed_by: josh.pencheon
@@ -249,8 +249,8 @@ file safety:
     safe_revision: 511e4238f83eb5b32839c25d94ec2a59145539bb
   test/parser_test.rb:
     comments: 
-    reviewed_by: josh.pencheon
-    safe_revision: e258a1a403b7474f8919b1a76127f9ad71a640ad
+    reviewed_by: timgentry
+    safe_revision: 05ccd47fcbba92bf5525c4d36118274696169d61
   test/test_helper.rb:
     comments: 
     reviewed_by: josh.pencheon
