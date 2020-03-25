@@ -1,6 +1,10 @@
 ## [Unreleased]
 *no unreleased changes*
 
+## 4.2.0 / 2020-03-25
+### Added
+* Added additional EUROCAT category filters for RAG combination
+
 ## 4.1.0 / 2020-03-19
 ### Added
 * Added filters for EUROCAT RAG rating (#39)
