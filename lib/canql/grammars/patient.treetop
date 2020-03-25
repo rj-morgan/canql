@@ -13,7 +13,7 @@ module Canql
     end
 
     rule category
-      space category:('eurocat red' / 'eurocat amber' / 'eurocat green' / 'eurocat') word_break <Nodes::Patient::CategoryNode>
+      space category:('eurocat amber and green' / 'eurocat red and amber' / 'eurocat red' / 'eurocat amber' / 'eurocat green' / 'eurocat') word_break <Nodes::Patient::CategoryNode>
     end
 
     rule expected_keyword

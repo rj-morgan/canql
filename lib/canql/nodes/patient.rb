@@ -30,6 +30,8 @@ module Canql #:nodoc: all
           return 'eurocat_red' if 'eurocat red' == category.text_value
           return 'eurocat_amber' if 'eurocat amber' == category.text_value
           return 'eurocat_green' if 'eurocat green' == category.text_value
+          return 'eurocat_amber_green' if 'eurocat amber and green' == category.text_value
+          return 'eurocat_red_amber' if 'eurocat red and amber' == category.text_value
 
           category.text_value
         end

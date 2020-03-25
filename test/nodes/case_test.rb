@@ -88,10 +88,24 @@ class CaseTest < Minitest::Test
     assert_equal({ Canql::EQUALS => 'case' }, parser.meta_data['results.subject'])
   end
 
+  def test_should_filter_by_eurocat_amber_and_green_category
+    parser = Canql::Parser.new('all eurocat amber and green cases')
+    assert parser.valid?
+    assert_equal({ Canql::EQUALS => 'eurocat_amber_green' }, parser.meta_data['patient.category'])
+    assert_equal({ Canql::EQUALS => 'case' }, parser.meta_data['results.subject'])
+  end
+
+  def test_should_filter_by_eurocat_red_and_amber_category
+    parser = Canql::Parser.new('all eurocat red and amber cases')
+    assert parser.valid?
+    assert_equal({ Canql::EQUALS => 'eurocat_red_amber' }, parser.meta_data['patient.category'])
+    assert_equal({ Canql::EQUALS => 'case' }, parser.meta_data['results.subject'])
+  end
+
   def test_should_filter_on_specific_edd
     parser = Canql::Parser.new('all cases expected on 20/06/2015')
     assert parser.valid?
-    assert_equal({ Canql::LIMITS => ['2015-06-20', '2015-06-20'] },
+    assert_equal({ Canql::LIMITS => %w[2015-06-20 2015-06-20] },
                  parser.meta_data['patient.expecteddeliverydate'])
     assert_equal({ Canql::EQUALS => 'case' }, parser.meta_data['results.subject'])
   end
