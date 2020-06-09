@@ -39,19 +39,22 @@ module Canql #:nodoc: all
 
       module FieldExists
         FIELDS = {
-          'date of birth':          { patient: 'birthdate', mother: 'birthdate' },
-          'dob':                    { patient: 'birthdate', mother: 'birthdate' },
-          'delivery postcode':      { patient: 'delivery_postcode' },
-          'booking postcode':       { patient: 'booking_postcode' },
-          'nhs number':             { patient: 'nhsnumber', mother: 'nhsnumber' },
-          'birth weight':           { patient: 'weight' },
-          'place of delivery':      { patient: 'placeofdelivery' },
-          'sex':                    { patient: 'sex' },
-          'outcome':                { patient: 'outcome' },
-          'edd':                    { patient: 'expecteddeliverydate' },
+          'date of birth': { patient: 'birthdate', mother: 'birthdate' },
+          'dob': { patient: 'birthdate', mother: 'birthdate' },
+          'date of vital status': { patient: 'dateofvitalstatus', mother: 'dateofvitalstatus' },
+          'delivery postcode': { patient: 'delivery_postcode' },
+          'booking postcode': { patient: 'booking_postcode' },
+          'nhs number': { patient: 'nhsnumber', mother: 'nhsnumber' },
+          'birth weight': { patient: 'weight' },
+          'place of delivery': { patient: 'placeofdelivery' },
+          'sex': { patient: 'sex' },
+          'outcome': { patient: 'outcome' },
+          'edd': { patient: 'expecteddeliverydate' },
           'expected delivery date': { patient: 'expecteddeliverydate' },
-          'booking hospital':       { patient: 'booking_hospital' },
-          'screening status':       { patient: 'screeningstatus' }
+          'booking hospital': { patient: 'booking_hospital' },
+          'screening status': { patient: 'screeningstatus' },
+          'number of fetuses at delivery': { patient: 'numoffetusesatdelivery' },
+          'malformed in set': { patient: 'malformedinset' }
         }.freeze
 
         def meta_data_item

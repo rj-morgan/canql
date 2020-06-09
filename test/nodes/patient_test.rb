@@ -136,6 +136,22 @@ class Patientest < Minitest::Test
     assert_equal({ Canql::EQUALS => 'patient' }, parser.meta_data['results.subject'])
   end
 
+  def test_should_filter_mothers_by_missing_vital_status_date
+    parser = Canql::Parser.new('all patients with missing date of vital status')
+    assert parser.valid?
+    assert_array_includes parser.meta_data['patient.fields_missing'][Canql::EQUALS],
+                          %w[dateofvitalstatus]
+    assert_equal({ Canql::EQUALS => 'patient' }, parser.meta_data['results.subject'])
+  end
+
+  def test_should_filter_mothers_by_populated_vital_status_date
+    parser = Canql::Parser.new('all patients with populated date of vital status')
+    assert parser.valid?
+    assert_array_includes parser.meta_data['patient.fields_populated'][Canql::EQUALS],
+                          %w[dateofvitalstatus]
+    assert_equal({ Canql::EQUALS => 'patient' }, parser.meta_data['results.subject'])
+  end
+
   def test_dob_alias_valid
     query1 = 'all patients with missing date of birth'
     parser = Canql::Parser.new(query1)

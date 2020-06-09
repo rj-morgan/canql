@@ -46,16 +46,17 @@ module Canql
 
     rule case_field_names
       patient_field_name:(
-        'date of birth' / 'dob' / 'nhs number' / 'delivery postcode' /
-        'booking postcode' / 'birth weight' /
+        'date of birth' / 'dob' / 'date of vital status' / 'nhs number' /
+        'delivery postcode' / 'booking postcode' / 'birth weight' /
         'place of delivery' / 'sex' / 'outcome' / 'edd' /
-        'expected delivery date' / 'booking hospital' / 'screening status'
+        'expected delivery date' / 'booking hospital' / 'screening status' /
+        'number of fetuses at delivery' / 'malformed in set'
       )
     end
 
     rule patient_field_names
       patient_field_name:(
-        'date of birth' / 'dob' / 'nhs number' / 'sex'
+        'date of birth' / 'dob' / 'date of vital status' / 'nhs number' / 'sex'
       )
     end
 
