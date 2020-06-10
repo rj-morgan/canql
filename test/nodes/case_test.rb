@@ -113,7 +113,7 @@ class CaseTest < Minitest::Test
   def test_should_filter_on_edd_range
     parser = Canql::Parser.new('all cases expected between 20/06/2015 and 25/06/2015')
     assert parser.valid?
-    assert_equal({ Canql::LIMITS => ['2015-06-20', '2015-06-25'] },
+    assert_equal({ Canql::LIMITS => %w[2015-06-20 2015-06-25] },
                  parser.meta_data['patient.expecteddeliverydate'])
     assert_equal({ Canql::EQUALS => 'case' }, parser.meta_data['results.subject'])
   end
@@ -154,6 +154,70 @@ class CaseTest < Minitest::Test
     assert parser.valid?
     assert_array_includes parser.meta_data['patient.fields_missing'][Canql::EQUALS],
                           %w[screeningstatus]
+    assert_equal({ Canql::EQUALS => 'case' }, parser.meta_data['results.subject'])
+  end
+
+  def test_should_filter_by_missing_vital_status_date
+    parser = Canql::Parser.new('all cases with missing date of vital status')
+    assert parser.valid?
+    assert_array_includes parser.meta_data['patient.fields_missing'][Canql::EQUALS],
+                          %w[dateofvitalstatus]
+    assert_equal({ Canql::EQUALS => 'case' }, parser.meta_data['results.subject'])
+  end
+
+  def test_should_filter_by_populated_vital_status_date
+    parser = Canql::Parser.new('all cases with populated date of vital status')
+    assert parser.valid?
+    assert_array_includes parser.meta_data['patient.fields_populated'][Canql::EQUALS],
+                          %w[dateofvitalstatus]
+    assert_equal({ Canql::EQUALS => 'case' }, parser.meta_data['results.subject'])
+  end
+
+  def test_should_filter_mothers_by_missing_vital_status_date
+    parser = Canql::Parser.new('all cases with mother missing date of vital status')
+    assert parser.valid?
+    assert_array_includes parser.meta_data['mother.fields_missing'][Canql::EQUALS],
+                          %w[dateofvitalstatus]
+    assert_equal({ Canql::EQUALS => 'case' }, parser.meta_data['results.subject'])
+  end
+
+  def test_should_filter_mothers_by_populated_vital_status_date
+    parser = Canql::Parser.new('all cases with mother populated date of vital status')
+    assert parser.valid?
+    assert_array_includes parser.meta_data['mother.fields_populated'][Canql::EQUALS],
+                          %w[dateofvitalstatus]
+    assert_equal({ Canql::EQUALS => 'case' }, parser.meta_data['results.subject'])
+  end
+
+  def test_should_filter_by_missing_fetuses_at_deliver
+    parser = Canql::Parser.new('all cases with missing number of fetuses at delivery')
+    assert parser.valid?
+    assert_array_includes parser.meta_data['patient.fields_missing'][Canql::EQUALS],
+                          %w[numoffetusesatdelivery]
+    assert_equal({ Canql::EQUALS => 'case' }, parser.meta_data['results.subject'])
+  end
+
+  def test_should_filter_by_populated_fetuses_at_deliver
+    parser = Canql::Parser.new('all cases with populated number of fetuses at delivery')
+    assert parser.valid?
+    assert_array_includes parser.meta_data['patient.fields_populated'][Canql::EQUALS],
+                          %w[numoffetusesatdelivery]
+    assert_equal({ Canql::EQUALS => 'case' }, parser.meta_data['results.subject'])
+  end
+
+  def test_should_filter_by_missing_malformed_in_set
+    parser = Canql::Parser.new('all cases with missing malformed in set')
+    assert parser.valid?
+    assert_array_includes parser.meta_data['patient.fields_missing'][Canql::EQUALS],
+                          %w[malformedinset]
+    assert_equal({ Canql::EQUALS => 'case' }, parser.meta_data['results.subject'])
+  end
+
+  def test_should_filter_by_populated_malformed_in_set
+    parser = Canql::Parser.new('all cases with populated malformed in set')
+    assert parser.valid?
+    assert_array_includes parser.meta_data['patient.fields_populated'][Canql::EQUALS],
+                          %w[malformedinset]
     assert_equal({ Canql::EQUALS => 'case' }, parser.meta_data['results.subject'])
   end
 
