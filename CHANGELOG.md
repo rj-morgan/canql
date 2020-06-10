@@ -1,4 +1,8 @@
 ## [Unreleased]
+*no unreleased changes*
+
+## 4.3.0 / 2020-06-10
+### Added
 * Added additional field existance options (#45)
 
 ## 4.2.0 / 2020-03-25
