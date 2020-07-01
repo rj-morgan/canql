@@ -1,0 +1,16 @@
+module Canql
+  grammar TestResultGroup
+    rule test_result_groups
+      and_keyword? existance_modifier:test_result_group_existance_keyword group:test_result_group_names <Nodes::TestResultGroup::WithCondition>
+    end
+
+    rule test_result_group_existance_keyword
+      # If in furture the reverse is needed use 'supplied require'
+      space 'missing required' word_break
+    end
+
+    rule test_result_group_names
+      space ('screening' / 'anomaly scan') word_break
+    end
+  end
+end

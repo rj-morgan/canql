@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
+$LOAD_PATH.unshift File.expand_path('../../lib', __dir__)
 require 'canql'
 
 require 'minitest/autorun'
@@ -37,6 +37,7 @@ end
 
 def assert_dir_block_count(parser, block_type, numder_of_blocks)
   return true if parser.meta_data[block_type].blank? && numder_of_anomalies.zero?
+
   assert parser.meta_data[block_type].present?, 'No DIR blocks to count'
   assert_equal numder_of_blocks, parser.meta_data.dig(block_type, Canql::ALL).count
 end
@@ -58,7 +59,7 @@ end
 
 def assert_dir_block_keys_valid(dir_block, all_keys = nil)
   assert dir_block.keys.reject { |key| all_keys.include?(key) }.none?,
-         'DIR block has unknown keys'
+         "DIR block has unknown keys #{dir_block.keys.reject { |key| all_keys.include?(key) }}"
 end
 
 def assert_dir_block_has_expected_keys(dir_block, expected = {})
