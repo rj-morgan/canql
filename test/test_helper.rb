@@ -63,8 +63,8 @@ def assert_dir_block_keys_valid(dir_block, all_keys = nil)
 end
 
 def assert_dir_block_has_expected_keys(dir_block, expected = {})
-  assert expected.keys.reject { |key| dir_block.include?(key) }.none?,
-         'Expected key not present in DIR block'
+  missing_keys = expected.keys.reject { |key| dir_block.include?(key) }
+  assert missing_keys.none?, "Expected key not present in DIR block: #{missing_keys}"
 end
 
 def base_meta_data(result_type = :case)

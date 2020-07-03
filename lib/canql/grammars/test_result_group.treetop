@@ -6,7 +6,7 @@ module Canql
 
     rule test_result_group_existance_keyword
       # If in furture the reverse is needed use 'supplied require'
-      space 'missing required' word_break
+      space ('missing required' / 'missing' / 'supplied required' / 'supplied') word_break
     end
 
     rule test_result_group_names

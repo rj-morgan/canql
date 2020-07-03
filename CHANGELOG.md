@@ -1,5 +1,5 @@
 ## [Unreleased]
-* Added filter for required test result groups (#47)
+* Added filter for missing and supplied required test result groups (#47)
 
 ## 4.3.0 / 2020-06-10
 ### Added
