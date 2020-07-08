@@ -1,4 +1,8 @@
 ## [Unreleased]
+*no unreleased changes*
+
+## 4.4.0 / 2020-07-08
+### Added
 * Added filter for missing and supplied required test result groups (#47)
 
 ## 4.3.0 / 2020-06-10
