@@ -5,6 +5,7 @@ grammar Canql
   include Anomaly
   include GeneticTest
   include TestResult
+  include TestResultGroup
   include Dates
   include EBaseRecords
   include BatchTypes
@@ -127,7 +128,9 @@ grammar Canql
   end
 
   rule case_with_conditions
-     anomalies / genetic_tests / test_results / perinatal_hospital / case_field_existance / mother_conditions / action_or_ebr
+     anomalies / genetic_tests / test_results / perinatal_hospital /
+     case_field_existance / test_result_groups / mother_conditions /
+     action_or_ebr
   end
 
   rule patient_with_conditions
