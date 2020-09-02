@@ -1,6 +1,6 @@
 ## [Unreleased]
 ### Added
-* Added filter for unassigned  / unconfirmed test results
+* Added filter for unassigned  / unconfirmed test results. Also includes Rails 6 support
 
 ## 4.4.0 / 2020-07-08
 ### Added

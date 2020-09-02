@@ -28,7 +28,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'chronic', '~> 0.3'
   spec.add_dependency 'ndr_support', '>= 3.0', '< 6'
-  spec.add_dependency 'rails', '>= 4.1', '< 6'
+  spec.add_dependency 'rails', '>= 4.1', '< 7'
   spec.add_dependency 'treetop', '>= 1.4.10'
 
   spec.add_development_dependency 'bundler'
