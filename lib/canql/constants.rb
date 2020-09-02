@@ -5,6 +5,7 @@ module Canql
   ALL = 'all'
   BEGINS = 'begins'
   EQUALS = 'equals'
+  ASSIGNED = 'assigned'
   LIMITS = 'limits'
   MESSAGE = 'msg'
 end

@@ -1,11 +1,19 @@
 module Canql
   grammar TestResult
-    rule test_results
+    rule case_test_results
       and_keyword? existance_modifier:test_result_no_keyword? natal_period:test_result_natal_period? test_results_keyword <Nodes::TestResult::WithCondition>
+    end
+
+    rule patient_test_results
+      and_keyword? existance_modifier:test_result_patient_no_keyword? natal_period:test_result_natal_period? test_results_keyword <Nodes::TestResult::WithCondition>
     end
 
     rule test_result_no_keyword
       space ('no' / 'some') word_break
+    end
+
+    rule test_result_patient_no_keyword
+      space ('no' / 'some' / 'unassigned' / 'unconfirmed') word_break
     end
 
     rule test_result_natal_period

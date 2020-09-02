@@ -92,6 +92,50 @@ class TestResultsTest < Minitest::Test
                               'type' => { Canql::EQUALS => 'prenatal' }
   end
 
+  def test_should_not_allow_unassigned_test_filter_on_cases
+    parser = Canql::Parser.new('all cases with unassigned tests')
+    refute parser.valid?, 'query should not be valid'
+  end
+
+  def test_should_not_allow_unconfirmed_test_filter_on_cases
+    parser = Canql::Parser.new('all cases with unconfirmed tests')
+    refute parser.valid?, 'query should not be valid'
+  end
+
+  def test_should_allow_unassigned_test_filter_on_patient
+    parser = Canql::Parser.new('all patients with unassigned tests')
+    assert parser.valid?, 'query is not valid'
+    assert_test_result_count parser, 1
+    assert_test_result_values parser, 0,
+                              'exists' => { Canql::ASSIGNED => false }
+  end
+
+  def test_should_allow_unconfirmed_test_filter_on_patient
+    parser = Canql::Parser.new('all patients with unconfirmed tests')
+    assert parser.valid?, 'query is not valid'
+    assert_test_result_count parser, 1
+    assert_test_result_values parser, 0,
+                              'exists' => { Canql::ASSIGNED => false }
+  end
+
+  def test_should_allow_unassigned_prenatal_test_filter_on_patient
+    parser = Canql::Parser.new('all patients with unassigned prenatal tests')
+    assert parser.valid?, 'query is not valid'
+    assert_test_result_count parser, 1
+    assert_test_result_values parser, 0,
+                              'exists' => { Canql::ASSIGNED => false },
+                              'type' => { Canql::EQUALS => 'prenatal' }
+  end
+
+  def test_should_allow_unassigned_postnatal_test_filter_on_patient
+    parser = Canql::Parser.new('all patients with unassigned postnatal tests')
+    assert parser.valid?, 'query is not valid'
+    assert_test_result_count parser, 1
+    assert_test_result_values parser, 0,
+                              'exists' => { Canql::ASSIGNED => false },
+                              'type' => { Canql::EQUALS => 'postnatal' }
+  end
+
   private
 
   def assert_test_result_values(parser, index = 0, expected = {})

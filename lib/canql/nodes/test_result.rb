@@ -4,6 +4,16 @@ module Canql #:nodoc: all
   module Nodes
     module TestResult
       module WithCondition
+        def existance_condition
+          @existance_condition ||= {
+            'no' => { Canql::EQUALS => false },
+            'some' => { Canql::EQUALS => true },
+            '' => { Canql::EQUALS => true },
+            'unassigned' => { Canql::ASSIGNED => false },
+            'unconfirmed' => { Canql::ASSIGNED => false }
+          }
+        end
+
         def test_result_type
           natal_period.text_value.strip
         end
@@ -15,7 +25,7 @@ module Canql #:nodoc: all
         end
 
         def existance_filter
-          { Canql::EQUALS => existance_modifier.text_value.strip != 'no' }
+          existance_condition[existance_modifier.text_value.strip]
         end
 
         def test_result_type_filter

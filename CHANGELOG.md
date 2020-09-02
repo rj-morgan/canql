@@ -1,5 +1,6 @@
 ## [Unreleased]
-*no unreleased changes*
+### Added
+* Added filter for unassigned  / unconfirmed test results
 
 ## 4.4.0 / 2020-07-08
 ### Added
