@@ -1,6 +1,10 @@
 ## [Unreleased]
 *no unreleased changes*
 
+## 4.4.1 / 2021-01-13
+### Fixed
+* Relax constraints to support Rails 6.x
+
 ## 4.4.0 / 2020-07-08
 ### Added
 * Added filter for missing and supplied required test result groups (#47)
