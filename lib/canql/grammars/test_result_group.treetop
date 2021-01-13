@@ -10,7 +10,7 @@ module Canql
     end
 
     rule test_result_group_names
-      space ('screening' / 'anomaly scan') word_break
+      space ('screening' / 'anomaly scan' / 'fetal medicine' / 'dating') word_break
     end
   end
 end
