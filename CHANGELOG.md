@@ -1,5 +1,5 @@
 ## [Unreleased]
-*no unreleased changes*
+* Added fetal medicine and dating options to the test group filter (#50)
 
 ## 4.4.1 / 2021-01-13
 ### Fixed
