@@ -15,11 +15,11 @@ file safety:
   ".travis.yml":
     comments: 
     reviewed_by: josh.pencheon
-    safe_revision: 8adb767031a19aa6b3cea3f1cb05b4a9bcc964f3
+    safe_revision: bb0b75b6914deea03a7a520cd0827eaf5ecab92f
   CHANGELOG.md:
     comments: 
     reviewed_by: josh.pencheon
-    safe_revision: 7b5bc84b813b7ff156665a1a37cfe5dd5b53afe7
+    safe_revision: 171f61eb19427e34aeb4d6e901260d447094b6d0
   CODE_OF_CONDUCT.md:
     comments: 
     reviewed_by: drewthorp
@@ -50,8 +50,8 @@ file safety:
     safe_revision: 6a666fcabe027056b1c774b2eabb3fdf686911d2
   canql.gemspec:
     comments: 
-    reviewed_by: timgentry
-    safe_revision: 6cb13f43b4353ab7c90ff0406ec13ac169b8e64c
+    reviewed_by: josh.pencheon
+    safe_revision: bb0b75b6914deea03a7a520cd0827eaf5ecab92f
   lib/canql.rb:
     comments: 
     reviewed_by: timgentry
@@ -186,7 +186,7 @@ file safety:
   lib/canql/version.rb:
     comments: 
     reviewed_by: josh.pencheon
-    safe_revision: 7b5bc84b813b7ff156665a1a37cfe5dd5b53afe7
+    safe_revision: 171f61eb19427e34aeb4d6e901260d447094b6d0
   test/anomaly_test_helper.rb:
     comments: 
     reviewed_by: josh.pencheon
