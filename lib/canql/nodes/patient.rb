@@ -54,7 +54,9 @@ module Canql #:nodoc: all
           'booking hospital': { patient: 'booking_hospital' },
           'screening status': { patient: 'screeningstatus' },
           'number of fetuses at delivery': { patient: 'numoffetusesatdelivery' },
-          'malformed in set': { patient: 'malformedinset' }
+          'malformed in set': { patient: 'malformedinset' },
+          'gestation at delivery': { patient: 'gestationallength' },
+          'booking date': { patient: 'firstbookingdate' }
         }.freeze
 
         def meta_data_item
