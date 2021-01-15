@@ -1,7 +1,7 @@
 ## [Unreleased]
 ### Added
 * Added fetal medicine and dating options to the test group filter (#50)
-
+* Added new gestation at delivery and booking date to case field existance filter (#52)
 ## 4.4.1 / 2021-01-13
 ### Fixed
 * Relax constraints to support Rails 6.x

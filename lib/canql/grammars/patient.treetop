@@ -50,7 +50,8 @@ module Canql
         'delivery postcode' / 'booking postcode' / 'birth weight' /
         'place of delivery' / 'sex' / 'outcome' / 'edd' /
         'expected delivery date' / 'booking hospital' / 'screening status' /
-        'number of fetuses at delivery' / 'malformed in set'
+        'number of fetuses at delivery' / 'malformed in set' / 'gestation at delivery' /
+        'booking date'
       )
     end
 

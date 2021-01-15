@@ -221,6 +221,38 @@ class CaseTest < Minitest::Test
     assert_equal({ Canql::EQUALS => 'case' }, parser.meta_data['results.subject'])
   end
 
+  def test_should_filter_by_missing_gestation_at_delivery
+    parser = Canql::Parser.new('all cases with missing gestation at delivery')
+    assert parser.valid?
+    assert_array_includes parser.meta_data['patient.fields_missing'][Canql::EQUALS],
+                          %w[gestationallength]
+    assert_equal({ Canql::EQUALS => 'case' }, parser.meta_data['results.subject'])
+  end
+
+  def test_should_filter_by_populated_gestation_at_delivery
+    parser = Canql::Parser.new('all cases with populated gestation at delivery')
+    assert parser.valid?
+    assert_array_includes parser.meta_data['patient.fields_populated'][Canql::EQUALS],
+                          %w[gestationallength]
+    assert_equal({ Canql::EQUALS => 'case' }, parser.meta_data['results.subject'])
+  end
+
+  def test_should_filter_by_missing_booking_date
+    parser = Canql::Parser.new('all cases with missing booking date')
+    assert parser.valid?
+    assert_array_includes parser.meta_data['patient.fields_missing'][Canql::EQUALS],
+                          %w[firstbookingdate]
+    assert_equal({ Canql::EQUALS => 'case' }, parser.meta_data['results.subject'])
+  end
+
+  def test_should_filter_by_populated_booking_date
+    parser = Canql::Parser.new('all cases with populated booking date')
+    assert parser.valid?
+    assert_array_includes parser.meta_data['patient.fields_populated'][Canql::EQUALS],
+                          %w[firstbookingdate]
+    assert_equal({ Canql::EQUALS => 'case' }, parser.meta_data['results.subject'])
+  end
+
   def test_should_filter_by_populated_fields
     parser = Canql::Parser.new('all cases with fields delivery postcode, date of birth')
     parser_v2 = Canql::Parser.new('all cases with tests and fields booking postcode and date of birth')
