@@ -163,24 +163,24 @@ class EBaseRecordsTest < Minitest::Test
   def test_should_filter_on_ebr_specific_processing_date
     parser = Canql::Parser.new('all cases with unprocessed records dated on 20/06/2015')
     assert parser.valid?
-    assert_equal({ Canql::LIMITS => ['2015-06-20', '2015-06-20'] },
+    assert_equal({ Canql::LIMITS => %w[2015-06-20 2015-06-20] },
                  parser.meta_data['unprocessed_records.processing_date'])
 
     parser = Canql::Parser.new('all cases with unprocessed records dated for processing on 20/06/2015')
     assert parser.valid?
-    assert_equal({ Canql::LIMITS => ['2015-06-20', '2015-06-20'] },
+    assert_equal({ Canql::LIMITS => %w[2015-06-20 2015-06-20] },
                  parser.meta_data['unprocessed_records.processing_date'])
   end
 
   def test_should_filter_on_ebr_processing_date_range
     parser = Canql::Parser.new('all cases with unprocessed records dated between 20/06/2015 and 25/06/2015')
     assert parser.valid?
-    assert_equal({ Canql::LIMITS => ['2015-06-20', '2015-06-25'] },
+    assert_equal({ Canql::LIMITS => %w[2015-06-20 2015-06-25] },
                  parser.meta_data['unprocessed_records.processing_date'])
 
     parser = Canql::Parser.new('all cases with unprocessed records dated for processing between 20/06/2015 and 25/06/2015')
     assert parser.valid?
-    assert_equal({ Canql::LIMITS => ['2015-06-20', '2015-06-25'] },
+    assert_equal({ Canql::LIMITS => %w[2015-06-20 2015-06-25] },
                  parser.meta_data['unprocessed_records.processing_date'])
   end
 
@@ -208,7 +208,7 @@ class EBaseRecordsTest < Minitest::Test
     parser = Canql::Parser.new('all cases with unprocessed east records')
     assert parser.valid?
     assert_equal(
-      { Canql::EQUALS => '96' }, parser.meta_data['unprocessed_records.processing_registry']
+      { Canql::EQUALS => 'east' }, parser.meta_data['unprocessed_records.processing_registry']
     )
   end
 
@@ -216,7 +216,7 @@ class EBaseRecordsTest < Minitest::Test
     parser = Canql::Parser.new('all cases with mother with unprocessed east records')
     assert parser.valid?
     assert_equal(
-      { Canql::EQUALS => '96' }, parser.meta_data['unprocessed_records.mother.processing_registry']
+      { Canql::EQUALS => 'east' }, parser.meta_data['unprocessed_records.mother.processing_registry']
     )
   end
 end

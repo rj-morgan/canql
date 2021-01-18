@@ -68,8 +68,6 @@ class ParserTest < Minitest::Test
       'all primary babies',
       'all eurocat cases',
       'all eurocat babies',
-      'all 68 cases',
-      'all 68 babies',
       'all thames cases',
       'all thames babies',
       'all cases with suspected prenatal q20 anomalies',

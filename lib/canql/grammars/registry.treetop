@@ -14,14 +14,15 @@ module Canql
 
     rule registry_abbr
       (england / east_mids / thames / east / yorkshire / north_east / north_west /
-        west_mids / south_west / wessex / london / limbo)
+        west_mids / south_west_supra / south_west / wessex / london / limbo /
+        northern_supra / midlands_east_supra)
     end
 
     rule thames
       ('thames valley' / 'thames')
       {
         def to_registrycode
-          '68'
+          'thames'
         end
       }
     end
@@ -30,7 +31,7 @@ module Canql
       ('east mids' / 'east midlands and south yorkshire' / 'east midlands')
       {
         def to_registrycode
-          '72'
+          'east_mids'
         end
       }
     end
@@ -39,7 +40,7 @@ module Canql
       'yorkshire'
       {
         def to_registrycode
-          '93'
+          'yorkshire'
         end
       }
     end
@@ -48,7 +49,7 @@ module Canql
       'north east'
       {
         def to_registrycode
-          '73'
+          'north_east'
         end
       }
     end
@@ -57,7 +58,7 @@ module Canql
       'north west'
       {
         def to_registrycode
-          '94'
+          'north_west'
         end
       }
     end
@@ -66,7 +67,7 @@ module Canql
       ('west mids' / 'west midlands')
       {
         def to_registrycode
-          '99'
+          'west_mids'
         end
       }
     end
@@ -75,7 +76,7 @@ module Canql
       'south west'
       {
         def to_registrycode
-          '84'
+          'south_west'
         end
       }
     end
@@ -84,7 +85,7 @@ module Canql
       'wessex'
       {
         def to_registrycode
-          '70'
+          'wessex'
         end
       }
     end
@@ -93,7 +94,7 @@ module Canql
       ('london and south east' / 'london')
       {
         def to_registrycode
-          '95'
+          'london'
         end
       }
     end
@@ -102,7 +103,7 @@ module Canql
       ('east of england' / 'east')
       {
         def to_registrycode
-          '96'
+          'east'
         end
       }
     end
@@ -111,7 +112,7 @@ module Canql
       'limbo'
       {
         def to_registrycode
-          '01'
+          'limbo'
         end
       }
     end
@@ -120,7 +121,34 @@ module Canql
       'england'
       {
         def to_registrycode
-          '00'
+          'england'
+        end
+      }
+    end
+
+    rule northern_supra
+      ('northern supra' / 'northern')
+      {
+        def to_registrycode
+          'northern_supra'
+        end
+      }
+    end
+
+    rule midlands_east_supra
+      ('midlands & east supra' / 'midlands & east')
+      {
+        def to_registrycode
+          'midlands_east_supra'
+        end
+      }
+    end
+
+    rule south_west_supra
+      'south west supra'
+      {
+        def to_registrycode
+          'south_west_supra'
         end
       }
     end
