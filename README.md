@@ -1,6 +1,6 @@
-# CANQL [![Build Status](https://github.com/publichealthengland/canql/workflows/test/badge.svg)](https://github.com/publichealthengland/canql/actions?query=workflow%3Atest) [![Gem Version](https://badge.fury.io/rb/canql.svg)](https://rubygems.org/gems/canql)
+# CANQL [![Build Status](https://github.com/publichealthengland/canql/workflows/Test/badge.svg)](https://github.com/publichealthengland/canql/actions?query=workflow%3Atest) [![Gem Version](https://badge.fury.io/rb/canql.svg)](https://rubygems.org/gems/canql)
 
-Congenital Anomaly Natural Query Language (CANQL) is a [Treetop](http://treetop.rubyforge.org/) driven Domain Specific Language (DSL) used by the Public Health England (PHE) National Congenital Anomaly and Rare Disease Registration Service (NCARDRS) to identify cohorts of cases.
+Congenital Anomaly Natural Query Language (CANQL) is a [Treetop](http://treetop.rubyforge.org/)-driven Domain Specific Language (DSL) used by the Public Health England (PHE) National Congenital Anomaly and Rare Disease Registration Service (NCARDRS) to identify cohorts of cases.
 
 Used for analysis, research and day-to-day operations to empower non-technical users to write sophisticated human readable queries without the need to know or understand the underlying datastore and/or schema.
 
