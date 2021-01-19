@@ -1,11 +1,1 @@
-inherit_from: 'https://raw.githubusercontent.com/PublicHealthEngland/ndr_dev_support/master/.rubocop.yml'
-
-Rails:
-  Enabled: false
-
-AllCops:
-  TargetRailsVersion: 4.2
-  TargetRubyVersion: 2.3
-
-Style/FrozenStringLiteralComment:
-  Enabled: true
+require: ndr_dev_support
