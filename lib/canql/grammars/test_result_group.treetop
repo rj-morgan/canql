@@ -12,5 +12,17 @@ module Canql
     rule test_result_group_names
       space ('screening' / 'anomaly scan' / 'fetal medicine' / 'dating') word_break
     end
+
+    rule test_acceptance_existance
+      and_keyword? existance_modifier:test_acceptance_existance_keyword acceptance:test_acceptance_names <Nodes::TestAcceptanceExistamce::WithCondition>
+    end
+
+    rule test_acceptance_existance_keyword
+      space ('missing required' / 'missing' ) word_break
+    end
+
+    rule test_acceptance_names
+      space ('screening acceptance status' / 'anomaly scan acceptance status' ) word_break
+    end
   end
 end
