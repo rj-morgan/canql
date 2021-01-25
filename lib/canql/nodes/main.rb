@@ -61,8 +61,6 @@ module Canql #:nodoc: all
 
         sub_clauses[key] ||= []
         sub_clauses[key] << element.send(condition)
-
-        sub_clauses
       end
     end
   end
