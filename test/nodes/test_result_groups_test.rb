@@ -180,7 +180,89 @@ class TestResultGroupsTest < Minitest::Test
     assert_equal({ Canql::EQUALS => 'case' }, parser.meta_data['results.subject'])
   end
 
+  def test_should_filter_by_missing_required_screening_acceptance_status
+    parser = Canql::Parser.new('all cases with missing required screening acceptance status')
+
+    assert parser.valid?
+
+    assert_test_accesptance_count parser, 1
+    assert_test_acceptance_values(
+      parser, 0,
+      'exists' => { Canql::EQUALS => false },
+      'acceptance' => { Canql::EQUALS => 'screening_acceptance_status' },
+      'required' => { Canql::EQUALS => true }
+    )
+    assert_equal({ Canql::EQUALS => 'case' }, parser.meta_data['results.subject'])
+  end
+
+  def test_should_filter_by_missing_non_required_screening_acceptance_status
+    parser = Canql::Parser.new('all cases with missing screening acceptance status')
+
+    assert parser.valid?
+
+    assert_test_accesptance_count parser, 1
+    assert_test_acceptance_values(
+      parser, 0,
+      'exists' => { Canql::EQUALS => false },
+      'acceptance' => { Canql::EQUALS => 'screening_acceptance_status' },
+      'required' => { Canql::EQUALS => false }
+    )
+    assert_equal({ Canql::EQUALS => 'case' }, parser.meta_data['results.subject'])
+  end
+
+  def test_should_filter_by_missing_required_anomaly_scan_acceptance_status
+    parser = Canql::Parser.new('all cases with missing required anomaly scan acceptance status')
+
+    assert parser.valid?
+
+    assert_test_accesptance_count parser, 1
+    assert_test_acceptance_values(
+      parser, 0,
+      'exists' => { Canql::EQUALS => false },
+      'acceptance' => { Canql::EQUALS => 'anomaly_scan_acceptance_status' },
+      'required' => { Canql::EQUALS => true }
+    )
+    assert_equal({ Canql::EQUALS => 'case' }, parser.meta_data['results.subject'])
+  end
+
+  def test_should_filter_by_missing_non_required_anomaly_scan_acceptance_status
+    parser = Canql::Parser.new('all cases with missing anomaly scan acceptance status')
+
+    assert parser.valid?
+
+    assert_test_accesptance_count parser, 1
+    assert_test_acceptance_values(
+      parser, 0,
+      'exists' => { Canql::EQUALS => false },
+      'acceptance' => { Canql::EQUALS => 'anomaly_scan_acceptance_status' },
+      'required' => { Canql::EQUALS => false }
+    )
+    assert_equal({ Canql::EQUALS => 'case' }, parser.meta_data['results.subject'])
+  end
+
+  def test_should_not_allow_supplied_acceptance
+    parser = Canql::Parser.new('all cases with supplied required screening acceptance status')
+    refute parser.valid?
+
+    parser = Canql::Parser.new('all cases with supplied screening acceptance status')
+    refute parser.valid?
+
+    parser = Canql::Parser.new('all cases with supplied requiored anomaly scan acceptance status')
+    refute parser.valid?
+
+    parser = Canql::Parser.new('all cases with supplied anomaly scan acceptance status')
+    refute parser.valid?
+  end
+
   private
+
+  def assert_test_acceptance_values(parser, index = 0, expected = {})
+    assert_dir_block_values(parser, 'test_acceptances', %w[exists acceptance required], index, expected)
+  end
+
+  def assert_test_accesptance_count(parser, numder_of_blocks)
+    assert_dir_block_count(parser, 'test_acceptances', numder_of_blocks)
+  end
 
   def assert_test_result_group_values(parser, index = 0, expected = {})
     assert_dir_block_values(parser, 'test_result_groups', %w[exists group required], index, expected)

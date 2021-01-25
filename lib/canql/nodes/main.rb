@@ -29,27 +29,38 @@ module Canql #:nodoc: all
     module WithConditions
       def meta_data_item
         conditions = {}
-        anomalies = []
-        genetic_tests = []
-        test_results = []
-        test_result_groups = []
+        sub_clauses = build_sub_clauses
 
-        post.elements.each do |element|
-          anomalies << element.to_anomaly if element.respond_to?(:to_anomaly)
-          genetic_tests << element.to_genetic_test if element.respond_to?(:to_genetic_test)
-          test_results << element.to_test_result if element.respond_to?(:to_test_result)
-          if element.respond_to?(:to_test_result_group)
-            test_result_groups << element.to_test_result_group
+        %i[
+          anomalies genetic_tests test_results test_result_groups test_acceptances
+        ].each do |condition_key|
+          if sub_clauses[condition_key].present?
+            conditions[condition_key.to_s] = { Canql::ALL => sub_clauses[condition_key] }
           end
         end
-
-        conditions['anomalies'] = { Canql::ALL => anomalies } if anomalies.any?
-        conditions['genetic_tests'] = { Canql::ALL => genetic_tests } if genetic_tests.any?
-        conditions['test_results'] = { Canql::ALL => test_results } if test_results.any?
-        if test_result_groups.any?
-          conditions['test_result_groups'] = { Canql::ALL => test_result_groups }
-        end
         conditions
+      end
+
+      def build_sub_clauses
+        sub_clauses = {}
+
+        post.elements.each do |element|
+          add_sub_clause(sub_clauses, element, :anomalies, :to_anomaly)
+          add_sub_clause(sub_clauses, element, :genetic_tests, :to_genetic_test)
+          add_sub_clause(sub_clauses, element, :test_results, :to_test_result)
+          add_sub_clause(
+            sub_clauses, element, :test_result_groups, :to_test_result_group
+          )
+          add_sub_clause(sub_clauses, element, :test_acceptances, :to_test_acceptance)
+        end
+        sub_clauses
+      end
+
+      def add_sub_clause(sub_clauses, element, key, condition)
+        return sub_clauses unless element.respond_to?(condition)
+
+        sub_clauses[key] ||= []
+        sub_clauses[key] << element.send(condition)
       end
     end
   end
