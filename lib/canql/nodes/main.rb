@@ -45,13 +45,13 @@ module Canql #:nodoc: all
         sub_clauses = {}
 
         post.elements.each do |element|
-          sub_clauses = add_sub_clause(sub_clauses, element, :anomalies, :to_anomaly)
-          sub_clauses = add_sub_clause(sub_clauses, element, :genetic_tests, :to_genetic_test)
-          sub_clauses = add_sub_clause(sub_clauses, element, :test_results, :to_test_result)
-          sub_clauses = add_sub_clause(
+          add_sub_clause(sub_clauses, element, :anomalies, :to_anomaly)
+          add_sub_clause(sub_clauses, element, :genetic_tests, :to_genetic_test)
+          add_sub_clause(sub_clauses, element, :test_results, :to_test_result)
+          add_sub_clause(
             sub_clauses, element, :test_result_groups, :to_test_result_group
           )
-          sub_clauses = add_sub_clause(sub_clauses, element, :test_acceptances, :to_test_acceptance)
+          add_sub_clause(sub_clauses, element, :test_acceptances, :to_test_acceptance)
         end
         sub_clauses
       end
