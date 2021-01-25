@@ -27,7 +27,7 @@ file safety:
   CHANGELOG.md:
     comments: 
     reviewed_by: josh.pencheon
-    safe_revision: f84cb2190f46ee550db796a17455980ab00d3187
+    safe_revision: aea0d1a480e886a63b723135c7381cdcee0d4b25
   CODE_OF_CONDUCT.md:
     comments: 
     reviewed_by: drewthorp
@@ -103,7 +103,7 @@ file safety:
     comments: It is a known issue that this is potentially susceptible to certain
       kinds of DoS attack
     reviewed_by: josh.pencheon
-    safe_revision: 42bb9bd177a761b9d04d728e53fcf0ebd0083ae4
+    safe_revision: 9bb663b220e76e78f3f0f48e4bc6334fe9451925
   lib/canql/grammars/patient.treetop:
     comments: It is a known issue that this is potentially susceptible to certain
       kinds of DoS attack
@@ -130,7 +130,7 @@ file safety:
   lib/canql/grammars/test_result_group.treetop:
     comments: 
     reviewed_by: josh.pencheon
-    safe_revision: 8ea906ca663b98edee2592fc5b0731881573f06b
+    safe_revision: 9bb663b220e76e78f3f0f48e4bc6334fe9451925
   lib/canql/nodes.rb:
     comments: 
     reviewed_by: josh.pencheon
@@ -162,7 +162,7 @@ file safety:
   lib/canql/nodes/main.rb:
     comments: 
     reviewed_by: josh.pencheon
-    safe_revision: c5f8f76b2c335a8554f39a14d6165bf5cd8f9b67
+    safe_revision: 361dea5dc6d64bdb7b03434dd2878f8c3b128c95
   lib/canql/nodes/patient.rb:
     comments: 
     reviewed_by: josh.pencheon
@@ -182,7 +182,7 @@ file safety:
   lib/canql/nodes/test_result_group.rb:
     comments: 
     reviewed_by: josh.pencheon
-    safe_revision: 42bb9bd177a761b9d04d728e53fcf0ebd0083ae4
+    safe_revision: 9bb663b220e76e78f3f0f48e4bc6334fe9451925
   lib/canql/parser.rb:
     comments: 
     reviewed_by: timgentry
@@ -194,7 +194,7 @@ file safety:
   lib/canql/version.rb:
     comments: 
     reviewed_by: josh.pencheon
-    safe_revision: cfe2f76a07880e268e1f29fbac5f6cd380202ce3
+    safe_revision: aea0d1a480e886a63b723135c7381cdcee0d4b25
   test/anomaly_test_helper.rb:
     comments: 
     reviewed_by: josh.pencheon
@@ -262,7 +262,7 @@ file safety:
   test/nodes/test_result_groups_test.rb:
     comments: 
     reviewed_by: josh.pencheon
-    safe_revision: 8ea906ca663b98edee2592fc5b0731881573f06b
+    safe_revision: 9bb663b220e76e78f3f0f48e4bc6334fe9451925
   test/nodes/test_results_test.rb:
     comments: 
     reviewed_by: josh.pencheon
