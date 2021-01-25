@@ -1,4 +1,7 @@
 ## [Unreleased]
+*no unreleased changes*
+
+## 5.1.0 / 2021-01-25
 
 ### Added
 * Added new filters for test acceptance requirments (#59)
