@@ -115,7 +115,7 @@ class AnomalyTest < Minitest::Test
       'qtneg', 'nonwindow', 'nws', 'incomplete screen', 'ics', 'ineligible unbooked', 'inb',
       'early detected', 'ied', 'screen declined', 'sd', 'ineligible early loss', 'iefl',
       'ineligible top', 'itop', 'missed screen', 'ms', 'excluded', 'exc', 'detected',
-      'undetected', 'ineligible'
+      'undetected', 'ineligible', 'pending data', 'pending'
     ]
     possible_statuses.each do |screening_status|
       query = "all cases with some #{screening_status} anomalies"

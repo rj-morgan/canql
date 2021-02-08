@@ -23,7 +23,7 @@ module Canql
        'ics' / 'ineligible unbooked' / 'inb' / 'early detected' / 'ied' /
        'screen declined' / 'sd' / 'ineligible early loss' / 'iefl' / 'ineligible top' /
        'itop' / 'missed screen' / 'ms' / 'excluded' / 'exc' / 'detected' /
-       'undetected' / 'ineligible') word_break
+       'undetected' / 'ineligible' / 'pending data' / 'pending') word_break
     end
 
     rule anomalies_keyword
